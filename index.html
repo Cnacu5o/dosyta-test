@@ -1,0 +1,1538 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Досыта на ПП — полуфабрикаты ручной работы в Алматы</title>
+<meta name="description" content="Пельмени, манты, котлеты, вареники и сырники ручной работы. Правильная линейка из цельнозерновой муки, индейки и телятины. Доставка по Алматы на следующий день.">
+<meta name="theme-color" content="#EEF4F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1614" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_KZ">
+<meta property="og:site_name" content="Досыта на ПП">
+<meta property="og:title" content="Досыта на ПП — полуфабрикаты ручной работы в Алматы">
+<meta property="og:description" content="Пельмени, манты, котлеты и сырники. Заказ до 22:00, доставка на следующий день.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E4D3A'/%3E%3Cpath d='M14 38c0-10 8-18 18-18s18 8 18 18H14z' fill='%23fff'/%3E%3Cpath d='M18 38h28' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet"></noscript>
+<!-- разметка для поисковиков (schema.org) создаётся скриптом из настроек таблицы -->
+<style>
+:root{
+  --ice:#EEF4F3; --paper:#FFFFFF; --frost:#DCEAE6; --line:#D3E0DC;
+  --ink:#172420; --mist:#5A6B65;
+  --spruce:#1E4D3A; --on-spruce:#FFFFFF; --spruce-soft:#E1EEE8;
+  --tomato:#B8321F; --tomato-soft:#FBE7E3; --on-tomato:#FFFFFF;
+  --shadow:0 10px 30px rgba(23,36,32,.10);
+  --sticky:112px;
+}
+@media (min-width:960px){:root{--sticky:122px}}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ice:#0E1614; --paper:#15201D; --frost:#1B2A26; --line:#26352F;
+    --ink:#E6EFEB; --mist:#93A59E;
+    --spruce:#7CC4A2; --on-spruce:#0E1614; --spruce-soft:#1D332B;
+    --tomato:#F2735E; --tomato-soft:#3A201B; --on-tomato:#1A0E0B;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --ice:#0E1614; --paper:#15201D; --frost:#1B2A26; --line:#26352F;
+  --ink:#E6EFEB; --mist:#93A59E;
+  --spruce:#7CC4A2; --on-spruce:#0E1614; --spruce-soft:#1D332B;
+  --tomato:#F2735E; --tomato-soft:#3A201B; --on-tomato:#1A0E0B;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+html{color-scheme:light dark}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+body{margin:0;background:var(--ice);color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0;letter-spacing:-.01em}
+h4{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+h1,h2,h3{text-wrap:balance}
+.price,.line-sum,.perkg,.sum,.label-price,.count{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--spruce);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.muted{color:var(--mist)}
+.skip{position:absolute;left:16px;top:-60px;z-index:60;background:var(--spruce);color:var(--on-spruce);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.skip:focus{top:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.promo{background:var(--tomato);color:var(--on-tomato);text-align:center;font-weight:600;font-size:15px;padding:9px 16px}
+.promo[hidden]{display:none}
+noscript p{background:var(--tomato-soft);color:var(--ink);padding:12px 16px;text-align:center}
+
+/* ---------- шапка ---------- */
+.top{position:sticky;top:0;z-index:30;background:var(--ice);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.logo{font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;color:var(--spruce);text-decoration:none;white-space:nowrap}
+.nav{display:none;gap:22px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:500;color:var(--mist)}
+.nav a:hover{color:var(--ink)}
+.cart-btn{margin-left:auto;display:flex;align-items:center;gap:8px;border:0;background:var(--spruce);color:var(--on-spruce);border-radius:999px;padding:8px 14px;font-weight:600}
+.cart-btn .count{background:var(--on-spruce);color:var(--spruce);border-radius:999px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:13px;padding:0 6px}
+.cart-btn.bump{animation:bump .3s ease}
+@keyframes bump{50%{transform:scale(1.08)}}
+@media (min-width:860px){.nav{display:flex}.cart-btn{margin-left:8px}}
+
+/* ---------- первый экран ---------- */
+.hero{padding:40px 0 48px}
+.hero .wrap{display:grid;gap:36px;align-items:center}
+.hero h1{font-size:clamp(38px,8vw,72px);color:var(--spruce)}
+.hero .lead{margin-top:18px;font-size:18px;max-width:34em}
+.hero .when{margin-top:14px;color:var(--mist)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:13px 20px;font-weight:600;text-decoration:none;border:0}
+.btn-main{background:var(--spruce);color:var(--on-spruce)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+@media (min-width:860px){.hero{padding:64px 0 72px}.hero .wrap{grid-template-columns:1.25fr 1fr}}
+
+/* этикетка упаковки — главный визуальный элемент */
+.label{justify-self:center;width:min(100%,360px);background:var(--paper);border:2px solid var(--ink);border-radius:6px;padding:20px 22px 18px;box-shadow:var(--shadow);transform:rotate(-2.5deg);position:relative}
+.label::before{content:"";position:absolute;inset:8px;border:1px dashed var(--line);border-radius:3px;pointer-events:none}
+.label-brand{font-family:Unbounded,sans-serif;font-weight:700;font-size:13px;color:var(--spruce)}
+.label-name{font-family:Unbounded,sans-serif;font-weight:500;font-size:21px;line-height:1.2;margin-top:10px}
+.label-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.label-grid div{padding:8px 0;font-size:13px;color:var(--mist)}
+.label-grid div+div{border-left:1px solid var(--line);padding-left:10px}
+.label-grid b{display:block;font-size:18px;color:var(--ink);font-family:Unbounded,sans-serif;font-weight:500}
+.label-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:12px}
+.label-price{font-family:Unbounded,sans-serif;font-weight:700;font-size:26px;color:var(--tomato)}
+.bars{height:30px;width:96px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 13px);opacity:.85}
+.label .btn{width:100%;margin-top:14px}
+.label-note{font-size:12px;color:var(--mist);margin-top:10px}
+
+/* ---------- факты ---------- */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+.facts .wrap{display:grid;gap:0}
+.fact{padding:18px 0}
+.fact+.fact{border-top:1px solid var(--line)}
+.fact b{display:block;font-weight:600}
+.fact span{color:var(--mist);font-size:15px}
+@media (min-width:760px){.facts .wrap{grid-template-columns:repeat(3,1fr)}.fact{padding:22px 24px}.fact:first-child{padding-left:0}.fact+.fact{border-top:0;border-left:1px solid var(--line)}}
+
+/* ---------- каталог ---------- */
+section{scroll-margin-top:64px}
+.block{padding:56px 0}
+.block-head{margin-bottom:22px}
+.block-head h2{font-size:clamp(26px,4vw,36px)}
+.block-head p{margin-top:8px;color:var(--mist);max-width:40em}
+
+.search-box{position:relative}
+.search{width:100%;padding:12px 12px 12px 40px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:inherit}
+.tools{position:sticky;top:60px;z-index:20;background:var(--ice);margin:12px -16px 0;padding:10px 16px 8px;border-bottom:1px solid var(--line)}
+.lines{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.lines::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}
+.line-btn{flex:0 0 auto;border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px;font-weight:600;font-size:15px}
+.line-btn[aria-pressed="true"]{background:var(--spruce);border-color:var(--spruce);color:var(--on-spruce)}
+.chips{display:flex;overflow-x:auto;margin-top:6px;scrollbar-width:none}
+.chip{flex:0 0 auto;border:0;background:transparent;padding:6px 2px;margin-right:14px;font-size:14px;font-weight:500;color:var(--mist);white-space:nowrap;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.filter{border:1.5px solid var(--line);background:var(--paper);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:500}
+.filter[aria-pressed="true"]{border-color:var(--spruce);color:var(--spruce);background:var(--spruce-soft)}
+.found{margin:0 0 14px;color:var(--mist);font-size:15px}
+
+.catalog{display:grid;gap:28px;margin-top:20px}
+#list{min-height:90vh}
+.side{display:none}
+@media (min-width:960px){
+  .catalog{grid-template-columns:220px 1fr;gap:40px}
+  .side{display:block;position:sticky;top:calc(var(--sticky) + 16px);align-self:start}
+  .side a{display:block;padding:6px 0;text-decoration:none;color:var(--mist);font-size:15px}
+  .side a:hover{color:var(--ink)}
+  .chips{display:none}
+}
+.line-intro{margin-bottom:14px;color:var(--mist);font-size:15px}
+.cat{margin-top:26px;scroll-margin-top:calc(var(--sticky) + 12px)}
+.cat:first-child{margin-top:0}
+.cat h3{font-size:19px;margin-bottom:10px}
+.list{background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.row{display:flex;gap:14px;align-items:center;padding:14px 16px}
+.row+.row{border-top:1px solid var(--line)}
+.row-main{flex:1;min-width:0}
+.row-meta{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:3px;font-size:14px;color:var(--mist)}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.badge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--frost);color:var(--ink)}
+.badge.hit{background:var(--tomato-soft);color:var(--tomato)}
+.row-buy{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:0 0 auto;text-align:right}
+.price{font-weight:700;font-size:17px;white-space:nowrap}
+.perkg{font-size:12px;color:var(--mist);white-space:nowrap}
+.buy{margin-top:6px}
+.add{border:0;background:var(--spruce-soft);color:var(--spruce);font-weight:700;height:34px;padding:0 14px;border-radius:9px;font-size:14px;white-space:nowrap}
+.soon{display:inline-block;height:34px;line-height:34px;padding:0 12px;border-radius:9px;font-size:13px;color:var(--mist);border:1.5px dashed var(--line);white-space:nowrap}
+.step button:disabled{opacity:.4;cursor:not-allowed}
+.step{display:inline-flex;align-items:center;background:var(--spruce);color:var(--on-spruce);border-radius:9px;height:34px}
+.step button{border:0;background:transparent;color:inherit;width:32px;height:34px;font-size:18px;font-weight:700;line-height:1}
+.step span{min-width:20px;text-align:center;font-weight:700}
+.empty{padding:40px 16px;text-align:center;color:var(--mist)}
+.info{margin-top:8px;font-size:14px}
+.info summary{cursor:pointer;color:var(--spruce);font-weight:600;width:max-content;max-width:100%}
+.info dl{margin:8px 0 0;display:grid;gap:6px}
+.info dt{font-weight:600;font-size:13px}
+.info dd{margin:0;color:var(--mist)}
+.loading-note{padding:40px 16px;text-align:center;color:var(--mist)}
+body.loading .label-price,body.loading #labelBuy,body.loading .label-grid b{visibility:hidden}
+.check-panel{background:var(--paper);border:2px solid var(--tomato);border-radius:14px;padding:16px 18px;margin:16px 0 0}
+.check-panel h2{font-size:18px;margin-bottom:8px}
+.check-panel ul{margin:8px 0 0;padding-left:20px}
+.check-panel li+li{margin-top:4px}
+.check-panel.ok{border-color:var(--spruce)}
+.warn{color:var(--tomato)}
+
+.sets{display:grid;gap:14px}
+@media (min-width:720px){.sets{grid-template-columns:1fr 1fr}}
+.set{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column}
+.set h4{font-family:Unbounded,sans-serif;font-weight:500;font-size:18px}
+.set .row-meta{margin-top:6px}
+.set ul{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--mist)}
+.set ul li+li{margin-top:2px}
+.set-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;gap:12px}
+.set-group{margin-top:30px}
+.set-group:first-child{margin-top:0}
+.set-group h3{font-size:19px;margin-bottom:12px}
+
+/* ---------- как заказать ---------- */
+.steps{display:grid;gap:14px;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 64px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--spruce);color:var(--on-spruce);display:grid;place-items:center;font-family:Unbounded,sans-serif;font-weight:700;font-size:15px}
+.steps b{display:block}
+.steps span{color:var(--mist);font-size:15px}
+@media (min-width:860px){.steps{grid-template-columns:repeat(4,1fr)}.steps li{padding:64px 18px 18px}.steps li::before{left:18px;top:18px}}
+
+.faq{display:grid;gap:10px;max-width:760px}
+.faq details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:0 16px}
+.faq summary{cursor:pointer;padding:15px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;line-height:1;color:var(--spruce)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 0 16px;color:var(--mist)}
+
+/* ---------- контакты ---------- */
+.contacts{background:var(--spruce);color:var(--on-spruce)}
+.contacts .wrap{display:grid;gap:28px}
+.contacts h2{font-size:clamp(26px,4vw,36px)}
+.contacts dl{margin:0;display:grid;gap:14px}
+.contacts dt{font-size:14px;opacity:.75}
+.contacts dd{margin:2px 0 0;font-size:18px;font-weight:500}
+.contacts .btn{background:var(--on-spruce);color:var(--spruce)}
+@media (min-width:860px){.contacts .wrap{grid-template-columns:1fr 1fr;align-items:start}}
+footer{padding:22px 0 110px;font-size:14px;color:var(--mist)}
+@media (min-width:860px){footer{padding-bottom:28px}}
+
+/* ---------- корзина ---------- */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:25;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--ice) 35%)}
+.mbar button{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-radius:14px;padding:14px 16px;background:var(--spruce);color:var(--on-spruce);font-weight:600;box-shadow:var(--shadow)}
+.mbar small{display:block;font-weight:400;opacity:.85;font-size:13px;text-align:left}
+.mbar[hidden]{display:none}
+@media (min-width:860px){.mbar{display:none!important}}
+
+.scrim{position:fixed;inset:0;background:rgba(10,20,17,.45);z-index:40}
+.scrim[hidden],.drawer[hidden]{display:none}
+.drawer{position:fixed;z-index:41;background:var(--ice);display:flex;flex-direction:column;left:0;right:0;bottom:0;max-height:92vh;max-height:92dvh;border-radius:18px 18px 0 0}
+@media (min-width:860px){.drawer{left:auto;top:0;width:440px;max-height:none;border-radius:0}}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:18px 18px 10px}
+.drawer-head h2{font-size:22px}
+.x{border:0;background:var(--paper);width:36px;height:36px;border-radius:50%;font-size:18px}
+.drawer-body{overflow:auto;overscroll-behavior:contain;padding:0 18px 18px}
+.line{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:12px 14px}
+.line+.line{border-top:1px solid var(--line)}
+.line-name{flex:1 1 100%;min-width:0;font-weight:500;font-size:15px}
+.line [data-buy]{margin-right:auto}
+.line-name small{display:block;color:var(--mist);font-size:13px;font-weight:400;margin-top:2px}
+.line-sum{font-weight:700;white-space:nowrap;min-width:76px;text-align:right}
+.sum{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:14px 0;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.sum .total{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px}
+.sum .note{grid-column:1/-1;font-size:13px;color:var(--mist)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin:4px 0 6px}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--spruce)}
+.field-l{display:block;font-size:14px;font-weight:600;margin:12px 0 4px}
+.field{width:100%;padding:11px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:inherit}
+textarea.field{min-height:70px;resize:vertical}
+.send{display:block;margin-top:18px;width:100%;border-radius:14px;padding:15px;background:#25D366;color:#063B1B;font-weight:700;font-size:16px;text-align:center;text-decoration:none}
+.send[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mist);margin-top:8px;text-align:center}
+.sent{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--spruce-soft);font-size:15px}
+.sent[hidden]{display:none}
+.clear{margin-top:6px;width:100%;border:0;background:transparent;color:var(--mist);padding:8px;font-size:14px}
+
+/* ---------- иконки ---------- */
+.ic.ic-s{width:17px;height:17px;vertical-align:-3px}
+.ic.ic-xs{width:14px;height:14px;vertical-align:-2px}
+.cart-btn .ic,.btn-main .ic,.line-btn[aria-pressed="true"] .ic,.mbar .ic,.step .ic,.send .ic,.contacts .btn .ic,.badge.hit .ic,.zoom-close .ic{color:inherit}
+.line-btn,.filter,.add,.soon{display:inline-flex;align-items:center;gap:6px}
+.add,.soon{height:34px;line-height:normal}
+.btn-ghost .ic{color:var(--spruce)}
+.row-meta span{display:inline-flex;align-items:center;gap:4px}
+.row-meta .ic{color:var(--mist)}
+.badge{display:inline-flex;align-items:center;gap:4px}
+.badge .ic{color:var(--spruce)}
+.info summary{display:flex;align-items:center;gap:6px}
+.steps li{padding-right:54px}
+.steps .step-ic{position:absolute;right:16px;top:18px;width:24px;height:24px;opacity:.9}
+@media (min-width:860px){.steps li{padding-right:18px}.steps .step-ic{right:18px;top:22px}}
+.faq summary{justify-content:flex-start;align-items:center}
+.faq summary::after{margin-left:auto}
+.faq summary .ic{opacity:.9}
+.contacts .btn .ic{opacity:1;margin:0}
+.send{display:flex;align-items:center;justify-content:center;gap:8px}
+.clear,.sent .add{display:flex;align-items:center;justify-content:center;gap:6px}
+.sent .add{display:inline-flex}
+.clear .ic{color:var(--mist)}
+.x,.zoom-close{display:grid;place-items:center}
+.x .ic{color:var(--ink)}
+.empty .ic-big{display:block;margin:0 auto 10px;width:34px;height:34px;color:var(--mist);opacity:.8}
+.promo .ic{color:inherit;margin-right:6px}
+.line-cards .line-card span{display:flex;align-items:center;gap:8px}
+.mbar #mbarLeft{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center;text-align:left}
+.mbar #mbarLeft .ic{grid-row:span 2}
+.search-box .ic{position:absolute;left:13px;top:50%;margin-top:-9px;width:18px;height:18px;color:var(--mist);pointer-events:none}
+#dataNote{display:flex;gap:10px;align-items:flex-start}
+#dataNote[hidden]{display:none}
+#dataNote .ic{color:var(--tomato);margin-top:2px}
+
+/* ---------- изображения ---------- */
+.ic{width:20px;height:20px;flex:0 0 auto;color:var(--spruce);vertical-align:-4px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.fact b{display:flex;align-items:center;gap:8px}
+.contacts .ic{color:var(--on-spruce);opacity:.8;width:18px;height:18px;margin-right:6px}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-photo{position:absolute;inset:0;z-index:-1}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ice) 0%,color-mix(in srgb,var(--ice) 88%,transparent) 42%,color-mix(in srgb,var(--ice) 15%,transparent) 75%)}
+/* компьютер: с фото еда справа, этикетка не закрывает её; телефон: фото — полоса между текстом и этикеткой */
+@media (min-width:860px){
+  .hero-photo::after{background:linear-gradient(90deg,var(--ice) 0%,color-mix(in srgb,var(--ice) 92%,transparent) 34%,color-mix(in srgb,var(--ice) 10%,transparent) 58%)}
+  .hero.has-photo .label{display:none}
+  .hero.has-photo .wrap{grid-template-columns:minmax(0,560px) 1fr;min-height:520px}
+}
+.hero.has-photo{padding-bottom:64px}
+@media (max-width:859.98px){
+  .hero.has-photo .label{margin-top:min(52vw,320px)}
+  .hero.has-photo .hero-photo{top:var(--hero-photo-top,0);bottom:auto;height:var(--hero-photo-h,100%);-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 82%,transparent)}
+  .hero.has-photo .hero-photo img{object-position:50% 55%}
+  .hero.has-photo .hero-photo::after{display:none}
+}
+.label-photo{margin:-20px -22px 14px;aspect-ratio:16/9;overflow:hidden;border-radius:4px 4px 0 0;border-bottom:1.5px solid var(--ink)}
+.label-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.cat-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.cat-head h3{margin:0!important}
+.cat-thumb{width:96px;height:auto;aspect-ratio:9/7;object-fit:cover;border-radius:10px;flex:0 0 auto;background:var(--frost)}
+.set-photo{display:block;width:calc(100% + 36px);max-width:none;height:auto;aspect-ratio:4/3;object-fit:cover;margin:-18px -18px 14px;border-radius:13px 13px 0 0;background:var(--frost)}
+.lines-show{padding-bottom:8px}
+.line-cards{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media (min-width:860px){.line-cards{grid-template-columns:repeat(4,1fr)}}
+.line-card{display:flex;flex-direction:column;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:0;overflow:hidden}
+.line-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--frost)}
+.line-card span{display:block;padding:12px 14px 2px;font-family:Unbounded,sans-serif;font-weight:500;font-size:16px}
+.line-card small{display:block;padding:0 14px 14px;color:var(--mist);font-size:14px}
+.line-card:hover span{color:var(--spruce)}
+.about-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media (min-width:860px){.about-grid{grid-template-columns:repeat(4,1fr)}}
+.about-grid figure{margin:0}
+.about-grid img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;background:var(--frost)}
+.about-grid figcaption{margin-top:8px;font-size:15px;font-weight:500}
+.photo-note{margin-top:14px;font-size:13px;color:var(--mist)}
+/* увеличение фото по нажатию */
+.zoom{display:block;padding:0;margin:0;border:0;background:none;color:inherit;cursor:zoom-in;border-radius:10px;flex:0 0 auto;text-align:left;width:auto}
+.set .zoom,.about-grid .zoom,.label-photo .zoom{width:100%}
+.zoom:focus-visible{outline:2px solid var(--spruce);outline-offset:3px}
+.row-thumb{display:block;width:76px;height:auto;aspect-ratio:9/7;object-fit:cover;border-radius:8px;background:var(--frost)}
+#list{min-width:0}
+/* на узком экране строка с фото: фото и название сверху, цена и кнопка строкой ниже */
+@media (max-width:479.98px){
+  .row:has(> .zoom){flex-wrap:wrap;align-items:flex-start}
+  .row:has(> .zoom) .row-thumb{width:60px}
+  .row:has(> .zoom) .row-main{flex:1 1 calc(100% - 80px)}
+  .row:has(> .zoom) .row-buy{flex:1 1 100%;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-end;column-gap:12px}
+  .row:has(> .zoom) .row-buy .buy{margin-left:auto}
+}
+.zoom-dlg{border:0;padding:0;margin:0;background:transparent;width:100vw;height:100dvh;max-width:none;max-height:none;overscroll-behavior:contain;color:#fff}
+.zoom-dlg::backdrop{background:rgba(6,12,10,.9)}
+.zoom-dlg[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.zoom-dlg img{display:block;max-width:min(94vw,1400px);max-height:80dvh;width:auto;height:auto;object-fit:contain;border-radius:10px}
+.zoom-dlg p{margin:0;padding:0 16px;font-size:15px;text-align:center;max-width:40em}
+.zoom-close{position:absolute;top:max(12px,env(safe-area-inset-top));right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:20px;cursor:pointer}
+.zoom-close:hover{background:rgba(255,255,255,.28)}
+.zoom-close:focus-visible{outline:2px solid #fff;outline-offset:2px}
+</style>
+<meta property="og:image" content="dosyta-image-pack/hero/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Список готовых изображений. Его создаёт dosyta-image-pack/tools/build_images.py. Нет файла — сайт работает без фото. -->
+<script src="dosyta-image-pack/images.js"></script>
+<script>
+(function () {
+  var d = window.DOSYTA_IMAGES; if (!d || !d.ready) return;
+  [['hero/hero-desktop.webp', '(min-width: 860px)'], ['hero/hero-mobile.webp', '(max-width: 859.98px)']].forEach(function (x) {
+    if (!d.ready[x[0]]) return;
+    var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.href = d.base + x[0]; l.media = x[1];
+    l.setAttribute('fetchpriority', 'high'); document.head.appendChild(l);
+  });
+})();
+</script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><symbol id="ic-basket" viewBox="0 0 24 24"><path d="M5 9h14l-1.3 9.1a2 2 0 0 1-2 1.9H8.3a2 2 0 0 1-2-1.9L5 9Z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/><path d="M9.5 13v3M14.5 13v3"/></symbol><symbol id="ic-message" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12Z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></symbol><symbol id="ic-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></symbol><symbol id="ic-delivery" viewBox="0 0 24 24"><path d="M3 7h11v9H3z"/><path d="M14 10h3.6l2.9 3v3H14"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol><symbol id="ic-hand" viewBox="0 0 24 24"><path d="M8 12V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10V5a1.5 1.5 0 0 1 3 0v6"/><path d="M14 10.5V7a1.5 1.5 0 0 1 3 0v6.5a6.5 6.5 0 0 1-6.5 6.5h-.6a5.5 5.5 0 0 1-4.4-2.2l-2.3-3.1a1.5 1.5 0 0 1 2.3-1.9L8 14"/></symbol><symbol id="ic-list" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6M9 15.5h3.5"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="ic-snowflake" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="m9.5 4.5 2.5 2 2.5-2M9.5 19.5l2.5-2 2.5 2"/></symbol><symbol id="ic-phone" viewBox="0 0 24 24"><path d="M6.6 3.8 9 3.5l1.6 4-2 1.3a10.5 10.5 0 0 0 6.6 6.6l1.3-2 4 1.6-.3 2.4a2 2 0 0 1-2 1.7A15.5 15.5 0 0 1 4.9 5.8a2 2 0 0 1 1.7-2Z"/></symbol><symbol id="ic-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="ic-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h3"/></symbol><symbol id="ic-camera" viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.4-2h5.6l1.4 2h2.3A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/><circle cx="12" cy="13" r="3.3"/></symbol><symbol id="ic-plus" viewBox="0 0 24 24"><svg class="lucide lucide-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></symbol><symbol id="ic-package" viewBox="0 0 24 24"><svg class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol><symbol id="ic-salad" viewBox="0 0 24 24"><svg class="lucide lucide-salad" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/><path d="m13 12 4-4"/><path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"/></symbol><symbol id="ic-house" viewBox="0 0 24 24"><svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="ic-egg" viewBox="0 0 24 24"><svg class="lucide lucide-egg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22c6.23-.05 7.87-5.57 7.5-10-.36-4.34-3.95-9.96-7.5-10-3.55.04-7.14 5.66-7.5 10-.37 4.43 1.27 9.95 7.5 10z"/></symbol><symbol id="ic-wheat" viewBox="0 0 24 24"><svg class="lucide lucide-wheat" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/></symbol><symbol id="ic-leaf" viewBox="0 0 24 24"><svg class="lucide lucide-leaf" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol><symbol id="ic-grid" viewBox="0 0 24 24"><svg class="lucide lucide-layout-grid" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol><symbol id="ic-flame" viewBox="0 0 24 24"><svg class="lucide lucide-flame" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol><symbol id="ic-sun" viewBox="0 0 24 24"><svg class="lucide lucide-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol><symbol id="ic-alert" viewBox="0 0 24 24"><svg class="lucide lucide-triangle-alert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol><symbol id="ic-weight" viewBox="0 0 24 24"><svg class="lucide lucide-weight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2 2 0 0 0-1.905 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.925-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z"/></symbol><symbol id="ic-layers" viewBox="0 0 24 24"><svg class="lucide lucide-layers" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol><symbol id="ic-info" viewBox="0 0 24 24"><svg class="lucide lucide-info" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol><symbol id="ic-x" viewBox="0 0 24 24"><svg class="lucide lucide-x" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol><symbol id="ic-send" viewBox="0 0 24 24"><svg class="lucide lucide-send" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol><symbol id="ic-trash" viewBox="0 0 24 24"><svg class="lucide lucide-trash-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></symbol><symbol id="ic-percent" viewBox="0 0 24 24"><svg class="lucide lucide-percent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol><symbol id="ic-shield" viewBox="0 0 24 24"><svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="ic-pot" viewBox="0 0 24 24"><svg class="lucide lucide-cooking-pot" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></symbol><symbol id="ic-boxes" viewBox="0 0 24 24"><svg class="lucide lucide-boxes" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/><path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/><path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/><path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/></symbol><symbol id="ic-help" viewBox="0 0 24 24"><svg class="lucide lucide-circle-help" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="ic-search" viewBox="0 0 24 24"><svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol></svg>
+<!-- иконки ic-plus … ic-search: Lucide (lucide.dev), лицензия ISC -->
+<a class="skip" href="#catalog">Перейти к каталогу</a>
+<noscript><p>Каталог работает с включённым JavaScript. Заказать можно и так: напишите в <a href="https://wa.me/77471924615">WhatsApp</a> или позвоните по номеру <a href="tel:+77471924615">+7 747 192 46 15</a>.</p></noscript>
+<aside class="promo" id="promo" aria-label="Акция" hidden></aside>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" translate="no">Досыта на ПП</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#catalog">Каталог</a>
+      <a href="#order">Как заказать</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-haspopup="dialog"><svg class="ic ic-s" aria-hidden="true" focusable="false"><use href="#ic-basket"/></svg>Корзина <span class="count" id="cartCount">0</span><span class="sr" id="cartCountSr"></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-photo" id="heroPhoto" hidden></div>
+  <div class="wrap">
+    <div>
+      <h1 id="heroTitle">Ужин уже слеплен</h1>
+      <p class="lead" id="heroLead">Пельмени, манты, котлеты, вареники и сырники ручной работы. Есть правильная линейка: цельнозерновая и рисовая мука, индейка, телятина, куриная грудка.</p>
+      <p class="when" id="heroWhen"></p>
+      <div class="hero-actions">
+        <a class="btn btn-main" href="#catalog" id="btnMain"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-basket"/></svg>Собрать заказ</a>
+        <a class="btn btn-ghost" href="#catalog" data-goto="sets" id="btnSets"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-package"/></svg>Смотреть сеты</a>
+      </div>
+    </div>
+    <aside class="label" aria-label="Пример упаковки">
+      <div class="label-photo" id="labelPhoto" hidden></div>
+      <div class="label-brand">Досыта на ПП</div>
+      <div class="label-name" id="labelName"></div>
+      <div class="label-grid">
+        <div>вес<b id="labelW"></b></div>
+        <div>в пачке<b id="labelPcs"></b></div>
+        <div>за кг<b id="labelKg"></b></div>
+      </div>
+      <div class="label-foot">
+        <div class="label-price" id="labelPrice"></div>
+        <div class="bars" aria-hidden="true"></div>
+      </div>
+      <div id="labelBuy"></div>
+    </aside>
+  </div>
+</section>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b id="f1t"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-hand"/></svg>Ручная работа</b><span id="f1s">Производство в Алматы по авторской технологии</span></div>
+    <div class="fact"><b id="f2t"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-list"/></svg>Цена за килограмм</b><span id="f2s">Видна у каждого товара с указанным весом, удобно сравнивать</span></div>
+    <div class="fact"><b id="f3t"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-delivery"/></svg>Привезём завтра</b><span id="factDelivery"></span></div>
+  </div>
+</div>
+
+<section class="block lines-show" id="linesShow" hidden aria-labelledby="linesShowTitle">
+  <div class="wrap">
+    <div class="block-head"><h2 id="linesShowTitle">Что у нас есть</h2></div>
+    <div class="line-cards" id="lineCards"></div>
+  </div>
+</section>
+
+<section class="block" id="catalog">
+  <div class="wrap">
+    <div class="block-head">
+      <h2 id="catTitle">Каталог</h2>
+      <p id="catNote">Цены за упаковку. Рядом указана цена за килограмм, чтобы было проще сравнивать.</p>
+    </div>
+    <div class="check-panel" id="checkPanel" hidden></div>
+    <p class="check-panel" id="dataNote" hidden><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-alert"/></svg><span>Не удалось загрузить актуальный прайс. Показаны цены из встроенной версии сайта, менеджер подтвердит точную сумму.</span></p>
+    <div class="search-box">
+      <svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-search"/></svg>
+      <input class="search" id="search" type="search" enterkeyhint="search" placeholder="Найти: манты, индейка, сырники…" autocomplete="off" aria-label="Поиск по всему каталогу">
+    </div>
+    <div class="tools">
+      <div class="lines" id="lines" role="group" aria-label="Линейки"></div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="catalog">
+      <nav class="side" id="side" aria-label="Категории"></nav>
+      <div id="list" aria-live="polite" aria-busy="false"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about" hidden style="padding-top:8px" aria-labelledby="aboutTitle">
+  <div class="wrap">
+    <div class="block-head"><h2 id="aboutTitle">Домашняя кухня</h2></div>
+    <div class="about-grid" id="aboutGrid"></div>
+    <p class="photo-note" id="photoNote">Фотографии на сайте иллюстративные и могут отличаться от товара.</p>
+  </div>
+</section>
+
+<section class="block" id="order" style="padding-top:8px">
+  <div class="wrap">
+    <div class="block-head"><h2 id="orderTitle">Как заказать</h2></div>
+    <ol class="steps" id="steps">
+      <li><svg class="ic step-ic" aria-hidden="true" focusable="false"><use href="#ic-basket"/></svg><b>Соберите корзину</b><span>Сумма и вес считаются сразу.</span></li>
+      <li><svg class="ic step-ic" aria-hidden="true" focusable="false"><use href="#ic-message"/></svg><b>Отправьте в WhatsApp</b><span>Список заказа уйдёт нам одним сообщением.</span></li>
+      <li><svg class="ic step-ic" aria-hidden="true" focusable="false"><use href="#ic-check"/></svg><b>Дождитесь подтверждения</b><span>Менеджер уточнит адрес и время доставки.</span></li>
+      <li><svg class="ic step-ic" aria-hidden="true" focusable="false"><use href="#ic-delivery"/></svg><b>Получите заказ</b><span id="stepDelivery"></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="faq" style="padding-top:8px">
+  <div class="wrap">
+    <div class="block-head"><h2 id="faqTitle">Частые вопросы</h2></div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<section class="block contacts" id="contacts">
+  <div class="wrap">
+    <div>
+      <h2 id="contactsTitle">Контакты</h2>
+      <p id="contactsNote" style="margin-top:10px;opacity:.85;max-width:30em">Принимаем розничные и оптовые заказы. Вопросы и заказы — в WhatsApp.</p>
+      <div class="hero-actions"><a class="btn" id="waLink" href="#" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-message"/></svg><span id="waBtn">Написать в WhatsApp</span></a></div>
+    </div>
+    <dl id="contactList"></dl>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap" id="footer"></div></footer>
+
+<dialog class="zoom-dlg" id="zoomDlg" aria-label="Фото крупно">
+  <button class="zoom-close" id="zoomClose" type="button" aria-label="Закрыть фото"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-x"/></svg></button>
+  <img id="zoomImg" alt="">
+  <p id="zoomCap"></p>
+</dialog>
+
+<div class="mbar" id="mbar" hidden>
+  <button id="mbarBtn"><span id="mbarLeft"></span><span id="mbarRight"></span></button>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+  <div class="drawer-head"><h2 id="drawerTitle">Ваш заказ</h2><button class="x" id="closeDrawer" aria-label="Закрыть корзину"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-x"/></svg></button></div>
+  <div class="drawer-body">
+    <div class="list" id="cartList"></div>
+    <div class="sum" id="sum"></div>
+    <label class="check"><input type="checkbox" id="firstOrder"> <span id="firstOrderText"></span></label>
+    <label class="field-l" for="fName">Имя</label>
+    <input class="field" id="fName" autocomplete="name">
+    <label class="field-l" for="fPhone">Телефон для курьера, если не тот, с которого пишете</label>
+    <input class="field" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7">
+    <label class="field-l" for="fAddr">Адрес доставки</label>
+    <input class="field" id="fAddr" autocomplete="street-address" placeholder="Улица, дом, квартира…">
+    <label class="field-l" for="fNote">Комментарий</label>
+    <textarea class="field" id="fNote" placeholder="Удобное время, оплата Kaspi или наличными…"></textarea>
+    <label class="check" style="margin-top:12px"><input type="checkbox" id="remember" checked> <span>Запомнить имя, телефон и адрес на этом устройстве на 90 дней</span></label>
+    <a class="send" id="send" href="#" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-send"/></svg>Отправить заказ в WhatsApp</a>
+    <p class="hint">Откроется WhatsApp с готовым сообщением. Останется нажать «Отправить». Наличие, итоговую сумму и время доставки подтвердит менеджер. Сайт не хранит ваши данные у себя: они уходят только магазину в WhatsApp.</p>
+    <div class="sent" id="sent" hidden>
+      <span>Отправили заказ? Можно освободить корзину.</span>
+      <button class="add" id="sentClear"><svg class="ic ic-s" aria-hidden="true" focusable="false"><use href="#ic-trash"/></svg>Очистить корзину</button>
+    </div>
+    <button class="clear" id="clear"><svg class="ic ic-s" aria-hidden="true" focusable="false"><use href="#ic-trash"/></svg><span>Очистить корзину</span></button>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   Товары, цены и настройки владелец меняет в Google Таблице, код трогать не нужно.
+   Один раз при запуске сюда вставляются три ссылки на опубликованные листы (CSV).
+   Пока ссылок нет, сайт работает на встроенных данных ниже.
+   ========================================================= */
+const SHEETS = {
+  products: '',   // лист «Товары»
+  sets: '',       // лист «Сеты»
+  settings: '',   // лист «Настройки»
+  texts: ''       // лист «Оформление»: тексты, вопросы, ссылки на картинки
+};
+
+/* Значения по умолчанию. Лист «Настройки» в таблице их перекрывает. */
+const CONFIG = {
+  whatsapp: '77471924615',      // номер для заказов
+  phoneText: '+7 747 192 46 15',// номер для показа на сайте
+  address: 'Алматы, ул. Бухар Жырау, 57 / ул. Манаса, 71',   // из профиля Instagram dosita_na_pp1
+  hours: 'Ежедневно с 9:00 до 18:00',
+  orderUntil: '22:00',          // до скольки принимаем заказы на завтра
+  firstOrderDiscount: 500,      // скидка на первый заказ, ₸ (0 — отключить)
+  payment: 'Перевод на Kaspi Gold или наличными курьеру',
+  delivery: 'Стоимость доставки назовёт менеджер при подтверждении заказа.',
+  deliveryCost: 0,              // ₸, прибавляется к заказу. 0 — стоимость называет менеджер
+  freeDeliveryFrom: 0,          // ₸, с какой суммы доставка бесплатная. 0 — не бывает бесплатной
+  minOrder: 0,                  // ₸, минимальная сумма заказа. 0 — без минимума
+  pickup: '',                   // адрес самовывоза. Пусто — самовывоз на сайте не упоминается
+  instagram: ['dosita_na_pp1'],  // подтверждённый профиль; второй можно добавить в таблице
+  company: 'ТОО «Досыта на ПП»',
+  bin: '220240011295',
+  promo: '',                    // текст баннера над сайтом, например 'Всё по 3 000 ₸ до воскресенья'. Пусто — баннера нет
+  summerMonths: [6, 7, 8],      // в прайсе: «в летнее время»
+  maxQty: 99,                   // максимум одного товара в заказе
+  heroItem: 'Котлеты из куриной грудки с морковью и сыром' // товар на этикетке первого экрана
+};
+
+/* Встроенные данные — запасной вариант, если таблица не подключена или Google недоступен.
+   Товар: [название, цена, штук в упаковке, вес в граммах, метки]
+   Вес не указан — берётся вес упаковки линейки. null — вес неизвестен.
+   Метки: v — без мяса, h — хит, s — только летом, y — содержит сою. */
+const BUILTIN = [
+ {id:'pp', name:'Правильное питание', intro:'Цельнозерновая мука, рисовая мука, индейка, телятина и куриная грудка. Упаковка 800 г, если не указано иное.', defW:800, cats:[
+  {t:'Котлеты из курицы', i:[
+   ['Котлеты из куриной грудки с морковью и сыром',4400,'11 шт'],
+   ['Котлеты из куриной грудки с тыквой в овсяной панировке',4400,'11 шт'],
+   ['Котлеты из куриной грудки с брокколи и шпинатом в овсяной панировке',4500,'11 шт'],
+   ['Котлеты из куриной грудки с кабачком',4400,'11 шт',,'s']]},
+  {t:'Индейка', i:[
+   ['Котлеты из филе индейки с гречкой',4500,'11 шт'],
+   ['Котлеты из филе индейки с кукурузой',4500,'11 шт'],
+   ['Сосиски из филе индейки с сыром',4500,'11 шт']]},
+  {t:'Телятина', i:[
+   ['Котлеты из телятины с овощами в овсяной панировке',4800,'11 шт'],
+   ['Котлеты из телятины с адыгейским сыром и зеленью',5100,'11 шт']]},
+  {t:'Тефтели, митболы, фрикадельки', i:[
+   ['Митболы из куриной грудки с моцареллой',4500,'11 шт'],
+   ['Тефтели из куриной грудки с бурым рисом и овощами',4300,'13 шт'],
+   ['Тефтели из телятины с бурым рисом и овощами',4900,'13 шт'],
+   ['Фрикадельки из телятины',5100,'40 шт'],
+   ['Фрикадельки из куриной грудки',4900,'40 шт'],
+   ['Фрикадельки из филе индейки с зеленью',4900,'40 шт']]},
+  {t:'Перец, голубцы, долма', i:[
+   ['Перец фаршированный с телятиной и рисом',4400,'5 шт'],
+   ['Перец фаршированный с куриной грудкой и грибами',4200,'5 шт'],
+   ['Голубцы из телятины с овощами',4300,'6–7 шт'],
+   ['Голубцы из куриной грудки с овощами',3900,'6–7 шт'],
+   ['Долма в виноградных листьях из телятины',4700,'30 шт']]},
+  {t:'Пельмени, манты, равиоли', i:[
+   ['Пельмени из цельнозерновой муки с телятиной и луком',4800,'40 шт'],
+   ['Пельмени классические',3900,'40 шт'],
+   ['Манты из цельнозерновой муки с рубленой телятиной и тыквой',4400,'13 шт'],
+   ['Манты из цельнозерновой муки с куриной грудкой и моцареллой',4700,'13 шт'],
+   ['Манты с джусаем и картофелем',3300,'15 шт',,'v'],
+   ['Равиоли из цельнозерновой муки с куриной грудкой, двумя сырами и чесноком',4700,'40 шт']]},
+  {t:'Вареники и чебуреки', i:[
+   ['Вареники из цельнозерновой муки с адыгейским сыром и зеленью',4400,'38 шт',,'v'],
+   ['Вареники из цельнозерновой муки с капустой',4200,'32 шт',,'v'],
+   ['Вареники из цельнозерновой муки со сладким творогом',4100,'40 шт',,'v'],
+   ['Вареники с картофелем',2800,'40 шт',,'v'],
+   ['Чебуреки из цельнозерновой муки с джусаем и картофелем',3200,'10 шт',,'v'],
+   ['Чебуреки с брынзой и зеленью',3500,'10 шт',,'v']]},
+  {t:'Без мяса', i:[
+   ['Равиоли с грибами, картофелем и шпинатом',3200,'40 шт',,'v'],
+   ['Манты с тыквой и картофелем',3200,'13 шт',,'v'],
+   ['Манты с овощами',3300,'13 шт',,'v'],
+   ['Голубцы с грибами и нутом',3300,'6 шт',,'v'],
+   ['Чебуреки из цельнозерновой муки с соевым фаршем',3200,'10 шт',,'vy'],
+   ['Пельмени с чечевицей',3300,'35 шт',,'v'],
+   ['Пельмени с фасолью',3200,'35 шт',,'v'],
+   ['Котлеты с нутом и тыквой',3300,'11 шт',,'v'],
+   ['Тефтели с чечевицей и рисом',2900,'13 шт',,'v']]},
+  {t:'Сырники, рогалики, штрудель', i:[
+   ['Сырники творожные из рисовой муки',3300,'8 шт',500,'v'],
+   ['Сырники из рисовой муки с изюмом',3500,'8 шт',500,'v'],
+   ['Сырники из рисовой муки с цукатами',3500,'8 шт',500,'v'],
+   ['Сырники с брынзой и зеленью',3800,'8 шт',500,'v'],
+   ['Рогалики творожные из рисовой муки',3450,'10 шт',500,'v'],
+   ['Рогалики из рисовой муки с курагой',3600,'10 шт',500,'v'],
+   ['Штрудель яблочный',3900,'7 шт',500,'v']]},
+  {t:'Тесто', i:[
+   ['Тесто из цельнозерновой муки',2300,'',1000,'v']]}
+ ]},
+ {id:'home', name:'Домашние', intro:'Упаковка 800 г, если не указано иное.', defW:800, cats:[
+  {t:'Пельмени и равиоли', i:[
+   ['Пельмени из конины',5000,''],
+   ['Пельмени с говядиной',3900,''],
+   ['Пельмени куриные',3900,''],
+   ['Равиоли с курицей и моцареллой',4500,''],
+   ['Равиоли с грибами и шпинатом',3200,'',,'v']]},
+  {t:'Манты, хинкали, пигоди', i:[
+   ['Манты из говядины, резаное мясо с луком',4500,''],
+   ['Манты из говядины, резаное мясо с тыквой',4000,''],
+   ['Манты с фаршем и луком',4000,''],
+   ['Манты с фаршем и картофелем',4000,''],
+   ['Манты с фаршем и тыквой',4000,''],
+   ['Манты с фаршем и джусаем',4000,''],
+   ['Хинкали из телятины с кинзой и луком',4000,''],
+   ['Пигоди с телятиной, луком и пекинской капустой',4000,'']]},
+  {t:'Вареники', i:[
+   ['Вареники с адыгейским сыром',4000,'',,'v'],
+   ['Вареники с творогом, солёные',3500,'',,'v'],
+   ['Вареники с творогом, сладкие',3500,'',,'v'],
+   ['Вареники с капустой',3200,'',,'v'],
+   ['Вареники с картошкой и грибами',3000,'',,'v'],
+   ['Вареники с картошкой',2800,'',,'v']]},
+  {t:'Котлеты, зразы, тефтели', i:[
+   ['Котлеты из говядины',4500,''],
+   ['Котлеты по-киевски',4000,''],
+   ['Котлеты по-милански',4000,''],
+   ['Котлеты рыбные',4000,''],
+   ['Зразы из говядины с грибами',5000,''],
+   ['Тефтели из телятины',4900,''],
+   ['Тефтели из куриной грудки',4300,''],
+   ['Фрикадельки из молодой телятины',4500,'']]},
+  {t:'Голубцы и перец', i:[
+   ['Голубцы с телятиной',4300,''],
+   ['Голубцы с курицей',3900,''],
+   ['Перец фаршированный с телятиной',4400,''],
+   ['Перец фаршированный с курицей',4200,'']]},
+  {t:'Стейки и наггетсы', i:[
+   ['Стейк из говядины',5000,''],
+   ['Стейк из курицы',5000,''],
+   ['Куриные кармашки с грибами и сыром',4500,''],
+   ['Наггетсы в хрустящей панировке',4000,''],
+   ['Бризоль из молодой телятины',1500,'1 шт',120]]},
+  {t:'Самса, чебуреки, выпечка', i:[
+   ['Самса с говядиной',4000,''],
+   ['Самса с говядиной и тыквой',4000,''],
+   ['Самса с курицей и картофелем',4000,''],
+   ['Самса с сыром',4000,'',,'v'],
+   ['Чебуреки с говядиной и джусаем',4000,''],
+   ['Беляши с говядиной',3500,''],
+   ['Сосиски в тесте',4000,''],
+   ['Пирожки с картошкой',3000,'',,'v'],
+   ['Пирожки с капустой',3000,'',,'v'],
+   ['Пирожки с ливером',3500,'']]},
+  {t:'Пицца и пироги', i:[
+   ['Пицца «4 сыра», 35 см, тесто дрожжевое или слоёное',3500,'1 шт',null,'v'],
+   ['Пицца «Пепперони», 35 см, тесто дрожжевое или слоёное',3500,'1 шт',null],
+   ['Пирог с курицей, картошкой и луком, тесто дрожжевое или слоёное',3500,'',1000],
+   ['Пирог с говядиной, картошкой и луком, тесто дрожжевое или слоёное',4000,'',1000],
+   ['Пирог с курицей, картошкой и луком, песочное тесто',4500,'',1000],
+   ['Пирог с говядиной, картошкой и луком, песочное тесто',5000,'',1000]]},
+  {t:'Полуготовые блюда, 15 минут в микроволновке или духовке', i:[
+   ['Лагман (цомян)',2300,'',400],
+   ['Гуйру лагман',2300,'',400],
+   ['Жульен с курицей, грибами и сыром',3500,'',350],
+   ['Мясо по-французски с телятиной, картофелем, грибами и сыром',3500,'',400]]}
+ ]},
+ {id:'sets', name:'Сеты', intro:'Несколько видов по 500 г в одном заказе.', sets:true, cats:[
+  {t:'Сытные', i:[
+   {n:'Помощник',p:21000,c:['Пельмени из конины','Пельмени с говядиной или с курицей','Самса на выбор','Вареники с адыгейским сыром','Котлеты по-милански','Хинкали из телятины с кинзой и луком','Зразы из говядины с грибами']},
+   {n:'Нежданные гости',p:16300,c:['Манты из говядины с тыквой','Манты из говядины с луком','Самса на выбор','Наггетсы','Стейк из курицы']},
+   {n:'Смешанный',p:19600,c:['Котлеты из куриной грудки с морковью и сыром','Котлеты из индейки с кукурузой','Пельмени с говядиной','Куриные кармашки','Сырники с брынзой и зеленью','Вареники из цельнозерновой муки с адыгейским сыром']},
+   {n:'Мужской',p:22770,c:['Котлеты из телятины с адыгейским сыром, 7 шт','Котлеты из телятины с овощами, 7 шт','Тефтели из телятины с бурым рисом, 8 шт','Пельмени из цельнозерновой муки с телятиной, 25 шт','Голубцы из телятины, 4 шт','Манты из цельнозерновой муки с телятиной и тыквой, 9 шт']},
+   {n:'Самый топовый',p:22770,c:['Котлеты из телятины с адыгейским сыром, 7 шт','Котлеты из куриной грудки с морковью и сыром, 7 шт','Котлеты из индейки с кукурузой, 7 шт','Фрикадельки из индейки с зеленью, 25 шт','Голубцы из телятины или курицы, 4–5 шт','Вареники из цельнозерновой муки с адыгейским сыром, 25 шт','Равиоли из цельнозерновой муки с курицей и двумя сырами, 25 шт']},
+   {n:'Эйфория',p:22425,c:['Котлеты из куриной грудки с морковью и сыром, 7 шт','Сосиски из индейки с сыром, 7 шт','Голубцы из куриной грудки, 4–5 шт','Тефтели из телятины с овощами, 4 шт','Котлеты из телятины с овощами, 4 шт','Манты из цельнозерновой муки с телятиной и тыквой, 9 шт','Вареники из цельнозерновой муки с адыгейским сыром, 25 шт']},
+   {n:'Детский',p:19350,c:['Котлеты из куриной грудки с морковью и сыром, 7 шт','Фрикадельки из куриной грудки, 25 шт','Вареники с картофелем без лука, 25 шт','Пельмени классические, 25 шт','Тефтели из телятины, 8 шт','Рогалики с творогом, 10 шт','Сырники из рисовой муки с изюмом или цукатами, 8 шт']}]},
+  {t:'Для правильного питания', i:[
+   {n:'Диетический',p:16500,c:['Котлеты из куриной грудки с морковью и сыром, 7 шт','Митболы из куриной грудки с моцареллой, 7 шт','Голубцы из куриной грудки, 4–5 шт','Тефтели из куриной грудки, 8 шт','Манты из цельнозерновой муки с курицей и моцареллой, 9 шт']},
+   {n:'Низкокалорийный',p:18975,c:['Сырники с брынзой и зеленью, 8 шт','Котлеты из индейки с кукурузой, 7 шт','Вареники из цельнозерновой муки с капустой, 20 шт','Тефтели из куриной грудки, 8 шт','Котлеты из индейки с гречкой, 7 шт','Котлеты из телятины с овощами, 7 шт']},
+   {n:'Бешеная сушка',p:22770,c:['Котлеты из телятины с овощами, 7 шт','Котлеты из индейки с кукурузой, 7 шт','Котлеты из куриной грудки с морковью и сыром, 7 шт','Котлеты из индейки с гречкой, 7 шт','Котлеты из куриной грудки с брокколи и шпинатом, 7 шт','Голубцы из телятины или курицы, 4–5 шт','Котлеты из куриной грудки с тыквой, 7 шт']},
+   {n:'Фитнес',p:20700,c:['Пельмени из цельнозерновой муки с телятиной, 25 шт','Вареники из цельнозерновой муки с адыгейским сыром, 25 шт','Вареники с картофелем без лука, 25 шт','Вареники из цельнозерновой муки со сладким творогом, 25 шт','Манты из цельнозерновой муки с курицей и моцареллой, 8 шт','Равиоли из цельнозерновой муки с курицей и двумя сырами, 25 шт']},
+   {n:'Безглютеновый',p:21160,note:'При непереносимости глютена уточните состав у менеджера',c:['Котлеты из куриной грудки с морковью и сыром, 7 шт','Котлеты из индейки с кукурузой, 7 шт','Тефтели из телятины с бурым рисом, 8 шт','Тефтели из куриной грудки, 8 шт','Голубцы из телятины, 4–5 шт','Голубцы из куриной грудки, 4–5 шт']},
+   {n:'Вегетарианский',p:17250,c:['Манты с овощами, 9 шт','Манты с тыквой и картофелем, 9 шт','Голубцы с грибами и нутом, 4–5 шт','Котлеты с нутом и тыквой, 7 шт','Равиоли с грибами, картофелем и шпинатом, 25 шт','Пельмени с чечевицей или фасолью, 25 шт','Тефтели с чечевицей и рисом, 8 шт']}]},
+  {t:'Сладкое', i:[
+   {n:'Самый вкусный',p:18900,c:['Сырники творожные из рисовой муки, 8 шт','Сырники с изюмом, 8 шт','Сырники с цукатами, 8 шт','Штрудель яблочный, 7 шт','Рогалики творожные, 10 шт','Рогалики с курагой, 10 шт','Сырники с брынзой и зеленью, 8 шт']},
+   {n:'Вкусняшка',p:11100,c:['Сырники творожные из рисовой муки, 8 шт','Штрудель яблочный, 7 шт','Рогалики творожные, 10 шт','Рогалики с курагой, 10 шт']}]},
+  {t:'Чтобы попробовать', i:[
+   {n:'Пробный набор',p:10000,w:null,pcs:'12 котлет',c:['По 2 котлеты шести видов: телятина с адыгейским сыром, курица с морковью и сыром, курица с тыквой, курица с брокколи и шпинатом, индейка с гречкой, индейка с кукурузой']},
+   {n:'Пробный мясной',p:8000,w:null,pcs:'5 видов',c:['Тефтели из куриной грудки, 3 шт','Митболы с моцареллой, 3 шт','Фрикадельки из куриной грудки, 200 г','Фрикадельки из индейки, 200 г','Сосиски из индейки с сыром, 2 шт']},
+   {n:'Пробник из цельнозерновой муки',p:5000,w:null,pcs:'4 вида',c:['Вареники с адыгейским сыром, 200 г','Равиоли с курицей и двумя сырами, 200 г','Пельмени с телятиной, 200 г','Манты с курицей и моцареллой, 5 шт']}]}
+ ]},
+ {id:'farm', name:'Фермерское', intro:'Домашняя курица, колбасы, мёд, яйца и заготовки.', defW:null, cats:[
+  {t:'Курица', i:[
+   ['Окорочка',1700,''],['Голень',1750,''],['Крыло',1900,''],['Бедро',1600,''],['Филе',2300,''],
+   ['Курица для жарки',2500,''],['Домашняя курочка для бульона',3000,'']]},
+  {t:'Колбасы и мясное', i:[
+   ['Колбаса из конины',2500,''],['Колбаса из телятины',3500,''],
+   ['Рулет куриный',4000,'за кг',1000],['Ветчина',4000,'за кг',1000],
+   ['Сардельки',4000,'за кг',1000],['Сардельки копчёные',4500,'за кг',1000],['Холодец',2500,'',500]]},
+  {t:'Мёд, яйца, масло', i:[
+   ['Мёд горный, разнотравье',3000,'за кг',1000],['Мёд в сотах',3000,'банка'],
+   ['Яйцо домашнее',900,'10 шт'],['Масло подсолнечное домашнее',1400,'1 л']]},
+  {t:'Заготовки и салаты', i:[
+   ['Грибы грузди маринованные',5000,''],['Капуста солёная',1200,'за кг',1000],
+   ['Оливье',800,'',250],['Винегрет',600,'',250]]}
+ ]}
+];
+
+const STEPS = () => [
+  ['Соберите корзину', 'Сумма и вес считаются сразу.'],
+  ['Отправьте в WhatsApp', 'Список заказа уйдёт нам одним сообщением.'],
+  ['Дождитесь подтверждения', 'Менеджер уточнит адрес и время доставки.'],
+  ['Получите заказ', 'Привезём на следующий день. ' + CONFIG.payment + '.']
+];
+const FAQ = () => [
+  ['До какого времени принимаете заказы?', `До ${CONFIG.orderUntil}. Заказ привезём на следующий день.`],
+  ['Как оплатить?', CONFIG.payment + '.'],
+  ['Сколько стоит доставка?', CONFIG.deliveryCost > 0
+    ? `${money(CONFIG.deliveryCost)}` + (CONFIG.freeDeliveryFrom > 0 ? `, бесплатно при заказе от ${money(CONFIG.freeDeliveryFrom)}` : '') + '. ' + CONFIG.delivery
+    : CONFIG.delivery],
+  ...(CONFIG.minOrder > 0 ? [['Есть минимальная сумма заказа?', `Да, ${money(CONFIG.minOrder)}.`]] : []),
+  ...(CONFIG.pickup ? [['Можно забрать заказ самому?', `Да: ${CONFIG.pickup}. Время согласуйте с менеджером.`]] : []),
+  ['Есть скидка на первый заказ?', CONFIG.firstOrderDiscount ? `Да, ${money(CONFIG.firstOrderDiscount)}. Отметьте это в корзине перед отправкой, менеджер проверит при подтверждении.` : 'Сейчас нет.'],
+  ['Что с моими данными?', 'Сайт не отправляет данные на сервер. Имя, телефон и адрес уходят только магазину в сообщении WhatsApp. Если отметить «Запомнить», они сохранятся на вашем устройстве на 90 дней, чтобы не вводить их снова. Снимите отметку, и они удалятся.'],
+  ['Как готовить?', 'Способ и время приготовления подскажет менеджер. Если у товара есть блок «Как готовить», инструкция указана там.'],
+  ['Можно купить оптом?', 'Да, магазин продаёт оптом и в розницу. Условия опта уточните в WhatsApp.']
+];
+
+/* =========================================================
+   Дальше логика сайта. Менять не нужно.
+   ========================================================= */
+const LINE_META = [
+  {id: 'pp', name: 'Правильное питание', intro: 'Цельнозерновая мука, рисовая мука, индейка, телятина и куриная грудка.', match: /^(прав|пп)/},
+  {id: 'home', name: 'Домашние', intro: 'Пельмени, манты, выпечка, котлеты и готовые блюда из говядины, конины, телятины и курицы.', match: /^дом/},
+  {id: 'sets', name: 'Сеты', intro: 'Несколько видов в одном заказе.', sets: true},
+  {id: 'farm', name: 'Фермерское', intro: 'Домашняя курица, колбасы, мёд, яйца и заготовки. Цена указана за единицу продажи: килограмм, штуку, банку или десяток. Если единица не указана, уточните её у менеджера.', match: /^ферм/}
+];
+
+/* Единый формат данных: и встроенные данные, и таблица приводятся к нему */
+function fromBuiltin() {
+  const products = [], sets = [];
+  BUILTIN.forEach(L => L.cats.forEach(c => c.i.forEach(x => {
+    if (L.sets) sets.push({group: c.t, name: x.n, price: x.p, items: x.c, w: x.w === undefined ? x.c.length * 500 : x.w,
+      pcs: x.pcs || x.c.length + ' видов по 500 г', note: x.note || ''});
+    else { const f = x[4] || ''; products.push({line: L.id, cat: c.t, name: x[0], price: x[1], w: x[3] === undefined ? L.defW : x[3], pcs: x[2] || '',
+      hit: f.includes('h'), veg: f.includes('v'), soy: f.includes('y'), summer: f.includes('s'), sostav: '', allergens: '', kbju: '', storage: '', cooking: ''}); }
+  })));
+  return {products, sets};
+}
+
+/* ---------- чтение Google Таблицы ---------- */
+function parseCSV(text) {
+  const rows = []; let row = [], cell = '', q = false;
+  text = text.replace(/^﻿/, '');
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === ',') { row.push(cell); cell = ''; }
+    else if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i + 1] === '\n') i++; row.push(cell); rows.push(row); row = []; cell = ''; }
+    else cell += ch;
+  }
+  if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+  return rows.filter(r => r.some(c => c.trim() !== ''));
+}
+const low = s => String(s || '').trim().toLowerCase().replace(/ё/g, 'е');
+// «4 400», «4400 ₸», «4,400.00», «4 400,00» → 4400; пусто или текст → null
+function num(v) {
+  let s = String(v || '').replace(/[\s  ₸]|тг|kzt/gi, '');
+  if (!s) return null;
+  s = s.replace(/[.,](?=\d{3}(\D|$))/g, '').replace(',', '.');
+  const n = parseFloat(s);
+  return isFinite(n) ? Math.round(n) : null;
+}
+const yes = v => /^(да|yes|true|1|\+|✓|✔|x|х|v)$/i.test(String(v || '').trim());
+const shown = v => !/^(нет|no|false|0|-|скрыть)$/i.test(String(v || '').trim());
+// колонки ищутся по началу заголовка, поэтому их можно переставлять и чуть переименовывать
+function table(rows, cols) {
+  const head = rows[0].map(low), idx = {};
+  for (const k in cols) idx[k] = head.findIndex(h => cols[k].some(c => h.startsWith(c)));
+  return rows.slice(1).map((r, n) => { const o = {_row: n + 2}; for (const k in idx) o[k] = idx[k] < 0 ? '' : String(r[idx[k]] || '').trim(); return o; });
+}
+const problems = [];   // строки таблицы, которые сайт пропустил, — видны на странице проверки (?check)
+function parseProducts(rows) {
+  const out = [];
+  table(rows, {line: ['линейк'], cat: ['категор'], name: ['назван'], price: ['цена'], w: ['вес'], pcs: ['в упаковке', 'штук'],
+    hit: ['хит'], veg: ['без мяса'], soy: ['соя', 'содержит сою'], summer: ['только летом', 'летом', 'сезон'],
+    sostav: ['состав'], allergens: ['аллерген'], kbju: ['кбжу'], storage: ['хранен', 'условия хран', 'срок'], cooking: ['как готов', 'приготов'], photo: ['фото'], show: ['показ']}).forEach(r => {
+    if (!r.name && !r.price) return;
+    if (!shown(r.show)) return;
+    const L = LINE_META.find(m => m.match && m.match.test(low(r.line)));
+    const price = num(r.price);
+    if (!r.name) return problems.push(`Товары, строка ${r._row}: нет названия`);
+    if (!L) return problems.push(`Товары, строка ${r._row} «${r.name}»: линейка «${r.line}» не найдена. Нужно: Правильное питание, Домашние или Фермерское`);
+    if (!price || price <= 0) return problems.push(`Товары, строка ${r._row} «${r.name}»: не указана цена`);
+    out.push({line: L.id, cat: r.cat || 'Другое', name: r.name, price, w: num(r.w) || null, pcs: r.pcs,
+      hit: yes(r.hit), veg: yes(r.veg), soy: yes(r.soy), summer: yes(r.summer), sostav: r.sostav, allergens: r.allergens, kbju: r.kbju, storage: r.storage, cooking: r.cooking, photo: r.photo});
+  });
+  return out;
+}
+function parseSets(rows) {
+  const out = [];
+  table(rows, {group: ['групп'], name: ['назван'], price: ['цена'], items: ['состав'], w: ['вес'], pcs: ['подпис'], note: ['примеч'], photo: ['фото'], show: ['показ']}).forEach(r => {
+    if (!r.name && !r.price) return;
+    if (!shown(r.show)) return;
+    const price = num(r.price), items = r.items.split(/\n|;/).map(s => s.trim()).filter(Boolean);
+    if (!r.name) return problems.push(`Сеты, строка ${r._row}: нет названия`);
+    if (!price || price <= 0) return problems.push(`Сеты, строка ${r._row} «${r.name}»: не указана цена`);
+    if (!items.length) return problems.push(`Сеты, строка ${r._row} «${r.name}»: не указан состав`);
+    out.push({group: r.group || 'Сеты', name: r.name.replace(/^сет\s*/i, '').replace(/^[«"]|[»"]$/g, ''), price, items,
+      w: num(r.w) || null, pcs: r.pcs || items.length + ' ' + plural(items.length, 'вид', 'вида', 'видов'), note: r.note, photo: r.photo});
+  });
+  return out;
+}
+const SETTINGS_MAP = {
+  'whatsapp': ['whatsapp', 'digits'], 'телефон': ['phoneText'], 'адрес': ['address'], 'часы': ['hours'],
+  'заказы на завтра': ['orderUntil'], 'скидка на первый': ['firstOrderDiscount', 'num'], 'оплата': ['payment'],
+  'доставка, текст': ['delivery'], 'текст про доставку': ['delivery'], 'стоимость доставки': ['deliveryCost', 'num'],
+  'бесплатная доставка': ['freeDeliveryFrom', 'num'], 'минимальн': ['minOrder', 'num'], 'баннер': ['promo'],
+  'instagram': ['instagram', 'list'], 'летние месяц': ['summerMonths', 'months'], 'товар на первом': ['heroItem'],
+  'название компании': ['company'], 'компания': ['company'], 'бин': ['bin'], 'адрес самовывоза': ['pickup'], 'самовывоз': ['pickup']
+};
+function parseSettings(rows) {
+  const out = {};
+  rows.forEach((r, n) => {
+    const key = low(r[0]), val = String(r[1] || '').trim();
+    const k = Object.keys(SETTINGS_MAP).filter(p => key.startsWith(p)).sort((a, b) => b.length - a.length)[0];
+    if (!k) return;
+    const [field, type] = SETTINGS_MAP[k];
+    if (!val && field !== 'promo' && type !== 'num') return;   // пустая ячейка не стирает значение по умолчанию
+    if (type === 'num') out[field] = num(val) || 0;
+    else if (type === 'digits') out[field] = val.replace(/\D/g, '');
+    else if (type === 'list') out[field] = val.split(/[,;\s]+/).map(s => s.replace(/^@/, '')).filter(Boolean);
+    else if (type === 'months') { const m = val.split(/[,;\s]+/).map(Number).filter(x => x >= 1 && x <= 12); if (m.length) out[field] = m; }
+    else out[field] = val;
+  });
+  return out;
+}
+/* Лист «Оформление»: в первой колонке — что меняем, во второй — текст или ссылка на картинку.
+   Пустая ячейка оставляет текст по умолчанию. Незнакомая строка видна на странице проверки (?check). */
+const TEXT_KEYS = {
+  'название сайта': 'siteTitle', 'описание сайта': 'siteDesc',
+  'заголовок': 'heroTitle', 'текст под заголовком': 'heroLead', 'строка про доставку': 'heroWhen',
+  'кнопка 1': 'btnMain', 'кнопка 2': 'btnSets',
+  'преимущество 1': 'f1t', 'преимущество 1, текст': 'f1s', 'преимущество 2': 'f2t', 'преимущество 2, текст': 'f2s',
+  'преимущество 3': 'f3t', 'преимущество 3, текст': 'f3s',
+  'заголовок каталога': 'catTitle', 'текст под заголовком каталога': 'catNote',
+  'описание: правильное питание': 'intro_pp', 'описание: домашние': 'intro_home', 'описание: сеты': 'intro_sets', 'описание: фермерское': 'intro_farm',
+  'заголовок: как заказать': 'orderTitle', 'заголовок: частые вопросы': 'faqTitle', 'заголовок: контакты': 'contactsTitle',
+  'текст в контактах': 'contactsNote', 'кнопка в контактах': 'waBtn', 'подвал': 'footer',
+  'заголовок: что у нас есть': 'linesTitle', 'заголовок: домашняя кухня': 'aboutTitle', 'пометка про фото': 'photoNote',
+  'фото: главный экран, компьютер': 'img_heroDesktop', 'фото: главный экран, телефон': 'img_heroMobile'
+};
+function parseTexts(rows) {
+  const T = {text: {}, steps: [], faq: [], stdFaq: true, img: {lines: {}, cats: {}, about: []}};
+  rows.forEach((r, n) => {
+    const raw = String(r[0] || '').trim(), key = low(raw), val = String(r[1] || '').trim();
+    if (!key || (n === 0 && /^что/.test(key)) || /^[—–#-]/.test(raw)) return;   // заголовок листа и строки-разделители
+    let m;
+    if ((m = key.match(/^шаг\s*(\d)\s*(,\s*текст)?/))) { if (val) { const i = +m[1] - 1; T.steps[i] = T.steps[i] || {i}; T.steps[i][m[2] ? 's' : 't'] = val; } return; }
+    if (/^вопрос/.test(key)) { if (val) T.faq.push({q: val, a: ''}); return; }
+    if (/^ответ/.test(key)) { if (val && T.faq.length) T.faq[T.faq.length - 1].a = val; return; }
+    if (/^стандартные вопросы/.test(key)) { if (val) T.stdFaq = shown(val); return; }
+    if ((m = key.match(/^фото линейки:\s*(.+)/))) { if (val) T.img.lines[m[1].trim()] = val; return; }
+    if ((m = key.match(/^фото категории:\s*(.+)/))) { if (val) T.img.cats[m[1].trim()] = val; return; }
+    if ((m = key.match(/^(фото|подпись): домашняя кухня\s*(\d)/))) { if (val) { const i = +m[2] - 1; T.img.about[i] = T.img.about[i] || {}; T.img.about[i][m[1] === 'фото' ? 'photo' : 'cap'] = val; } return; }
+    const k = Object.keys(TEXT_KEYS).filter(p => key.startsWith(p)).sort((a, b) => b.length - a.length)[0];
+    if (!k) return problems.push(`Оформление, строка ${n + 1} «${raw}»: сайт не знает такой строки, она пропущена`);
+    if (val) T.text[TEXT_KEYS[k]] = val;
+  });
+  T.steps = T.steps.filter(x => x && x.t);
+  T.faq = T.faq.filter(x => x.a);
+  return T;
+}
+async function fetchCSV(url, ms = 8000) {
+  const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), ms);
+  try {
+    const r = await fetch(url, {signal: ctl.signal, cache: 'no-store'});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const txt = await r.text();
+    if (/^\s*</.test(txt)) throw new Error('пришла веб-страница вместо CSV: проверьте, что лист опубликован в формате CSV');
+    return parseCSV(txt);
+  } finally { clearTimeout(t); }
+}
+async function loadSheets() {
+  problems.length = 0;
+  const [p, s, st, tx] = await Promise.all([fetchCSV(SHEETS.products), SHEETS.sets ? fetchCSV(SHEETS.sets) : [], SHEETS.settings ? fetchCSV(SHEETS.settings) : [],
+    SHEETS.texts ? fetchCSV(SHEETS.texts).catch(() => []) : []]);   // без листа «Оформление» сайт работает с текстами по умолчанию
+  const data = {products: p.length ? parseProducts(p) : [], sets: s.length ? parseSets(s) : []};
+  if (!data.products.length) throw new Error('в листе «Товары» не нашлось ни одного товара');
+  const settings = st.length ? parseSettings(st) : {};
+  if (tx.length) settings.texts = parseTexts(tx);
+  return {data, settings};
+}
+
+/* ---------- построение каталога ---------- */
+// id товара зависит от линейки и названия, а не от номера строки:
+// если владелец переставит строки в таблице, корзины покупателей не перепутаются
+function hashId(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = (h * 33 ^ s.charCodeAt(i)) >>> 0; return 'i' + h.toString(36); }
+let ITEMS = {}, LINES = [];
+function buildCatalog(data) {
+  ITEMS = {};
+  const used = {};
+  const mkId = key => { let id = hashId(key); while (used[id]) id = hashId(key + '#' + (used[id]++)); used[id] = 1; return id; };
+  LINES = LINE_META.map(m => ({...m, intro: TX()['intro_' + m.id] || m.intro, cats: []}));
+  const catOf = (L, t) => { let c = L.cats.find(x => x.t === t); if (!c) { c = {t, id: `c-${L.id}-${L.cats.length}`, items: []}; L.cats.push(c); } return c; };
+  data.products.forEach(p => {
+    const L = LINES.find(x => x.id === p.line), c = catOf(L, p.cat);
+    const flags = (p.hit ? 'h' : '') + (p.veg ? 'v' : '') + (p.soy ? 'y' : '') + (p.summer ? 's' : '') + (/цельнозерн/i.test(p.name) ? 'z' : '');
+    const it = {id: mkId(p.line + '|' + p.name), name: p.name, price: p.price, w: p.w, pcs: p.pcs, flags,
+      sostav: p.sostav, allergens: p.allergens, kbju: p.kbju, storage: p.storage || '', cooking: p.cooking || '', photo: p.photo || '', line: p.line, cat: c.t};
+    c.items.push(it); ITEMS[it.id] = it;
+  });
+  const S = LINES.find(x => x.sets);
+  data.sets.forEach(s => {
+    const c = catOf(S, s.group), name = 'Сет «' + s.name + '»';
+    const it = {id: mkId('sets|' + name), name, short: s.name, price: s.price, w: s.w, pcs: s.pcs, comp: s.items, flags: '', note: s.note, photo: s.photo || '', line: 'sets', cat: c.t};
+    c.items.push(it); ITEMS[it.id] = it;
+  });
+  LINES = LINES.filter(L => L.cats.length);
+  if (!LINES.some(L => L.id === active)) active = LINES[0].id;
+}
+
+const $ = s => document.querySelector(s);
+const money = n => n.toLocaleString('ru-RU') + ' ₸';
+const kg = g => g >= 1000 ? (g / 1000).toFixed(1).replace('.', ',').replace(',0', '') + ' кг' : g + ' г';
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+const plural = (n, a, b, c) => { const m = n % 10, h = n % 100; return m === 1 && h !== 11 ? a : (m >= 2 && m <= 4 && (h < 10 || h >= 20) ? b : c); };
+
+const inSeason = it => !it.flags.includes('s') || CONFIG.summerMonths.includes(new Date().getMonth() + 1);
+
+let cart = {}, active = 'pp', filter = 'all';
+const KEY = 'dosyta-cart-v3', FORM_KEY = 'dosyta-form-v1', DATA_KEY = 'dosyta-data-v1';
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+// корзина сверяется с текущим каталогом: удалённые, скрытые и не сезонные товары выпадают
+function restoreCart(saved) {
+  cart = {};
+  for (const k in saved) { const q = Math.floor(+saved[k]); if (ITEMS[k] && inSeason(ITEMS[k]) && q > 0) cart[k] = Math.min(q, CONFIG.maxQty); }
+}
+const save = () => store.set(KEY, cart);
+
+/* ---------- иконки ---------- */
+const icon = (k, c) => `<svg class="ic${c ? ' ' + c : ''}" aria-hidden="true" focusable="false"><use href="#ic-${k}"/></svg>`;
+const LINE_IC = {pp: 'salad', home: 'house', sets: 'package', farm: 'egg'};
+const lineIcon = (L, c) => LINE_IC[L.id] ? icon(LINE_IC[L.id], c) : '';
+const STEP_IC = ['basket', 'message', 'check', 'delivery'];
+// иконка вопроса подбирается по словам в нём, свои вопросы из таблицы тоже получают подходящую
+const FAQ_IC = [[/врем|до как|когда|час/, 'clock'], [/оплат|kaspi|налич/, 'card'], [/доставк|привез|курьер/, 'delivery'],
+  [/скидк|акци|промо/, 'percent'], [/данн|безопас/, 'shield'], [/готов|варит|жарит/, 'pot'], [/опт/, 'boxes'],
+  [/хран|заморо|срок/, 'snowflake'], [/халял|состав|аллерг|мяс/, 'leaf']];
+const faqIcon = q => icon((FAQ_IC.find(([r]) => r.test(q.toLowerCase())) || [, 'help'])[1]);
+
+/* ---------- товары ---------- */
+function buyHTML(id) {
+  const it = ITEMS[id], q = cart[id] || 0;
+  if (!inSeason(it)) return `<span class="soon">${icon('sun', 'ic-s')}Будет летом</span>`;
+  return q
+    ? `<div class="step" role="group" aria-label="Количество: ${esc(it.name)}"><button data-act="dec" data-id="${id}" aria-label="Убрать одну упаковку">−</button><span>${q}</span><button data-act="inc" data-id="${id}" aria-label="Добавить ещё одну упаковку"${q >= CONFIG.maxQty ? ' disabled' : ''}>+</button></div>`
+    : `<button class="add" data-act="inc" data-id="${id}" aria-label="В корзину: ${esc(it.name)}">${icon('plus', 'ic-s')}В корзину</button>`;
+}
+function metaHTML(it) {
+  const p = [];
+  const perKgPrice = /за\s*(1\s*)?кг/i.test(it.pcs || '');
+  if (it.w && !perKgPrice) p.push(`<span>${icon('weight', 'ic-xs')}${kg(it.w)}</span>`);
+  if (it.pcs) p.push(`<span>${icon(perKgPrice ? 'weight' : 'layers', 'ic-xs')}${esc(perKgPrice ? 'цена за 1 кг' : it.pcs)}</span>`);
+  return p.join('');
+}
+function badgesHTML(it) {
+  const b = [];
+  if (it.flags.includes('h')) b.push(`<span class="badge hit">${icon('flame', 'ic-xs')}Хит</span>`);
+  if (it.flags.includes('z')) b.push(`<span class="badge">${icon('wheat', 'ic-xs')}Цельнозерновая мука</span>`);
+  if (it.flags.includes('v')) b.push(`<span class="badge">${icon('leaf', 'ic-xs')}Без мяса</span>`);
+  if (it.flags.includes('s')) b.push(`<span class="badge">${icon('sun', 'ic-xs')}Сезонное, летом</span>`);
+  if (it.flags.includes('y')) b.push(`<span class="badge hit">${icon('alert', 'ic-xs')}Содержит сою</span>`);
+  if (it.note) b.push(`<span class="badge">${esc(it.note)}</span>`);
+  return b.length ? `<div class="badges">${b.join('')}</div>` : '';
+}
+const perKg = it => it.w && it.w !== 1000 ? `<span class="perkg">${money(Math.round(it.price / it.w * 1000 / 10) * 10)} за кг</span>` : '';
+// состав, аллергены и КБЖУ показываются, только если заполнены в таблице
+function infoHTML(it) {
+  const f = [['Состав', it.sostav], ['Аллергены', it.allergens], ['КБЖУ на 100 г', it.kbju], ['Хранение', it.storage], ['Как готовить', it.cooking]].filter(([, v]) => v);
+  if (!f.length) return '';
+  const short = {'КБЖУ на 100 г': 'КБЖУ', 'Как готовить': 'приготовление'};
+  const title = f.map(([k]) => short[k] || k.toLowerCase()).join(', ');
+  return `<details class="info"><summary>${icon('info', 'ic-s')}${title[0].toUpperCase() + title.slice(1)}</summary><dl>${f.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl></details>`;
+}
+function rowHTML(it) {
+  return `<article class="row">${prodThumb(it)}<div class="row-main"><h4>${esc(it.name)}</h4><div class="row-meta">${metaHTML(it)}</div>${badgesHTML(it)}${infoHTML(it)}</div>
+    <div class="row-buy"><b class="price">${money(it.price)}</b>${perKg(it)}<div class="buy" data-buy="${it.id}">${buyHTML(it.id)}</div></div></article>`;
+}
+function setHTML(it) {
+  const ph = imgFor('sets', it.short, it.photo, `Сеты, фото «${it.short}»`);
+  return `<article class="set">${ph ? zoomable(ph, photoTag(ph, 'set-photo', '(min-width: 720px) 45vw, 100vw'), it.short) : ''}<h4>${esc(it.short)}</h4><div class="row-meta">${metaHTML(it)}</div>${badgesHTML(it)}
+    <ul>${it.comp.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+    <div class="set-foot"><div><b class="price">${money(it.price)}</b><br>${perKg(it)}</div><div data-buy="${it.id}">${buyHTML(it.id)}</div></div></article>`;
+}
+const passes = it => filter === 'all' || it.flags.includes(filter);
+
+/* Поиск: без учёта регистра и «ё», каждое слово ищется по основе (индейка → «индей» найдёт «индейки») */
+const norm = s => s.toLowerCase().replace(/ё/g, 'е');
+function matches(it, q) {
+  const hay = norm(it.name + ' ' + it.cat + ' ' + (it.comp || []).join(' '));
+  return norm(q).split(/[\s,]+/).filter(Boolean).every(w => hay.includes(w.length > 4 ? w.slice(0, w.length - 2) : w));
+}
+
+/* ---------- отрисовка каталога ---------- */
+function renderControls(searching) {
+  $('#lines').innerHTML = LINES.map(L => `<button class="line-btn" data-line="${L.id}" aria-pressed="${!searching && L.id === active}">${lineIcon(L, 'ic-s')}${esc(L.name)}</button>`).join('');
+}
+function filtersHTML(L) {
+  if (L.sets || L.id === 'farm') return '';
+  return `<div class="filters" role="group" aria-label="Фильтр">` + [['all','Всё','grid'],['v','Без мяса','leaf'],['z','Цельнозерновая мука','wheat']]
+    .map(([k, t, ic]) => `<button class="filter" data-filter="${k}" aria-pressed="${filter === k}">${icon(ic, 'ic-s')}${t}</button>`).join('') + `</div>`;
+}
+function render() {
+  const q = $('#search').value.trim();
+  renderControls(!!q);
+  if (document.body.classList.contains('loading')) {
+    $('#chips').innerHTML = ''; $('#side').innerHTML = '';
+    $('#list').innerHTML = '<p class="loading-note">Загружаем актуальные цены…</p>';
+    return;
+  }
+  if (q) {
+    $('#chips').innerHTML = ''; $('#side').innerHTML = '';
+    let html = '', total = 0;
+    LINES.forEach(L => {
+      const found = Object.values(ITEMS).filter(it => it.line === L.id && matches(it, q));
+      total += found.length;
+      if (found.length) html += `<div class="cat"><h3>${esc(L.name)}</h3><div class="list">${found.map(rowHTML).join('')}</div></div>`;
+    });
+    $('#list').innerHTML = total
+      ? `<p class="found">Найдено: ${total}</p>` + html
+      : `<div class="empty">${icon('search', 'ic-big')}По запросу «${esc(q)}» ничего нет. Попробуйте другое слово, например «котлеты» или «манты».</div>`;
+    return;
+  }
+  const L = LINES.find(x => x.id === active);
+  const cats = L.cats.map(c => ({...c, shown: c.items.filter(passes)})).filter(c => c.shown.length);
+  const nav = cats.map(c => `<a href="#${c.id}" data-jump="${c.id}">${esc(c.t)}</a>`).join('');
+  $('#side').innerHTML = nav;
+  $('#chips').innerHTML = cats.map(c => `<button class="chip" data-jump="${c.id}">${esc(c.t)}</button>`).join('');
+  const intro = `<p class="line-intro">${esc(L.intro)}</p>` + filtersHTML(L);
+  if (L.sets) {
+    $('#list').innerHTML = intro + cats.map(c => `<div class="set-group cat" id="${c.id}">${catHead(L, c)}<div class="sets">${c.shown.map(setHTML).join('')}</div></div>`).join('');
+  } else {
+    $('#list').innerHTML = intro + (cats.map(c => `<div class="cat" id="${c.id}">${catHead(L, c)}<div class="list">${c.shown.map(rowHTML).join('')}</div></div>`).join('')
+      || `<div class="empty">${icon('leaf', 'ic-big')}В этой линейке нет товаров с таким фильтром.</div>`);
+  }
+}
+
+/* ---------- корзина ---------- */
+function totals() {
+  let sum = 0, w = 0, count = 0, unknown = 0;
+  for (const id in cart) { const it = ITEMS[id], q = cart[id]; sum += it.price * q; count += q; if (it.w) w += it.w * q; else unknown += q; }
+  const disc = $('#firstOrder').checked && count ? Math.min(CONFIG.firstOrderDiscount, sum) : 0;
+  const goods = sum - disc;
+  // доставка: если стоимость задана в таблице, считаем её; бесплатно — от указанной суммы
+  const free = CONFIG.freeDeliveryFrom > 0 && goods >= CONFIG.freeDeliveryFrom;
+  const delivery = count && CONFIG.deliveryCost > 0 ? (free ? 0 : CONFIG.deliveryCost) : 0;
+  const short = CONFIG.minOrder > 0 && count ? Math.max(0, CONFIG.minOrder - sum) : 0;
+  return {sum, disc, goods, delivery, free, total: goods + delivery, w, count, unknown, short};
+}
+function refreshBadges() {
+  const t = totals();
+  $('#cartCount').textContent = t.count;
+  $('#cartCountSr').textContent = `: ${t.count} ${plural(t.count,'товар','товара','товаров')} на ${money(t.total)}`;
+  $('#mbar').hidden = t.count === 0;
+  $('#mbarLeft').innerHTML = `${icon('basket')}<span>Корзина</span><small>${t.count} ${plural(t.count,'товар','товара','товаров')}${t.w ? ', около ' + kg(t.w) : ''}</small>`;
+  $('#mbarRight').textContent = money(t.total);
+  updateSend();
+}
+function cartLineHTML(id) {
+  const it = ITEMS[id], q = cart[id];
+  const size = it.w ? kg(it.w) : (it.pcs || '');
+  return `<div class="line"><div class="line-name">${esc(it.name)}<small>${esc(size)}, ${money(it.price)} за упаковку</small></div>
+    <div data-buy="${id}">${buyHTML(id)}</div><div class="line-sum">${money(it.price * q)}</div></div>`;
+}
+function renderCart() {
+  const ids = Object.keys(cart);
+  $('#cartList').innerHTML = ids.length ? ids.map(cartLineHTML).join('')
+    : `<div class="empty">${icon('basket', 'ic-big')}Корзина пустая. Добавьте товары из каталога.</div>`;
+  const t = totals();
+  const hasDelivery = CONFIG.deliveryCost > 0;
+  const toFree = hasDelivery && CONFIG.freeDeliveryFrom > 0 && !t.free && t.count ? CONFIG.freeDeliveryFrom - t.goods : 0;
+  $('#sum').innerHTML =
+    (t.disc || (hasDelivery && t.count) ? `<span>Товары</span><span>${money(t.sum)}</span>` : '') +
+    (t.disc ? `<span>Скидка на первый заказ</span><span>−${money(t.disc)}</span>` : '') +
+    (hasDelivery && t.count ? `<span>Доставка</span><span>${t.delivery ? money(t.delivery) : 'бесплатно'}</span>` : '') +
+    `<span>Итого</span><span class="total">${money(t.total)}</span>` +
+    `<span>Вес</span><span>${t.w ? 'около ' + kg(t.w) : 'не указан'}</span>` +
+    (t.unknown ? `<span class="note">В вес не вошли товары без указанного веса: ${t.unknown} шт.</span>` : '') +
+    (toFree > 0 ? `<span class="note">До бесплатной доставки осталось ${money(toFree)}.</span>` : '') +
+    (t.short ? `<span class="note warn">Минимальный заказ ${money(CONFIG.minOrder)}. Добавьте товаров ещё на ${money(t.short)}.</span>` : '') +
+    (hasDelivery ? '' : `<span class="note">Доставка не включена. ${esc(CONFIG.delivery)}</span>`);
+  updateSend();
+}
+function change(id, d) {
+  const it = ITEMS[id];
+  if (!it || !inSeason(it)) return;
+  const q = Math.min((cart[id] || 0) + d, CONFIG.maxQty);
+  if (q <= 0) delete cart[id]; else cart[id] = q;
+  save();
+  // кнопка, на которой был фокус, перерисовывается: возвращаем фокус на её замену
+  const hadFocus = document.activeElement && document.activeElement.dataset && document.activeElement.dataset.id === id;
+  const focusedBox = hadFocus ? document.activeElement.closest('[data-buy]') : null;
+  document.querySelectorAll(`[data-buy="${id}"]`).forEach(el => el.innerHTML = buyHTML(id));
+  if (focusedBox && focusedBox.isConnected) {
+    const next = focusedBox.querySelector(d > 0 ? '[data-act="inc"]:not(:disabled)' : '[data-act="dec"]') || focusedBox.querySelector('button');
+    if (next) next.focus();
+  }
+  refreshBadges();
+  renderHeroLabel();
+  if (d > 0) { const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
+  if (!$('#drawer').hidden) {
+    renderCart();
+    if (focusedBox && !focusedBox.isConnected) {
+      const same = $(`#cartList [data-buy="${id}"] button`);
+      (same || $('#closeDrawer')).focus();
+    }
+  }
+}
+let lastFocus = null;
+function openCart() {
+  lastFocus = document.activeElement;
+  renderCart();
+  $('#drawer').hidden = false; $('#scrim').hidden = false; document.body.style.overflow = 'hidden';
+  $('#closeDrawer').focus();
+}
+function closeCart() {
+  if ($('#drawer').hidden) return;
+  $('#drawer').hidden = true; $('#scrim').hidden = true; document.body.style.overflow = '';
+  render();
+  if (lastFocus && lastFocus.isConnected) lastFocus.focus(); else $('#cartBtn').focus();
+}
+// фокус не уходит из открытой корзины на страницу под ней
+function trapFocus(e) {
+  if (e.key !== 'Tab' || $('#drawer').hidden) return;
+  const f = [...$('#drawer').querySelectorAll('button:not(:disabled), a[href], input, textarea')].filter(el => el.offsetParent !== null);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+function message() {
+  const t = totals(), lines = ['Здравствуйте! Хочу заказать:', ''];
+  let n = 1;
+  for (const id in cart) {
+    const it = ITEMS[id], q = cart[id];
+    const size = it.w ? `, ${kg(it.w)}` : (it.pcs ? `, ${it.pcs}` : '');
+    lines.push(`${n++}. ${it.name}${size} × ${q} = ${money(it.price * q)}`);
+  }
+  lines.push('');
+  if (t.disc || CONFIG.deliveryCost > 0) lines.push(`Сумма: ${money(t.sum)}`);
+  if (t.disc) lines.push(`Скидка на первый заказ: −${money(t.disc)}`);
+  if (CONFIG.deliveryCost > 0) lines.push(`Доставка: ${t.delivery ? money(t.delivery) : 'бесплатно'}`);
+  lines.push(`Итого: ${money(t.total)}` + (t.w ? `, около ${kg(t.w)}` : ''));
+  const f = [['Имя', '#fName'], ['Телефон для курьера', '#fPhone'], ['Адрес', '#fAddr'], ['Комментарий', '#fNote']];
+  const filled = f.map(([l, s]) => [l, $(s).value.trim()]).filter(([, v]) => v);
+  if (filled.length) { lines.push(''); filled.forEach(([l, v]) => lines.push(`${l}: ${v}`)); }
+  return lines.join('\n');
+}
+const waUrl = text => (CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp.replace(/\D/g, '')}` : 'https://wa.me/') + (text ? `?text=${encodeURIComponent(text)}` : '');
+/* Отправка — обычная ссылка, а не window.open: так она работает во встроенном браузере Instagram и на iOS */
+function updateSend() {
+  const a = $('#send'), blocked = !Object.keys(cart).length || totals().short > 0;
+  a.setAttribute('aria-disabled', blocked);
+  a.href = blocked ? '#' : waUrl(message());
+}
+/* Контакты хранятся только в браузере покупателя, только с его согласия и не дольше 90 дней */
+const FORM_FIELDS = ['fName', 'fPhone', 'fAddr'], FORM_TTL = 90 * 24 * 3600 * 1000;
+function restoreForm() {
+  const f = store.get(FORM_KEY, {});
+  if (!f || !f.savedAt || Date.now() - f.savedAt > FORM_TTL) { forgetForm(); return; }
+  FORM_FIELDS.forEach(k => { if (typeof f[k] === 'string') $('#' + k).value = f[k]; });
+}
+function saveForm() {
+  if (!$('#remember').checked) return;
+  const f = {savedAt: Date.now()}; FORM_FIELDS.forEach(k => f[k] = $('#' + k).value.trim()); store.set(FORM_KEY, f);
+}
+function forgetForm() { try { localStorage.removeItem(FORM_KEY); } catch (e) {} }
+
+/* ---------- статичные блоки из настроек ---------- */
+function renderHeroLabel() {
+  const all = Object.values(ITEMS).filter(x => inSeason(x) && x.line !== 'sets');
+  const it = all.find(x => low(x.name) === low(CONFIG.heroItem)) || all.find(x => x.flags.includes('h') && x.w) || all.find(x => x.w) || all[0];
+  if (!it) return;
+  const focusWasHere = $('#labelBuy').contains(document.activeElement);
+  $('#labelName').textContent = it.name;
+  $('#labelW').textContent = it.w ? kg(it.w) : '—';
+  $('#labelPcs').textContent = it.pcs || '—';
+  $('#labelKg').textContent = it.w ? money(Math.round(it.price / it.w * 1000 / 10) * 10) : '—';
+  $('#labelPrice').textContent = money(it.price);
+  const lp = imgFor('products', it.line + '|' + it.name, it.photo, `Товары, фото «${it.name}»`), lbox = $('#labelPhoto');
+  lbox.innerHTML = lp ? zoomable(lp, photoTag(lp, '', '360px', false), it.name) : ''; lbox.hidden = !lp;
+  $('#labelBuy').innerHTML = cart[it.id]
+    ? `<button class="btn btn-main" data-cart>${icon('basket')}В корзине: ${cart[it.id]} шт. Открыть</button>`
+    : `<button class="btn btn-main" data-act="inc" data-id="${it.id}">${icon('plus')}Добавить в корзину</button>`;
+  if (focusWasHere) $('#labelBuy button').focus();
+}
+const TX = () => (CONFIG.texts && CONFIG.texts.text) || {};
+// текст по умолчанию запоминается, чтобы вернуть его, если строку удалят из таблицы
+function put(sel, v) {
+  const el = $(sel); if (!el) return;
+  // если перед текстом стоит иконка, меняется только текст
+  const tgt = (el.querySelector('svg') && [...el.childNodes].reverse().find(n => n.nodeType === 3)) || el;
+  if (el.dataset.def === undefined) el.dataset.def = tgt.textContent;
+  tgt.textContent = v || el.dataset.def;
+}
+function renderTexts() {
+  const t = TX(), T = CONFIG.texts || {};
+  [['#heroTitle', 'heroTitle'], ['#heroLead', 'heroLead'], ['#btnMain', 'btnMain'], ['#btnSets', 'btnSets'],
+   ['#f1t', 'f1t'], ['#f1s', 'f1s'], ['#f2t', 'f2t'], ['#f2s', 'f2s'], ['#f3t', 'f3t'],
+   ['#catTitle', 'catTitle'], ['#catNote', 'catNote'], ['#orderTitle', 'orderTitle'], ['#faqTitle', 'faqTitle'],
+   ['#contactsTitle', 'contactsTitle'], ['#contactsNote', 'contactsNote'], ['#waBtn', 'waBtn']].forEach(([sel, k]) => put(sel, t[k]));
+  if (t.heroWhen) $('#heroWhen').textContent = t.heroWhen;
+  if (t.f3s) $('#factDelivery').textContent = t.f3s;
+  // шаг без текста берёт текст по умолчанию (у последнего он собирается из настроек оплаты)
+  const steps = T.steps && T.steps.length ? T.steps.map(x => [x.t, x.s || (STEPS()[x.i] || [])[1] || '']) : STEPS();
+  $('#steps').innerHTML = steps.map(([b, sp], i) => `<li>${icon(STEP_IC[i] || 'check', 'step-ic')}<b>${esc(b)}</b>${sp ? `<span>${esc(sp)}</span>` : ''}</li>`).join('');
+  const faq = [...(T.stdFaq === false ? [] : FAQ()), ...(T.faq || []).map(x => [x.q, x.a])];
+  $('#faqList').innerHTML = faq.map(([q, a]) => `<details><summary>${faqIcon(q)}${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+  $('#faq').hidden = !faq.length;
+  if (t.footer) $('#footer').textContent = t.footer;
+  const meta = (sel, v) => { const m = document.querySelector(sel); if (!m) return; if (m.dataset.def === undefined) m.dataset.def = m.content; m.content = v || m.dataset.def; };
+  if (!document.documentElement.dataset.title) document.documentElement.dataset.title = document.title;
+  document.title = t.siteTitle || document.documentElement.dataset.title;
+  meta('meta[name="description"]', t.siteDesc); meta('meta[property="og:description"]', t.siteDesc);
+}
+function renderStatic() {
+  const when = `Закажите до ${CONFIG.orderUntil}, и мы привезём заказ по Алматы на следующий день.`;
+  $('#heroWhen').textContent = when;
+  $('#factDelivery').textContent = `Заказы до ${CONFIG.orderUntil} доставляем на следующий день`;
+  $('#firstOrderText').textContent = CONFIG.firstOrderDiscount ? `Это мой первый заказ, скидка ${money(CONFIG.firstOrderDiscount)}. Менеджер проверит` : '';
+  $('#firstOrder').closest('label').hidden = !CONFIG.firstOrderDiscount;
+  $('#waLink').href = waUrl('Здравствуйте! У меня вопрос по заказу.');
+  const ig = CONFIG.instagram.map(h => String(h).replace(/[^\w.]/g, '')).filter(Boolean)
+    .map(h => `<a href="https://instagram.com/${h}" target="_blank" rel="noopener">@${h}</a>`).join('<br>');
+  $('#contactList').innerHTML =
+    (CONFIG.phoneText ? `<div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-phone"/></svg>Телефон и WhatsApp</dt><dd><a href="tel:${CONFIG.phoneText.replace(/[^\d+]/g, '')}">${esc(CONFIG.phoneText)}</a></dd></div>` : '') +
+    `<div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-pin"/></svg>Адрес</dt><dd>${esc(CONFIG.address)}</dd></div>` +
+    (CONFIG.pickup ? `<div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-basket"/></svg>Самовывоз</dt><dd>${esc(CONFIG.pickup)}</dd></div>` : '') +
+    `<div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-clock"/></svg>Часы работы</dt><dd>${esc(CONFIG.hours)}. Заказы на завтра принимаем до ${esc(CONFIG.orderUntil)}</dd></div>` +
+    `<div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-card"/></svg>Оплата</dt><dd>${esc(CONFIG.payment)}</dd></div>` +
+    (ig ? `<div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-camera"/></svg>Instagram</dt><dd>${ig}</dd></div>` : '');
+  $('#footer').textContent = `${CONFIG.company}, БИН ${CONFIG.bin}, Алматы. Цены указаны в тенге и могут меняться, точную сумму подтвердит менеджер.`
+    + (Object.keys(IMG.ready).length ? ' Фотографии иллюстративные.' : '');
+  renderImages();
+  renderTexts();
+  renderSchema();
+  $('#promo').innerHTML = CONFIG.promo ? icon('percent', 'ic-s') + esc(CONFIG.promo) : '';
+  $('#promo').hidden = !CONFIG.promo;
+}
+
+// данные о магазине для Google и Яндекса: те же, что видит покупатель, и меняются вместе с таблицей
+function renderSchema() {
+  let el = document.getElementById('ldjson');
+  if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'ldjson'; document.head.appendChild(el); }
+  const data = {'@context': 'https://schema.org', '@type': 'FoodEstablishment', name: 'Досыта на ПП', legalName: CONFIG.company,
+    description: 'Полуфабрикаты ручной работы: правильная и домашняя линейки', currenciesAccepted: 'KZT', areaServed: 'Алматы',
+    address: {'@type': 'PostalAddress', streetAddress: CONFIG.address, addressLocality: 'Алматы', addressCountry: 'KZ'}};
+  if (CONFIG.phoneText) data.telephone = CONFIG.phoneText;
+  if (/^https?:/.test(location.protocol)) data.url = location.origin + location.pathname;
+  el.textContent = JSON.stringify(data);
+}
+
+/* ---------- события ---------- */
+document.addEventListener('click', e => {
+  const b = e.target.closest('button, a[data-jump], a[data-goto]');
+  if (!b) return;
+  if (b.dataset.act) { change(b.dataset.id, b.dataset.act === 'inc' ? 1 : -1); return; }
+  if (b.dataset.cart !== undefined) { openCart(); return; }
+  if (b.dataset.line) {
+    active = b.dataset.line; filter = 'all'; $('#search').value = ''; render();
+    // если пользователь уже листал список, возвращаем к началу новой линейки
+    if ($('#list').getBoundingClientRect().top < stickyH()) window.scrollTo({top: $('#list').getBoundingClientRect().top + scrollY - stickyH() - 8});
+    return;
+  }
+  if (b.dataset.showline) { active = b.dataset.showline; filter = 'all'; $('#search').value = ''; render(); $('#catalog').scrollIntoView(); return; }
+  if (b.dataset.goto) { active = b.dataset.goto; filter = 'all'; $('#search').value = ''; render(); return; }
+  if (b.dataset.filter) { filter = b.dataset.filter; render(); const f = $(`[data-filter="${filter}"]`); if (f) f.focus(); return; }
+  if (b.dataset.jump) { e.preventDefault(); const t = document.getElementById(b.dataset.jump); if (t) t.scrollIntoView(); return; }
+});
+$('#search').addEventListener('input', render);
+$('#cartBtn').addEventListener('click', openCart);
+$('#mbarBtn').addEventListener('click', openCart);
+$('#closeDrawer').addEventListener('click', closeCart);
+$('#scrim').addEventListener('click', closeCart);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); trapFocus(e); });
+$('#firstOrder').addEventListener('change', () => { renderCart(); refreshBadges(); });
+['fName', 'fPhone', 'fAddr', 'fNote'].forEach(k => $('#' + k).addEventListener('input', () => { saveForm(); updateSend(); }));
+let clearArmed = null;
+$('#clear').addEventListener('click', e => {
+  const btn = e.currentTarget;
+  if (!clearArmed) {
+    btn.lastChild.textContent = 'Нажмите ещё раз, чтобы очистить';
+    clearArmed = setTimeout(() => { clearArmed = null; btn.lastChild.textContent = 'Очистить корзину'; }, 3000);
+    return;
+  }
+  clearTimeout(clearArmed); clearArmed = null; btn.lastChild.textContent = 'Очистить корзину';
+  cart = {}; save(); refreshBadges(); renderCart(); renderHeroLabel(); render();
+  $('#closeDrawer').focus();
+});
+$('#send').addEventListener('click', e => {
+  if (!Object.keys(cart).length || totals().short > 0) { e.preventDefault(); return; }
+  updateSend();
+  $('#sent').hidden = false;   // после перехода в WhatsApp предлагаем очистить корзину, чтобы не отправить заказ повторно
+});
+$('#sentClear').addEventListener('click', () => {
+  cart = {}; save(); $('#sent').hidden = true; $('#firstOrder').checked = false;
+  refreshBadges(); renderCart(); renderHeroLabel(); render(); $('#closeDrawer').focus();
+});
+$('#remember').addEventListener('change', e => { if (e.target.checked) saveForm(); else forgetForm(); });
+
+/* высота липкой шапки — для точной прокрутки к категориям */
+const stickyH = () => $('.top').offsetHeight + $('.tools').offsetHeight;
+const syncSticky = () => document.documentElement.style.setProperty('--sticky', stickyH() + 'px');
+addEventListener('resize', syncSticky);
+
+/* ---------- изображения ----------
+   Сначала берётся картинка из таблицы: колонка «Фото» у товаров и сетов, лист «Оформление» для главного экрана,
+   линеек, категорий и блока «Домашняя кухня». Если там пусто — картинка из комплекта по названию.
+   В ячейке можно указать файл комплекта (sets/pomoshchnik.webp), ссылку на картинку или ссылку Google Диска.
+   «нет» убирает картинку. Показываются только файлы, которые есть в dosyta-image-pack/images.js. */
+const IMAGE_MAP = {"hero": {"desktop": "hero/hero-desktop.webp", "mobile": "hero/hero-mobile.webp"}, "lines": {"pp": "lines/pp.webp", "home": "lines/home.webp", "sets": "lines/sets.webp", "farm": "lines/farm.webp"}, "categories": {"pp|Котлеты из курицы": "categories/pp/chicken-cutlets.webp", "pp|Индейка": "categories/pp/turkey.webp", "pp|Телятина": "categories/pp/veal.webp", "pp|Тефтели, митболы, фрикадельки": "categories/pp/meatballs.webp", "pp|Перец, голубцы, долма": "categories/pp/stuffed-peppers-dolma.webp", "pp|Пельмени, манты, равиоли": "categories/pp/wholegrain-dumplings.webp", "pp|Вареники и чебуреки": "categories/pp/vareniki-chebureki.webp", "pp|Без мяса": "categories/pp/meatless.webp", "pp|Сырники, рогалики, штрудель": "categories/pp/syrniki-rogaliki-strudel.webp", "pp|Тесто": "categories/pp/wholegrain-dough.webp", "home|Пельмени и равиоли": "categories/home/pelmeni-ravioli.webp", "home|Манты, хинкали, пигоди": "categories/home/manti-khinkali-pigodi.webp", "home|Вареники": "categories/home/vareniki.webp", "home|Котлеты, зразы, тефтели": "categories/home/cutlets-zrazy.webp", "home|Голубцы и перец": "categories/home/cabbage-rolls-peppers.webp", "home|Стейки и наггетсы": "categories/home/steaks-nuggets.webp", "home|Самса, чебуреки, выпечка": "categories/home/samsa-pastry.webp", "home|Пицца и пироги": "categories/home/pizza-pies.webp", "home|Полуготовые блюда, 15 минут в микроволновке или духовке": "categories/home/ready-meals.webp", "sets|Сытные": "categories/sets/hearty-sets.webp", "sets|Для правильного питания": "categories/sets/healthy-sets.webp", "sets|Сладкое": "categories/sets/sweet-sets.webp", "sets|Чтобы попробовать": "categories/sets/tasting-sets.webp", "farm|Курица": "categories/farm/farm-chicken.webp", "farm|Колбасы и мясное": "categories/farm/sausages-meat.webp", "farm|Мёд, яйца, масло": "categories/farm/honey-eggs-oil.webp", "farm|Заготовки и салаты": "categories/farm/preserves-salads.webp"}, "sets": {"Помощник": "sets/pomoshchnik.webp", "Нежданные гости": "sets/nezhdannye-gosti.webp", "Смешанный": "sets/smeshannyy.webp", "Мужской": "sets/muzhskoy.webp", "Самый топовый": "sets/samyy-topovyy.webp", "Эйфория": "sets/eyforiya.webp", "Детский": "sets/detskiy.webp", "Диетический": "sets/dieticheskiy.webp", "Низкокалорийный": "sets/nizkokaloriynyy.webp", "Бешеная сушка": "sets/beshenaya-sushka.webp", "Фитнес": "sets/fitnes.webp", "Безглютеновый": "sets/bezglyutenovyy.webp", "Вегетарианский": "sets/vegetarianskiy.webp", "Самый вкусный": "sets/samyy-vkusnyy.webp", "Вкусняшка": "sets/vkusnyashka.webp", "Пробный набор": "sets/probnyy-nabor.webp", "Пробный мясной": "sets/probnyy-myasnoy.webp", "Пробник из цельнозерновой муки": "sets/probnik-tselnozernovoy-muki.webp"}, "products": {}, "lifestyle": {"handmade-preparation": "lifestyle/handmade-preparation.webp", "fresh-ingredients": "lifestyle/fresh-ingredients.webp", "food-serving": "lifestyle/food-serving.webp", "homemade-kitchen": "lifestyle/homemade-kitchen.webp"}};
+const IMG = {base: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.base) || 'dosyta-image-pack/', ready: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.ready) || {}};
+const note = msg => { if (!problems.includes(msg)) problems.push(msg); };
+function packImg(f) {
+  const r = IMG.ready[f];
+  return r ? {...r, file: f, src: IMG.base + f, thumb: r.thumb && IMG.base + r.thumb, w600: r.w600 && IMG.base + r.w600} : null;
+}
+// значение ячейки → картинка; undefined — в таблице не указано, null — указано «нет» или файла нет
+function photoFrom(v, where) {
+  v = String(v || '').trim();
+  if (!v) return undefined;
+  if (/^(нет|no|-|скрыть)$/i.test(v)) return null;
+  const d = v.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:[^#]*&)?id=)([\w-]{20,})/);
+  if (d) return {src: 'https://drive.google.com/thumbnail?id=' + d[1] + '&sz=w1600', ext: true};
+  if (/^https?:\/\//i.test(v)) return {src: v, ext: true};
+  const im = packImg(v.replace(/^(\.\/)?(dosyta-image-pack\/)?/, ''));
+  if (!im) note(`${where}: картинка «${v}» не найдена в папке dosyta-image-pack`);
+  return im;
+}
+function imgFor(kind, key, sheet, where) {
+  const own = photoFrom(sheet, where || key);
+  if (own !== undefined) return own;
+  const f = IMAGE_MAP[kind] && IMAGE_MAP[kind][key];
+  return f ? packImg(f) : null;
+}
+const IMGT = () => Object.assign({lines: {}, cats: {}, about: []}, (CONFIG.texts && CONFIG.texts.img) || {});
+// картинка категории в листе «Оформление»: «Фото категории: Котлеты из курицы» или «Фото категории: Домашние / Вареники»
+const catSheet = (L, c) => IMGT().cats[low(L.name + ' / ' + c.t)] || IMGT().cats[low(c.t)];
+const lineSheet = L => IMGT().lines[low(L.name)] || IMGT().lines[L.id];
+const extAttr = im => im.ext ? ' data-ext="1"' : '';
+// карточное фото: на телефоне грузится версия 600 px, на широком экране полная
+function photoTag(im, cls, sizes, lazy = true) {
+  const srcset = im.w600 ? ` srcset="${esc(im.w600)} 600w, ${esc(im.src)} ${im.w}w" sizes="${sizes}"` : '';
+  const wh = im.w ? ` width="${im.w}" height="${im.h}"` : '';
+  return `<img class="${cls}" src="${esc(im.src)}"${srcset}${wh} alt="${esc(im.alt || '')}"${lazy ? ' loading="lazy"' : ''} decoding="async"${extAttr(im)}>`;
+}
+// любая картинка открывается крупно по нажатию
+const zoomable = (im, inner, label) =>
+  `<button class="zoom" type="button" data-zoom="${esc(im.src)}" data-cap="${esc(label)}" aria-label="Увеличить фото: ${esc(label)}">${inner}</button>`;
+function catHead(L, c) {
+  const im = imgFor('categories', L.id + '|' + c.t, catSheet(L, c), `Оформление, фото категории «${c.t}»`);
+  if (!im) return `<h3>${esc(c.t)}</h3>`;
+  return `<div class="cat-head">${zoomable(im, `<img class="cat-thumb" src="${esc(im.thumb || im.src)}" width="288" height="224" alt="" loading="lazy" decoding="async"${extAttr(im)}>`, c.t)}<h3>${esc(c.t)}</h3></div>`;
+}
+function prodThumb(it) {
+  const im = imgFor('products', it.line + '|' + it.name, it.photo, `Товары, фото «${it.name}»`);
+  return im ? zoomable(im, `<img class="row-thumb" src="${esc(im.thumb || im.src)}" width="288" height="224" alt="" loading="lazy" decoding="async"${extAttr(im)}>`, it.name) : '';
+}
+let fitDone = false;
+function renderImages() {
+  const t = TX(), G = IMGT();
+  // главный экран
+  const hd = imgFor('hero', 'desktop', t.img_heroDesktop, 'Оформление, фото главного экрана (компьютер)');
+  const hm = imgFor('hero', 'mobile', t.img_heroMobile, 'Оформление, фото главного экрана (телефон)');
+  const box = $('#heroPhoto'), key = [hd && hd.src, hm && hm.src].join('|');
+  if (box.dataset.key !== key) {
+    box.dataset.key = key;
+    if (hd || hm) {
+      const main = hm || hd, wh = x => x.w ? ` width="${x.w}" height="${x.h}"` : '';
+      box.innerHTML = `<picture>${hd && hm ? `<source media="(min-width: 860px)" srcset="${esc(hd.src)}"${wh(hd)}>` : ''}` +
+        `<img src="${esc(main.src)}"${wh(main)} alt="${esc(main.alt || '')}" fetchpriority="high" decoding="async"></picture>`;
+      box.hidden = false; $('#hero').classList.add('has-photo');
+      box.querySelector('img').addEventListener('error', () => { box.hidden = true; $('#hero').classList.remove('has-photo'); });
+    } else { box.innerHTML = ''; box.hidden = true; $('#hero').classList.remove('has-photo'); }
+    // на телефоне фото — полоса между кнопками и этикеткой: еда не уходит под текст
+    const fit = () => { const h = document.getElementById('hero'), r = h.getBoundingClientRect();
+      const top = $('.hero-actions').getBoundingClientRect().bottom - r.top - 24, bottom = $('.label').getBoundingClientRect().top - r.top + 70;
+      h.style.setProperty('--hero-photo-top', Math.max(0, top) + 'px'); h.style.setProperty('--hero-photo-h', Math.max(120, bottom - top) + 'px'); };
+    fit(); if (!fitDone) { fitDone = true; addEventListener('resize', fit); }
+  }
+  // карточки линеек
+  put('#linesShowTitle', t.linesTitle);
+  const lineImgs = LINES.map(L => ({L, im: imgFor('lines', L.id, lineSheet(L), `Оформление, фото линейки «${L.name}»`)}));
+  $('#lineCards').innerHTML = lineImgs.some(x => x.im) ? lineImgs.map(({L, im}) => {
+    const n = L.cats.reduce((s, c) => s + c.items.length, 0);
+    return `<button class="line-card" data-showline="${L.id}">${im ? photoTag(im, '', '(min-width: 860px) 25vw, 50vw') : ''}<span>${lineIcon(L)}${esc(L.name)}</span><small>${n} ${plural(n, 'позиция', 'позиции', 'позиций')}</small></button>`;
+  }).join('') : '';
+  $('#linesShow').hidden = !lineImgs.some(x => x.im);
+  // блок «Домашняя кухня»: до 6 картинок, подписи меняются в листе «Оформление»
+  put('#aboutTitle', t.aboutTitle); put('#photoNote', t.photoNote);
+  const base = [['handmade-preparation', 'Лепим вручную'], ['fresh-ingredients', 'Мясо, овощи, зелень и мука'], ['food-serving', 'Ужин без лишних хлопот'], ['homemade-kitchen', 'Как дома, только без лепки']];
+  const n = Math.max(base.length, G.about.length);
+  const about = Array.from({length: n}, (_, i) => {
+    const [k, cap] = base[i] || [], s2 = G.about[i] || {};
+    return {im: imgFor('lifestyle', k, s2.photo, `Оформление, фото: домашняя кухня ${i + 1}`), cap: s2.cap || cap || ''};
+  }).filter(x => x.im);
+  $('#aboutGrid').innerHTML = about.map(({im, cap}) => `<figure>${zoomable(im, photoTag(im, '', '(min-width: 860px) 25vw, 50vw'), cap || 'Фото')}${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`).join('');
+  $('#about').hidden = about.length < 2;
+  // строки листа «Оформление», которые не к чему применить
+  const catNames = new Set(LINES.flatMap(L => L.cats.flatMap(c => [low(c.t), low(L.name + ' / ' + c.t)])));
+  Object.keys(G.cats).forEach(k => { if (!catNames.has(k)) note(`Оформление, фото категории «${k}»: такой категории нет в каталоге, фото не показано`); });
+  const lineNames = new Set(LINES.flatMap(L => [low(L.name), L.id]));
+  Object.keys(G.lines).forEach(k => { if (!lineNames.has(k)) note(`Оформление, фото линейки «${k}»: такой линейки нет`); });
+}
+
+/* ---------- просмотр фото крупно ---------- */
+const zoomDlg = $('#zoomDlg');
+document.addEventListener('click', e => {
+  const z = e.target.closest('[data-zoom]');
+  if (z) { $('#zoomImg').src = z.dataset.zoom; $('#zoomImg').alt = z.dataset.cap; $('#zoomCap').textContent = z.dataset.cap; zoomDlg.showModal(); return; }
+  if (e.target === zoomDlg || e.target.closest('#zoomClose')) zoomDlg.close();
+});
+let zoomY = null;
+zoomDlg.addEventListener('touchstart', e => { zoomY = e.touches[0].clientY; }, {passive: true});
+zoomDlg.addEventListener('touchend', e => { if (zoomY !== null && e.changedTouches[0].clientY - zoomY > 80) zoomDlg.close(); zoomY = null; });
+zoomDlg.addEventListener('close', () => { $('#zoomImg').removeAttribute('src'); });
+// картинка по внешней ссылке не открылась — прячем её вместе с кнопкой
+document.addEventListener('error', e => {
+  const im = e.target;
+  if (im.tagName === 'IMG' && im.dataset.ext) (im.closest('.zoom') || im).hidden = true;
+}, true);
+
+/* ---------- запуск ---------- */
+const CHECK = /[?&](check|proverka)\b/.test(location.search);
+let source = 'встроенные данные';
+function applyData(data, settings, savedCart) {
+  if (settings) { Object.assign(CONFIG, settings); CONFIG.texts = settings.texts || {}; }
+  buildCatalog(data);
+  restoreCart(savedCart);
+  renderStatic(); renderHeroLabel(); render(); refreshBadges(); syncSticky();
+  if (!$('#drawer').hidden) renderCart();
+}
+function renderCheck(error) {
+  if (!CHECK) return;
+  const box = $('#checkPanel');
+  const count = Object.values(ITEMS).length;
+  box.hidden = false;
+  box.className = 'check-panel' + (error || problems.length ? '' : ' ok');
+  box.innerHTML = `<h2>Проверка таблицы</h2>
+    <p>Источник: ${esc(source)}. На сайте ${count} ${plural(count, 'товар', 'товара', 'товаров')}.</p>` +
+    (!SHEETS.products ? '<p>Таблица не подключена: в коде не указаны ссылки на листы.</p>' : '') +
+    (error ? `<p class="warn">Таблица не загрузилась: ${esc(error)}</p>` : '') +
+    (problems.length ? `<p>Эти строки пропущены, исправьте их в таблице:</p><ul>${problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
+      : (error ? '' : '<p>Ошибок в строках нет.</p>'));
+}
+(async () => {
+  restoreForm();
+  const saved = store.get(KEY, {});
+  const cached = SHEETS.products ? store.get(DATA_KEY, null) : null;
+  const hasCache = cached && cached.data && cached.data.products && cached.data.products.length;
+  if (hasCache) { source = 'сохранённая копия таблицы'; applyData(cached.data, cached.settings, saved); }
+  else {
+    if (SHEETS.products) document.body.classList.add('loading');
+    applyData(fromBuiltin(), null, saved);
+  }
+  if (!SHEETS.products) { renderCheck(); return; }
+  try {
+    const res = await loadSheets();
+    source = 'Google Таблица';
+    document.body.classList.remove('loading');
+    store.set(DATA_KEY, {at: Date.now(), data: res.data, settings: res.settings});
+    applyData(res.data, res.settings, cart);
+    $('#dataNote').hidden = true;
+    renderCheck();
+  } catch (e) {
+    document.body.classList.remove('loading');
+    if (!hasCache) {
+      render();
+      $('#dataNote').hidden = false;
+    }
+    renderCheck(e.name === 'AbortError' ? 'Google не ответил за 8 секунд' : e.message);
+  }
+})();
+</script>
+</body>
+</html>
