@@ -929,15 +929,37 @@ async function fetchCSV(url, ms = 8000) {
     return parseCSV(txt);
   } finally { clearTimeout(t); }
 }
-async function loadSheets() {
-  problems.length = 0;
-  const [p, s, st, tx] = await Promise.all([fetchCSV(SHEETS.products), SHEETS.sets ? fetchCSV(SHEETS.sets) : [], SHEETS.settings ? fetchCSV(SHEETS.settings) : [],
-    SHEETS.texts ? fetchCSV(SHEETS.texts).catch(() => []) : []]);   // без листа «Оформление» сайт работает с текстами по умолчанию
-  const data = {products: p.length ? parseProducts(p) : [], sets: s.length ? parseSets(s) : []};
+// Листы грузятся независимо. Без «Товаров» таблица не применяется. Если не пришли «Сеты», «Настройки»
+// или «Оформление», берётся их сохранённая копия (а для сетов — встроенные), и это видно на странице проверки.
+const sheetIssues = [];   // какие листы не загрузились и что показано вместо них
+const errText = e => e && e.name === 'AbortError' ? 'Google не ответил за 8 секунд' : (e && e.message) || 'ошибка загрузки';
+async function loadSheets(cached) {
+  problems.length = 0; sheetIssues.length = 0;
+  const get = url => url ? fetchCSV(url).then(rows => ({rows}), error => ({error})) : Promise.resolve({rows: []});
+  const [p, s, st, tx] = await Promise.all([get(SHEETS.products), get(SHEETS.sets), get(SHEETS.settings), get(SHEETS.texts)]);
+  if (p.error) throw p.error;
+  const data = {products: p.rows.length ? parseProducts(p.rows) : [], sets: []};
   if (!data.products.length) throw new Error('в листе «Товары» не нашлось ни одного товара');
-  const settings = st.length ? parseSettings(st) : {};
-  if (tx.length) settings.texts = parseTexts(tx);
-  return {data, settings};
+  const old = cached || {}, oldAt = part => (old.partAt && old.partAt[part]) || old.at;
+  const partAt = {};
+  if (s.error) {
+    const has = old.data && old.data.sets && old.data.sets.length;
+    data.sets = has ? old.data.sets : fromBuiltin().sets;
+    if (has) partAt.sets = oldAt('sets'); else partAt.setsBuiltin = 1;
+    sheetIssues.push(`лист «Сеты» не загрузился (${errText(s.error)}), показаны ${has ? 'сеты из сохранённой копии' : 'встроенные сеты'}`);
+  } else data.sets = s.rows.length ? parseSets(s.rows) : [];
+  let settings = {};
+  if (st.error) {
+    const has = old.settings && Object.keys(old.settings).some(k => k !== 'texts');
+    if (has) { settings = {...old.settings}; delete settings.texts; partAt.settings = oldAt('settings'); }
+    sheetIssues.push(`лист «Настройки» не загрузился (${errText(st.error)}), ${has ? 'взяты настройки из сохранённой копии' : 'работают настройки по умолчанию'}`);
+  } else if (st.rows.length) settings = parseSettings(st.rows);
+  if (tx.error) {   // без листа «Оформление» сайт работает с прошлыми или стандартными текстами
+    const has = old.settings && old.settings.texts;
+    if (has) { settings.texts = old.settings.texts; partAt.texts = oldAt('texts'); }
+    sheetIssues.push(`лист «Оформление» не загрузился (${errText(tx.error)}), ${has ? 'тексты и картинки из сохранённой копии' : 'тексты и картинки по умолчанию'}`);
+  } else if (tx.rows.length) settings.texts = parseTexts(tx.rows);
+  return {data, settings, partAt};
 }
 
 /* ---------- построение каталога ---------- */
@@ -1497,13 +1519,22 @@ function renderCheck(error) {
   const box = $('#checkPanel');
   const count = Object.values(ITEMS).length;
   box.hidden = false;
-  box.className = 'check-panel' + (error || problems.length ? '' : ' ok');
+  box.className = 'check-panel' + (error || problems.length || sheetIssues.length ? '' : ' ok');
   box.innerHTML = `<h2>Проверка таблицы</h2>
     <p>Источник: ${esc(source)}. На сайте ${count} ${plural(count, 'товар', 'товара', 'товаров')}.</p>` +
     (!SHEETS.products ? '<p>Таблица не подключена: в коде не указаны ссылки на листы.</p>' : '') +
     (error ? `<p class="warn">Таблица не загрузилась: ${esc(error)}</p>` : '') +
+    (sheetIssues.length ? `<p class="warn">Загрузилось не всё:</p><ul>${sheetIssues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '') +
     (problems.length ? `<p>Эти строки пропущены, исправьте их в таблице:</p><ul>${problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
       : (error ? '' : '<p>Ошибок в строках нет.</p>'));
+}
+const dateRu = t => new Intl.DateTimeFormat('ru-RU', {day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'}).format(new Date(t));
+function showDataNote(at, what = '') {
+  const note = $('#dataNote'), span = note.querySelector('span') || note;
+  span.textContent = at
+    ? `Не удалось обновить прайс${what ? ' ' + what : ''}. Показаны цены${what ? ' ' + what : ''} на ${dateRu(at)}, менеджер подтвердит точную сумму.`
+    : `Не удалось загрузить актуальный прайс${what ? ' ' + what : ''}. Показаны цены${what ? ' ' + what : ''} из встроенной версии сайта, менеджер подтвердит точную сумму.`;
+  note.hidden = false;
 }
 (async () => {
   restoreForm();
@@ -1517,20 +1548,20 @@ function renderCheck(error) {
   }
   if (!SHEETS.products) { renderCheck(); return; }
   try {
-    const res = await loadSheets();
+    const res = await loadSheets(hasCache ? cached : null);
     source = 'Google Таблица';
     document.body.classList.remove('loading');
-    store.set(DATA_KEY, {at: Date.now(), data: res.data, settings: res.settings});
+    const partAt = {...res.partAt}; delete partAt.setsBuiltin;
+    store.set(DATA_KEY, Object.keys(partAt).length ? {at: Date.now(), data: res.data, settings: res.settings, partAt} : {at: Date.now(), data: res.data, settings: res.settings});
     applyData(res.data, res.settings, cart);
-    $('#dataNote').hidden = true;
+    // цены товаров свежие; если сеты взяты из старой копии, об этом тоже предупреждаем
+    if (res.partAt.sets || res.partAt.setsBuiltin) showDataNote(res.partAt.sets || null, 'сетов'); else $('#dataNote').hidden = true;
     renderCheck();
   } catch (e) {
     document.body.classList.remove('loading');
-    if (!hasCache) {
-      render();
-      $('#dataNote').hidden = false;
-    }
-    renderCheck(e.name === 'AbortError' ? 'Google не ответил за 8 секунд' : e.message);
+    if (!hasCache) render();
+    showDataNote(hasCache ? cached.at : null);
+    renderCheck(errText(e));
   }
 })();
 </script>
