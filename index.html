@@ -13,12 +13,21 @@
 <meta property="og:title" content="Досыта на ПП — полуфабрикаты ручной работы в Алматы">
 <meta property="og:description" content="Пельмени, манты, котлеты и сырники. Заказ до 22:00, доставка на следующий день.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E4D3A'/%3E%3Cpath d='M14 38c0-10 8-18 18-18s18 8 18 18H14z' fill='%23fff'/%3E%3Cpath d='M18 38h28' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet"></noscript>
 <!-- разметка для поисковиков (schema.org) создаётся скриптом из настроек таблицы -->
 <style>
+/* шрифты: Lora для заголовков, Golos Text для текста (файлы в папке fonts, лицензия OFL) */
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/lora-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/lora-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lora-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Lora';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lora-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --ice:#EEF4F3; --paper:#FFFFFF; --frost:#DCEAE6; --line:#D3E0DC;
   --ink:#172420; --mist:#5A6B65;
@@ -51,7 +60,7 @@ html{color-scheme:light dark}
 :root[data-theme="light"]{color-scheme:light}
 :root[data-theme="dark"]{color-scheme:dark}
 body{margin:0;background:var(--ice);color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0;letter-spacing:-.01em}
+h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:700;line-height:1.15;margin:0;letter-spacing:0}
 h4{margin:0;font-size:16px;font-weight:600;line-height:1.35}
 p{margin:0}
 a{color:inherit}
@@ -71,7 +80,7 @@ noscript p{background:var(--tomato-soft);color:var(--ink);padding:12px 16px;text
 /* ---------- шапка ---------- */
 .top{position:sticky;top:0;z-index:30;background:var(--ice);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:16px;height:60px}
-.logo{font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;color:var(--spruce);text-decoration:none;white-space:nowrap}
+.logo{font-family:Lora,Georgia,serif;font-weight:700;font-size:18px;color:var(--spruce);text-decoration:none;white-space:nowrap}
 .nav{display:none;gap:22px;margin-left:auto}
 .nav a{text-decoration:none;font-weight:500;color:var(--mist)}
 .nav a:hover{color:var(--ink)}
@@ -96,14 +105,14 @@ noscript p{background:var(--tomato-soft);color:var(--ink);padding:12px 16px;text
 /* этикетка упаковки — главный визуальный элемент */
 .label{justify-self:center;width:min(100%,360px);background:var(--paper);border:2px solid var(--ink);border-radius:6px;padding:20px 22px 18px;box-shadow:var(--shadow);transform:rotate(-2.5deg);position:relative}
 .label::before{content:"";position:absolute;inset:8px;border:1px dashed var(--line);border-radius:3px;pointer-events:none}
-.label-brand{font-family:Unbounded,sans-serif;font-weight:700;font-size:13px;color:var(--spruce)}
-.label-name{font-family:Unbounded,sans-serif;font-weight:500;font-size:21px;line-height:1.2;margin-top:10px}
+.label-brand{font-family:Lora,Georgia,serif;font-weight:700;font-size:13px;color:var(--spruce)}
+.label-name{font-family:Lora,Georgia,serif;font-weight:600;font-size:21px;line-height:1.2;margin-top:10px}
 .label-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
 .label-grid div{padding:8px 0;font-size:13px;color:var(--mist)}
 .label-grid div+div{border-left:1px solid var(--line);padding-left:10px}
-.label-grid b{display:block;font-size:18px;color:var(--ink);font-family:Unbounded,sans-serif;font-weight:500}
+.label-grid b{display:block;font-size:18px;color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;font-weight:600}
 .label-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:12px}
-.label-price{font-family:Unbounded,sans-serif;font-weight:700;font-size:26px;color:var(--tomato)}
+.label-price{font-family:"Golos Text",system-ui,sans-serif;font-weight:700;font-size:26px;color:var(--tomato)}
 .bars{height:30px;width:96px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 13px);opacity:.85}
 .label .btn{width:100%;margin-top:14px}
 .label-note{font-size:12px;color:var(--mist);margin-top:10px}
@@ -188,7 +197,7 @@ body.loading .label-price,body.loading #labelBuy,body.loading .label-grid b{visi
 .sets{display:grid;gap:14px}
 @media (min-width:720px){.sets{grid-template-columns:1fr 1fr}}
 .set{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column}
-.set h4{font-family:Unbounded,sans-serif;font-weight:500;font-size:18px}
+.set h4{font-family:Lora,Georgia,serif;font-weight:600;font-size:18px}
 .set .row-meta{margin-top:6px}
 .set ul{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--mist)}
 .set ul li+li{margin-top:2px}
@@ -200,7 +209,7 @@ body.loading .label-price,body.loading #labelBuy,body.loading .label-grid b{visi
 /* ---------- как заказать ---------- */
 .steps{display:grid;gap:14px;counter-reset:s;padding:0;margin:0;list-style:none}
 .steps li{counter-increment:s;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 64px;position:relative}
-.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--spruce);color:var(--on-spruce);display:grid;place-items:center;font-family:Unbounded,sans-serif;font-weight:700;font-size:15px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--spruce);color:var(--on-spruce);display:grid;place-items:center;font-family:"Golos Text",system-ui,sans-serif;font-weight:700;font-size:15px}
 .steps b{display:block}
 .steps span{color:var(--mist);font-size:15px}
 @media (min-width:860px){.steps{grid-template-columns:repeat(4,1fr)}.steps li{padding:64px 18px 18px}.steps li::before{left:18px;top:18px}}
@@ -247,7 +256,7 @@ footer{padding:22px 0 110px;font-size:14px;color:var(--mist)}
 .line-name small{display:block;color:var(--mist);font-size:13px;font-weight:400;margin-top:2px}
 .line-sum{font-weight:700;white-space:nowrap;min-width:76px;text-align:right}
 .sum{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:14px 0;padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:14px}
-.sum .total{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px}
+.sum .total{font-family:"Golos Text",system-ui,sans-serif;font-weight:700;font-size:20px}
 .sum .note{grid-column:1/-1;font-size:13px;color:var(--mist)}
 .check{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin:4px 0 6px}
 .check input{width:18px;height:18px;margin-top:2px;accent-color:var(--spruce)}
@@ -328,7 +337,7 @@ textarea.field{min-height:70px;resize:vertical}
 @media (min-width:860px){.line-cards{grid-template-columns:repeat(4,1fr)}}
 .line-card{display:flex;flex-direction:column;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:0;overflow:hidden}
 .line-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--frost)}
-.line-card span{display:block;padding:12px 14px 2px;font-family:Unbounded,sans-serif;font-weight:500;font-size:16px}
+.line-card span{display:block;padding:12px 14px 2px;font-family:Lora,Georgia,serif;font-weight:600;font-size:16px}
 .line-card small{display:block;padding:0 14px 14px;color:var(--mist);font-size:14px}
 .line-card:hover span{color:var(--spruce)}
 .about-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
