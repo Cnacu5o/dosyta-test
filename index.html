@@ -3,6 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- защита: скрипты, шрифты и стили только свои; картинки свои и по ссылкам из таблицы; данные только по https -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<script>
+// 1) страница знает, что скрипты работают: запасной список товаров для поисковиков скрывается
+// 2) если в коде сайта случится ошибка, покупатель увидит подсказку, как заказать
+// 3) тестовый адрес на github.io не попадает в поиск
+document.documentElement.className = 'js';
+(function () {
+  var here = location.href.split(/[?#]/)[0];
+  function fail() { var n = document.getElementById('crashNote'); if (n) n.hidden = false; }
+  window.addEventListener('error', function (e) { if (e.filename && e.filename.indexOf(here) === 0) fail(); });
+  window.addEventListener('unhandledrejection', function (e) { var st = e.reason && e.reason.stack; if (st && String(st).indexOf(here) >= 0) fail(); });
+  if (/\.github\.io$/.test(location.hostname)) { var m = document.createElement('meta'); m.name = 'robots'; m.content = 'noindex'; document.head.appendChild(m); }
+})();
+</script>
 <title>Досыта на ПП — полуфабрикаты ручной работы в Алматы</title>
 <meta name="description" content="Пельмени, манты, котлеты, вареники и сырники ручной работы. Правильная линейка из цельнозерновой муки, индейки и телятины. Доставка по Алматы на следующий день.">
 <meta name="theme-color" content="#EEF4F3" media="(prefers-color-scheme: light)">
@@ -12,22 +27,21 @@
 <meta property="og:site_name" content="Досыта на ПП">
 <meta property="og:title" content="Досыта на ПП — полуфабрикаты ручной работы в Алматы">
 <meta property="og:description" content="Пельмени, манты, котлеты и сырники. Заказ до 22:00, доставка на следующий день.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E4D3A'/%3E%3Cpath d='M14 38c0-10 8-18 18-18s18 8 18 18H14z' fill='%23fff'/%3E%3Cpath d='M18 38h28' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
-<!-- разметка для поисковиков (schema.org) создаётся скриптом из настроек таблицы -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>
+// шрифты начинают грузиться сразу, не дожидаясь стилей (при открытии файла с компьютера это не нужно)
+if (/^https?:/.test(location.protocol)) ['golos-text-var', 'lora-var'].forEach(function (f) {
+  var l = document.createElement('link'); l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = 'fonts/' + f + '.woff2'; document.head.appendChild(l);
+});
+</script>
+<!-- данные магазина для поисковиков (schema.org). Здесь копия по умолчанию, скрипт обновляет её из настроек таблицы -->
+<script type="application/ld+json" id="ldjson">{"@context":"https://schema.org","@type":"FoodEstablishment","name":"Досыта на ПП","legalName":"ТОО «Досыта на ПП»","description":"Полуфабрикаты ручной работы: правильная и домашняя линейки","currenciesAccepted":"KZT","areaServed":"Алматы","address":{"@type":"PostalAddress","streetAddress":"Алматы, ул. Бухар Жырау, 57 / ул. Манаса, 71","addressLocality":"Алматы","addressCountry":"KZ"},"telephone":"+7 747 192 46 15","paymentAccepted":"Перевод на Kaspi Gold или наличными курьеру","sameAs":["https://instagram.com/dosita_na_pp1"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"18:00"}}</script>
 <style>
 /* шрифты: Lora для заголовков, Golos Text для текста (файлы в папке fonts, лицензия OFL) */
-@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/lora-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/lora-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Lora';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lora-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Lora';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lora-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/golos-text-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/golos-text-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/lora-var.woff2) format('woff2')}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/golos-text-var.woff2) format('woff2')}
 :root{
   --ice:#EEF4F3; --paper:#FFFFFF; --frost:#DCEAE6; --line:#D3E0DC;
   --ink:#172420; --mist:#5A6B65;
@@ -66,12 +80,28 @@ p{margin:0}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
 h1,h2,h3{text-wrap:balance}
+p,dd,li{text-wrap:pretty}
+::selection{background:var(--spruce);color:var(--on-spruce)}
+.contacts ::selection{background:var(--on-spruce);color:var(--spruce)}
+input,textarea{caret-color:var(--spruce)}
+a,button,summary,label{-webkit-tap-highlight-color:transparent}
+.opt{font-weight:400;color:var(--mist)}
+.pay-line{display:flex;gap:8px;align-items:flex-start;margin:14px 0 0;font-size:14px;color:var(--mist)}
+.pay-line .ic{flex:none;margin-top:2px;color:var(--spruce)}
+.reviews{display:grid;gap:14px 40px;margin:0;padding:0}
+.reviews figure{margin:0;padding:18px 0 0;border-top:1px solid var(--line)}
+.reviews blockquote{margin:0;font-size:17px;line-height:1.55;max-width:34em}
+.reviews figcaption{margin-top:10px;font-size:14px;color:var(--mist)}
+@media (min-width:860px){.reviews{grid-template-columns:1fr 1fr}}
 .price,.line-sum,.perkg,.sum,.label-price,.count{font-variant-numeric:tabular-nums}
 :focus-visible{outline:2px solid var(--spruce);outline-offset:2px;border-radius:6px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
-.muted{color:var(--mist)}
 .skip{position:absolute;left:16px;top:-60px;z-index:60;background:var(--spruce);color:var(--on-spruce);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
 .skip:focus{top:10px}
+.crash{margin:0;padding:10px 16px;background:var(--tomato-soft);color:var(--ink);font-size:15px;text-align:center}
+.crash a{font-weight:600}
+.js .static-list{display:none}
+.static-list h3{margin:18px 0 6px}.static-list h4{margin:12px 0 4px;font-size:16px}.static-list ul{margin:0;padding-left:20px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .promo{background:var(--tomato);color:var(--on-tomato);text-align:center;font-weight:600;font-size:15px;padding:9px 16px}
 .promo[hidden]{display:none}
@@ -115,7 +145,6 @@ noscript p{background:var(--tomato-soft);color:var(--ink);padding:12px 16px;text
 .label-price{font-family:"Golos Text",system-ui,sans-serif;font-weight:700;font-size:26px;color:var(--tomato)}
 .bars{height:30px;width:96px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 13px);opacity:.85}
 .label .btn{width:100%;margin-top:14px}
-.label-note{font-size:12px;color:var(--mist);margin-top:10px}
 
 /* ---------- факты ---------- */
 .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
@@ -368,34 +397,72 @@ textarea.field{min-height:70px;resize:vertical}
 .zoom-close{position:absolute;top:max(12px,env(safe-area-inset-top));right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:20px;cursor:pointer}
 .zoom-close:hover{background:rgba(255,255,255,.28)}
 .zoom-close:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+/* ---------- вариант с улучшениями ---------- */
+/* 1. размытое превью, пока фото грузится; при первой загрузке фото «проявляется» */
+img.lq{background-size:cover;background-position:center;background-repeat:no-repeat}
+/* 2. текущая категория */
+.side a[aria-current="true"]{color:var(--ink);font-weight:600;box-shadow:inset 3px 0 0 var(--spruce);padding-left:13px;margin-left:-13px}
+.chip[aria-current="true"]{color:var(--spruce);text-decoration-color:var(--spruce);text-decoration-thickness:2px}
+/* 3. подтверждение добавления */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:14px;max-width:calc(100vw - 32px);
+  padding:10px 10px 10px 16px;border-radius:14px;background:var(--ink);color:var(--ice);box-shadow:var(--shadow);font-size:15px;
+  transform:translate(-50%,16px);opacity:0;pointer-events:none;transition:opacity .2s,transform .25s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast.on button{pointer-events:auto}
+.toast span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.toast button{flex:0 0 auto;border:0;border-radius:9px;padding:7px 12px;background:color-mix(in srgb,var(--ice) 16%,transparent);color:var(--ice);font-weight:600}
+.toast button:hover{background:color-mix(in srgb,var(--ice) 26%,transparent)}
+@media (max-width:859.98px){body.has-mbar .toast{bottom:calc(92px + env(safe-area-inset-bottom))}}
+/* 6. статус приёма заказов */
+.cutoff{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:6px 12px 6px 10px;border-radius:999px;background:var(--spruce-soft);color:var(--spruce);font-size:14px;font-weight:600}
+.cutoff[hidden]{display:none}
+.cutoff i{width:8px;height:8px;border-radius:50%;background:currentColor;flex:0 0 auto}
+.cutoff.open i{box-shadow:0 0 0 0 currentColor;animation:v4pulse 2s infinite}
+.cutoff.closed{background:var(--frost);color:var(--mist)}
+.cutoff-cart{display:flex;margin:14px 0 0;border-radius:12px}
+@keyframes v4pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,currentColor 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+/* 5. появление при прокрутке — без скриптов, только где браузер умеет */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .cat-head,.set,.line-card,.steps li,.about-grid figure{animation:v4in linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+  }
+}
+@keyframes v4in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.cutoff.open i{animation:none}.toast{transition:none}}
+/* на сенсорных экранах кнопки крупнее: под палец нужно около 44 px */
+@media (pointer:coarse){
+  .add,.soon{height:42px}
+  .soon{line-height:42px}
+  .step{height:42px}.step button{width:42px;height:42px}
+  .chip{padding-top:10px;padding-bottom:10px}
+  .x{width:44px;height:44px}
+}
 </style>
-<meta property="og:image" content="dosyta-image-pack/hero/og-cover.jpg">
+<!-- если адрес сайта будет не dositanapp.kz, замените его в двух строках ниже, а также в robots.txt и sitemap.xml -->
+<meta property="og:url" content="https://dositanapp.kz/">
+<meta property="og:image" content="https://dositanapp.kz/dosyta-image-pack/hero/og-cover.jpg">
+<meta property="og:image:alt" content="Пельмени, манты и котлеты ручной лепки">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Список готовых изображений. Его создаёт dosyta-image-pack/tools/build_images.py. Нет файла — сайт работает без фото. -->
+<link rel="preload" as="image" href="dosyta-image-pack/hero/hero-desktop.webp" media="(min-width: 860px)" fetchpriority="high">
+<link rel="preload" as="image" href="dosyta-image-pack/hero/hero-mobile.webp" media="(max-width: 859.98px)" fetchpriority="high">
 <script src="dosyta-image-pack/images.js"></script>
-<script>
-(function () {
-  var d = window.DOSYTA_IMAGES; if (!d || !d.ready) return;
-  [['hero/hero-desktop.webp', '(min-width: 860px)'], ['hero/hero-mobile.webp', '(max-width: 859.98px)']].forEach(function (x) {
-    if (!d.ready[x[0]]) return;
-    var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.href = d.base + x[0]; l.media = x[1];
-    l.setAttribute('fetchpriority', 'high'); document.head.appendChild(l);
-  });
-})();
-</script>
+
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><symbol id="ic-basket" viewBox="0 0 24 24"><path d="M5 9h14l-1.3 9.1a2 2 0 0 1-2 1.9H8.3a2 2 0 0 1-2-1.9L5 9Z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/><path d="M9.5 13v3M14.5 13v3"/></symbol><symbol id="ic-message" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12Z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></symbol><symbol id="ic-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.3 2.4 2.4 4.8-5"/></symbol><symbol id="ic-delivery" viewBox="0 0 24 24"><path d="M3 7h11v9H3z"/><path d="M14 10h3.6l2.9 3v3H14"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol><symbol id="ic-hand" viewBox="0 0 24 24"><path d="M8 12V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10V5a1.5 1.5 0 0 1 3 0v6"/><path d="M14 10.5V7a1.5 1.5 0 0 1 3 0v6.5a6.5 6.5 0 0 1-6.5 6.5h-.6a5.5 5.5 0 0 1-4.4-2.2l-2.3-3.1a1.5 1.5 0 0 1 2.3-1.9L8 14"/></symbol><symbol id="ic-list" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6M9 15.5h3.5"/></symbol><symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="ic-snowflake" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="m9.5 4.5 2.5 2 2.5-2M9.5 19.5l2.5-2 2.5 2"/></symbol><symbol id="ic-phone" viewBox="0 0 24 24"><path d="M6.6 3.8 9 3.5l1.6 4-2 1.3a10.5 10.5 0 0 0 6.6 6.6l1.3-2 4 1.6-.3 2.4a2 2 0 0 1-2 1.7A15.5 15.5 0 0 1 4.9 5.8a2 2 0 0 1 1.7-2Z"/></symbol><symbol id="ic-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="ic-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h3"/></symbol><symbol id="ic-camera" viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.3l1.4-2h5.6l1.4 2h2.3A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5Z"/><circle cx="12" cy="13" r="3.3"/></symbol><symbol id="ic-plus" viewBox="0 0 24 24"><svg class="lucide lucide-plus" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14"/><path d="M12 5v14"/></symbol><symbol id="ic-package" viewBox="0 0 24 24"><svg class="lucide lucide-package" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol><symbol id="ic-salad" viewBox="0 0 24 24"><svg class="lucide lucide-salad" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7 21h10"/><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-2.77 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.1"/><path d="m13 12 4-4"/><path d="M10.9 7.25A3.99 3.99 0 0 0 4 10c0 .73.2 1.41.54 2"/></symbol><symbol id="ic-house" viewBox="0 0 24 24"><svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol><symbol id="ic-egg" viewBox="0 0 24 24"><svg class="lucide lucide-egg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22c6.23-.05 7.87-5.57 7.5-10-.36-4.34-3.95-9.96-7.5-10-3.55.04-7.14 5.66-7.5 10-.37 4.43 1.27 9.95 7.5 10z"/></symbol><symbol id="ic-wheat" viewBox="0 0 24 24"><svg class="lucide lucide-wheat" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/></symbol><symbol id="ic-leaf" viewBox="0 0 24 24"><svg class="lucide lucide-leaf" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol><symbol id="ic-grid" viewBox="0 0 24 24"><svg class="lucide lucide-layout-grid" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol><symbol id="ic-flame" viewBox="0 0 24 24"><svg class="lucide lucide-flame" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol><symbol id="ic-sun" viewBox="0 0 24 24"><svg class="lucide lucide-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol><symbol id="ic-alert" viewBox="0 0 24 24"><svg class="lucide lucide-triangle-alert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol><symbol id="ic-weight" viewBox="0 0 24 24"><svg class="lucide lucide-weight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2 2 0 0 0-1.905 1.46L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.925-2.54L19.4 9.5A2 2 0 0 0 17.48 8Z"/></symbol><symbol id="ic-layers" viewBox="0 0 24 24"><svg class="lucide lucide-layers" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol><symbol id="ic-info" viewBox="0 0 24 24"><svg class="lucide lucide-info" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol><symbol id="ic-x" viewBox="0 0 24 24"><svg class="lucide lucide-x" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol><symbol id="ic-send" viewBox="0 0 24 24"><svg class="lucide lucide-send" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol><symbol id="ic-trash" viewBox="0 0 24 24"><svg class="lucide lucide-trash-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></symbol><symbol id="ic-percent" viewBox="0 0 24 24"><svg class="lucide lucide-percent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol><symbol id="ic-shield" viewBox="0 0 24 24"><svg class="lucide lucide-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="ic-pot" viewBox="0 0 24 24"><svg class="lucide lucide-cooking-pot" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></symbol><symbol id="ic-boxes" viewBox="0 0 24 24"><svg class="lucide lucide-boxes" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/><path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/><path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/><path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/></symbol><symbol id="ic-help" viewBox="0 0 24 24"><svg class="lucide lucide-circle-help" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="ic-search" viewBox="0 0 24 24"><svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol></svg>
 <!-- иконки ic-plus … ic-search: Lucide (lucide.dev), лицензия ISC -->
 <a class="skip" href="#catalog">Перейти к каталогу</a>
+<p class="crash" id="crashNote" role="alert" hidden>На сайте что-то сломалось. Обновите страницу, а если не поможет, напишите нам в <a href="https://wa.me/77471924615">WhatsApp</a>: примем заказ там.</p>
 <noscript><p>Каталог работает с включённым JavaScript. Заказать можно и так: напишите в <a href="https://wa.me/77471924615">WhatsApp</a> или позвоните по номеру <a href="tel:+77471924615">+7 747 192 46 15</a>.</p></noscript>
 <aside class="promo" id="promo" aria-label="Акция" hidden></aside>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#" translate="no">Досыта на ПП</a>
+    <a class="logo" href="#hero" translate="no">Досыта на ПП</a>
     <nav class="nav" aria-label="Разделы">
       <a href="#catalog">Каталог</a>
       <a href="#order">Как заказать</a>
@@ -414,6 +481,7 @@ textarea.field{min-height:70px;resize:vertical}
       <h1 id="heroTitle">Ужин уже слеплен</h1>
       <p class="lead" id="heroLead">Пельмени, манты, котлеты, вареники и сырники ручной работы. Есть правильная линейка: цельнозерновая и рисовая мука, индейка, телятина, куриная грудка.</p>
       <p class="when" id="heroWhen"></p>
+      <p class="cutoff" id="cutoff" hidden><i aria-hidden="true"></i><span></span></p>
       <div class="hero-actions">
         <a class="btn btn-main" href="#catalog" id="btnMain"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-basket"/></svg>Собрать заказ</a>
         <a class="btn btn-ghost" href="#catalog" data-goto="sets" id="btnSets"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-package"/></svg>Смотреть сеты</a>
@@ -470,7 +538,7 @@ textarea.field{min-height:70px;resize:vertical}
     </div>
     <div class="catalog">
       <nav class="side" id="side" aria-label="Категории"></nav>
-      <div id="list" aria-live="polite" aria-busy="false"></div>
+      <div id="list" aria-live="polite" aria-busy="false"><!--static:list--><div class="static-list"><p>Полный каталог с ценами и корзиной работает с включённым JavaScript. Актуальные цены и наличие подскажем в WhatsApp.</p><h3>Правильное питание</h3><h4>Котлеты из курицы</h4><ul><li>Котлеты из куриной грудки с морковью и сыром</li><li>Котлеты из куриной грудки с тыквой в овсяной панировке</li><li>Котлеты из куриной грудки с брокколи и шпинатом в овсяной панировке</li><li>Котлеты из куриной грудки с кабачком</li></ul><h4>Индейка</h4><ul><li>Котлеты из филе индейки с гречкой</li><li>Котлеты из филе индейки с кукурузой</li><li>Сосиски из филе индейки с сыром</li></ul><h4>Телятина</h4><ul><li>Котлеты из телятины с овощами в овсяной панировке</li><li>Котлеты из телятины с адыгейским сыром и зеленью</li></ul><h4>Тефтели, митболы, фрикадельки</h4><ul><li>Митболы из куриной грудки с моцареллой</li><li>Тефтели из куриной грудки с бурым рисом и овощами</li><li>Тефтели из телятины с бурым рисом и овощами</li><li>Фрикадельки из телятины</li><li>Фрикадельки из куриной грудки</li><li>Фрикадельки из филе индейки с зеленью</li></ul><h4>Перец, голубцы, долма</h4><ul><li>Перец фаршированный с телятиной и рисом</li><li>Перец фаршированный с куриной грудкой и грибами</li><li>Голубцы из телятины с овощами</li><li>Голубцы из куриной грудки с овощами</li><li>Долма в виноградных листьях из телятины</li></ul><h4>Пельмени, манты, равиоли</h4><ul><li>Пельмени из цельнозерновой муки с телятиной и луком</li><li>Пельмени классические</li><li>Манты из цельнозерновой муки с рубленой телятиной и тыквой</li><li>Манты из цельнозерновой муки с куриной грудкой и моцареллой</li><li>Манты с джусаем и картофелем</li><li>Равиоли из цельнозерновой муки с куриной грудкой, двумя сырами и чесноком</li></ul><h4>Вареники и чебуреки</h4><ul><li>Вареники из цельнозерновой муки с адыгейским сыром и зеленью</li><li>Вареники из цельнозерновой муки с капустой</li><li>Вареники из цельнозерновой муки со сладким творогом</li><li>Вареники с картофелем</li><li>Чебуреки из цельнозерновой муки с джусаем и картофелем</li><li>Чебуреки с брынзой и зеленью</li></ul><h4>Без мяса</h4><ul><li>Равиоли с грибами, картофелем и шпинатом</li><li>Манты с тыквой и картофелем</li><li>Манты с овощами</li><li>Голубцы с грибами и нутом</li><li>Чебуреки из цельнозерновой муки с соевым фаршем</li><li>Пельмени с чечевицей</li><li>Пельмени с фасолью</li><li>Котлеты с нутом и тыквой</li><li>Тефтели с чечевицей и рисом</li></ul><h4>Сырники, рогалики, штрудель</h4><ul><li>Сырники творожные из рисовой муки</li><li>Сырники из рисовой муки с изюмом</li><li>Сырники из рисовой муки с цукатами</li><li>Сырники с брынзой и зеленью</li><li>Рогалики творожные из рисовой муки</li><li>Рогалики из рисовой муки с курагой</li><li>Штрудель яблочный</li></ul><h4>Тесто</h4><ul><li>Тесто из цельнозерновой муки</li></ul><h3>Домашние</h3><h4>Пельмени и равиоли</h4><ul><li>Пельмени из конины</li><li>Пельмени с говядиной</li><li>Пельмени куриные</li><li>Равиоли с курицей и моцареллой</li><li>Равиоли с грибами и шпинатом</li></ul><h4>Манты, хинкали, пигоди</h4><ul><li>Манты из говядины, резаное мясо с луком</li><li>Манты из говядины, резаное мясо с тыквой</li><li>Манты с фаршем и луком</li><li>Манты с фаршем и картофелем</li><li>Манты с фаршем и тыквой</li><li>Манты с фаршем и джусаем</li><li>Хинкали из телятины с кинзой и луком</li><li>Пигоди с телятиной, луком и пекинской капустой</li></ul><h4>Вареники</h4><ul><li>Вареники с адыгейским сыром</li><li>Вареники с творогом, солёные</li><li>Вареники с творогом, сладкие</li><li>Вареники с капустой</li><li>Вареники с картошкой и грибами</li><li>Вареники с картошкой</li></ul><h4>Котлеты, зразы, тефтели</h4><ul><li>Котлеты из говядины</li><li>Котлеты по-киевски</li><li>Котлеты по-милански</li><li>Котлеты рыбные</li><li>Зразы из говядины с грибами</li><li>Тефтели из телятины</li><li>Тефтели из куриной грудки</li><li>Фрикадельки из молодой телятины</li></ul><h4>Голубцы и перец</h4><ul><li>Голубцы с телятиной</li><li>Голубцы с курицей</li><li>Перец фаршированный с телятиной</li><li>Перец фаршированный с курицей</li></ul><h4>Стейки и наггетсы</h4><ul><li>Стейк из говядины</li><li>Стейк из курицы</li><li>Куриные кармашки с грибами и сыром</li><li>Наггетсы в хрустящей панировке</li><li>Бризоль из молодой телятины</li></ul><h4>Самса, чебуреки, выпечка</h4><ul><li>Самса с говядиной</li><li>Самса с говядиной и тыквой</li><li>Самса с курицей и картофелем</li><li>Самса с сыром</li><li>Чебуреки с говядиной и джусаем</li><li>Беляши с говядиной</li><li>Сосиски в тесте</li><li>Пирожки с картошкой</li><li>Пирожки с капустой</li><li>Пирожки с ливером</li></ul><h4>Пицца и пироги</h4><ul><li>Пицца «4 сыра», 35 см, тесто дрожжевое или слоёное</li><li>Пицца «Пепперони», 35 см, тесто дрожжевое или слоёное</li><li>Пирог с курицей, картошкой и луком, тесто дрожжевое или слоёное</li><li>Пирог с говядиной, картошкой и луком, тесто дрожжевое или слоёное</li><li>Пирог с курицей, картошкой и луком, песочное тесто</li><li>Пирог с говядиной, картошкой и луком, песочное тесто</li></ul><h4>Полуготовые блюда, 15 минут в микроволновке или духовке</h4><ul><li>Лагман (цомян)</li><li>Гуйру лагман</li><li>Жульен с курицей, грибами и сыром</li><li>Мясо по-французски с телятиной, картофелем, грибами и сыром</li></ul><h3>Сеты</h3><h4>Сытные</h4><ul><li>Помощник</li><li>Нежданные гости</li><li>Смешанный</li><li>Мужской</li><li>Самый топовый</li><li>Эйфория</li><li>Детский</li></ul><h4>Для правильного питания</h4><ul><li>Диетический</li><li>Низкокалорийный</li><li>Бешеная сушка</li><li>Фитнес</li><li>Безглютеновый</li><li>Вегетарианский</li></ul><h4>Сладкое</h4><ul><li>Самый вкусный</li><li>Вкусняшка</li></ul><h4>Чтобы попробовать</h4><ul><li>Пробный набор</li><li>Пробный мясной</li><li>Пробник из цельнозерновой муки</li></ul><h3>Фермерское</h3><h4>Курица</h4><ul><li>Окорочка</li><li>Голень</li><li>Крыло</li><li>Бедро</li><li>Филе</li><li>Курица для жарки</li><li>Домашняя курочка для бульона</li></ul><h4>Колбасы и мясное</h4><ul><li>Колбаса из конины</li><li>Колбаса из телятины</li><li>Рулет куриный</li><li>Ветчина</li><li>Сардельки</li><li>Сардельки копчёные</li><li>Холодец</li></ul><h4>Мёд, яйца, масло</h4><ul><li>Мёд горный, разнотравье</li><li>Мёд в сотах</li><li>Яйцо домашнее</li><li>Масло подсолнечное домашнее</li></ul><h4>Заготовки и салаты</h4><ul><li>Грибы грузди маринованные</li><li>Капуста солёная</li><li>Оливье</li><li>Винегрет</li></ul></div><!--/static:list--></div>
     </div>
   </div>
 </section>
@@ -495,6 +563,13 @@ textarea.field{min-height:70px;resize:vertical}
   </div>
 </section>
 
+<section class="block" id="reviews" hidden style="padding-top:8px" aria-labelledby="reviewsTitle">
+  <div class="wrap">
+    <div class="block-head"><h2 id="reviewsTitle">Отзывы</h2></div>
+    <div class="reviews" id="reviewList"></div>
+  </div>
+</section>
+
 <section class="block" id="faq" style="padding-top:8px">
   <div class="wrap">
     <div class="block-head"><h2 id="faqTitle">Частые вопросы</h2></div>
@@ -509,12 +584,12 @@ textarea.field{min-height:70px;resize:vertical}
       <p id="contactsNote" style="margin-top:10px;opacity:.85;max-width:30em">Принимаем розничные и оптовые заказы. Вопросы и заказы — в WhatsApp.</p>
       <div class="hero-actions"><a class="btn" id="waLink" href="#" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-message"/></svg><span id="waBtn">Написать в WhatsApp</span></a></div>
     </div>
-    <dl id="contactList"></dl>
+    <dl id="contactList"><!--static:contacts--><div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-phone"></use></svg>Телефон и WhatsApp</dt><dd><a href="tel:+77471924615">+7 747 192 46 15</a></dd></div><div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-pin"></use></svg>Адрес</dt><dd>Алматы, ул. Бухар Жырау, 57 / ул. Манаса, 71</dd></div><div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-clock"></use></svg>Часы работы</dt><dd>Ежедневно с 9:00 до 18:00. Заказы на завтра принимаем до 22:00</dd></div><div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-card"></use></svg>Оплата</dt><dd>Перевод на Kaspi Gold или наличными курьеру</dd></div><div><dt><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-camera"></use></svg>Instagram</dt><dd><a href="https://instagram.com/dosita_na_pp1" target="_blank" rel="noopener">@dosita_na_pp1</a></dd></div><!--/static:contacts--></dl>
   </div>
 </section>
 </main>
 
-<footer><div class="wrap" id="footer"></div></footer>
+<footer><div class="wrap" id="footer"><!--static:footer-->ТОО «Досыта на ПП», БИН 220240011295, Алматы. Цены указаны в тенге и могут меняться, точную сумму подтвердит менеджер. Фотографии иллюстративные.<!--/static:footer--></div></footer>
 
 <dialog class="zoom-dlg" id="zoomDlg" aria-label="Фото крупно">
   <button class="zoom-close" id="zoomClose" type="button" aria-label="Закрыть фото"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-x"/></svg></button>
@@ -522,6 +597,7 @@ textarea.field{min-height:70px;resize:vertical}
   <p id="zoomCap"></p>
 </dialog>
 
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastText"></span><button type="button" id="toastUndo">Отменить</button></div>
 <div class="mbar" id="mbar" hidden>
   <button id="mbarBtn"><span id="mbarLeft"></span><span id="mbarRight"></span></button>
 </div>
@@ -539,9 +615,11 @@ textarea.field{min-height:70px;resize:vertical}
     <input class="field" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7">
     <label class="field-l" for="fAddr">Адрес доставки</label>
     <input class="field" id="fAddr" autocomplete="street-address" placeholder="Улица, дом, квартира…">
-    <label class="field-l" for="fNote">Комментарий</label>
+    <label class="field-l" for="fNote">Комментарий <span class="opt">(необязательно)</span></label>
     <textarea class="field" id="fNote" placeholder="Удобное время, оплата Kaspi или наличными…"></textarea>
     <label class="check" style="margin-top:12px"><input type="checkbox" id="remember" checked> <span>Запомнить имя, телефон и адрес на этом устройстве на 90 дней</span></label>
+    <p class="cutoff cutoff-cart" id="cutoffCart" hidden><i aria-hidden="true"></i><span></span></p>
+    <p class="pay-line" id="payLine" hidden><svg class="ic ic-s" aria-hidden="true" focusable="false"><use href="#ic-card"/></svg><span></span></p>
     <a class="send" id="send" href="#" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#ic-send"/></svg>Отправить заказ в WhatsApp</a>
     <p class="hint">Откроется WhatsApp с готовым сообщением. Останется нажать «Отправить». Наличие, итоговую сумму и время доставки подтвердит менеджер. Сайт не хранит ваши данные у себя: они уходят только магазину в WhatsApp.</p>
     <div class="sent" id="sent" hidden>
@@ -587,6 +665,8 @@ const CONFIG = {
   maxQty: 99,                   // максимум одного товара в заказе
   heroItem: 'Котлеты из куриной грудки с морковью и сыром' // товар на этикетке первого экрана
 };
+
+const DEFAULTS = JSON.parse(JSON.stringify(CONFIG));   // исходные настройки, к ним сайт возвращается при сбое таблицы
 
 /* Встроенные данные — запасной вариант, если таблица не подключена или Google недоступен.
    Товар: [название, цена, штук в упаковке, вес в граммах, метки]
@@ -902,18 +982,19 @@ const TEXT_KEYS = {
   'преимущество 3': 'f3t', 'преимущество 3, текст': 'f3s',
   'заголовок каталога': 'catTitle', 'текст под заголовком каталога': 'catNote',
   'описание: правильное питание': 'intro_pp', 'описание: домашние': 'intro_home', 'описание: сеты': 'intro_sets', 'описание: фермерское': 'intro_farm',
-  'заголовок: как заказать': 'orderTitle', 'заголовок: частые вопросы': 'faqTitle', 'заголовок: контакты': 'contactsTitle',
+  'заголовок: как заказать': 'orderTitle', 'заголовок: отзывы': 'reviewsTitle', 'заголовок: частые вопросы': 'faqTitle', 'заголовок: контакты': 'contactsTitle',
   'текст в контактах': 'contactsNote', 'кнопка в контактах': 'waBtn', 'подвал': 'footer',
   'заголовок: что у нас есть': 'linesTitle', 'заголовок: домашняя кухня': 'aboutTitle', 'пометка про фото': 'photoNote',
   'фото: главный экран, компьютер': 'img_heroDesktop', 'фото: главный экран, телефон': 'img_heroMobile'
 };
 function parseTexts(rows) {
-  const T = {text: {}, steps: [], faq: [], stdFaq: true, img: {lines: {}, cats: {}, about: []}};
+  const T = {text: {}, steps: [], faq: [], reviews: [], stdFaq: true, img: {lines: {}, cats: {}, about: []}};
   rows.forEach((r, n) => {
     const raw = String(r[0] || '').trim(), key = low(raw), val = String(r[1] || '').trim();
     if (!key || (n === 0 && /^что/.test(key)) || /^[—–#-]/.test(raw)) return;   // заголовок листа и строки-разделители
     let m;
     if ((m = key.match(/^шаг\s*(\d)\s*(,\s*текст)?/))) { if (val) { const i = +m[1] - 1; T.steps[i] = T.steps[i] || {i}; T.steps[i][m[2] ? 's' : 't'] = val; } return; }
+    if ((m = key.match(/^отзыв\s*(\d+)\s*(,\s*автор)?/))) { if (val) { const i = +m[1] - 1; T.reviews[i] = T.reviews[i] || {}; T.reviews[i][m[2] ? 'by' : 'text'] = val; } return; }
     if (/^вопрос/.test(key)) { if (val) T.faq.push({q: val, a: ''}); return; }
     if (/^ответ/.test(key)) { if (val && T.faq.length) T.faq[T.faq.length - 1].a = val; return; }
     if (/^стандартные вопросы/.test(key)) { if (val) T.stdFaq = shown(val); return; }
@@ -926,6 +1007,7 @@ function parseTexts(rows) {
   });
   T.steps = T.steps.filter(x => x && x.t);
   T.faq = T.faq.filter(x => x.a);
+  T.reviews = T.reviews.filter(x => x && x.text);
   return T;
 }
 async function fetchCSV(url, ms = 8000) {
@@ -1011,7 +1093,8 @@ let cart = {}, active = 'pp', filter = 'all';
 const KEY = 'dosyta-cart-v3', FORM_KEY = 'dosyta-form-v1', DATA_KEY = 'dosyta-data-v1';
 const store = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } },
-  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} }
 };
 // корзина сверяется с текущим каталогом: удалённые, скрытые и не сезонные товары выпадают
 function restoreCart(saved) {
@@ -1300,6 +1383,12 @@ function renderTexts() {
   const faq = [...(T.stdFaq === false ? [] : FAQ()), ...(T.faq || []).map(x => [x.q, x.a])];
   $('#faqList').innerHTML = faq.map(([q, a]) => `<details><summary>${faqIcon(q)}${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
   $('#faq').hidden = !faq.length;
+  renderFaqSchema(faq);
+  // отзывы покупателей: только те, что владелец сам внёс в таблицу
+  const rv = T.reviews || [];
+  put('#reviewsTitle', t.reviewsTitle);
+  $('#reviewList').innerHTML = rv.map(r => `<figure><blockquote>${esc(r.text)}</blockquote>${r.by ? `<figcaption>${esc(r.by)}</figcaption>` : ''}</figure>`).join('');
+  $('#reviews').hidden = !rv.length;
   if (t.footer) $('#footer').textContent = t.footer;
   const meta = (sel, v) => { const m = document.querySelector(sel); if (!m) return; if (m.dataset.def === undefined) m.dataset.def = m.content; m.content = v || m.dataset.def; };
   if (!document.documentElement.dataset.title) document.documentElement.dataset.title = document.title;
@@ -1313,6 +1402,7 @@ function renderStatic() {
   $('#firstOrderText').textContent = CONFIG.firstOrderDiscount ? `Это мой первый заказ, скидка ${money(CONFIG.firstOrderDiscount)}. Менеджер проверит` : '';
   $('#firstOrder').closest('label').hidden = !CONFIG.firstOrderDiscount;
   $('#waLink').href = waUrl('Здравствуйте! У меня вопрос по заказу.');
+  $('#payLine').hidden = !CONFIG.payment; $('#payLine span').textContent = CONFIG.payment ? 'Оплата: ' + CONFIG.payment.charAt(0).toLowerCase() + CONFIG.payment.slice(1) + '.' : '';
   const ig = CONFIG.instagram.map(h => String(h).replace(/[^\w.]/g, '')).filter(Boolean)
     .map(h => `<a href="https://instagram.com/${h}" target="_blank" rel="noopener">@${h}</a>`).join('<br>');
   $('#contactList').innerHTML =
@@ -1339,8 +1429,36 @@ function renderSchema() {
     description: 'Полуфабрикаты ручной работы: правильная и домашняя линейки', currenciesAccepted: 'KZT', areaServed: 'Алматы',
     address: {'@type': 'PostalAddress', streetAddress: CONFIG.address, addressLocality: 'Алматы', addressCountry: 'KZ'}};
   if (CONFIG.phoneText) data.telephone = CONFIG.phoneText;
-  if (/^https?:/.test(location.protocol)) data.url = location.origin + location.pathname;
+  if (CONFIG.payment) data.paymentAccepted = CONFIG.payment;
+  const ig = CONFIG.instagram.map(h => String(h).replace(/[^\w.]/g, '')).filter(Boolean);
+  if (ig.length) data.sameAs = ig.map(h => 'https://instagram.com/' + h);
+  // «Ежедневно с 9:00 до 18:00» превращается в часы работы для карточки в поиске; другой формат просто не передаётся
+  const h = String(CONFIG.hours || '').match(/ежедневно\s+с\s+(\d{1,2})[:.](\d{2})\s+до\s+(\d{1,2})[:.](\d{2})/i);
+  if (h) data.openingHoursSpecification = {'@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: h[1].padStart(2, '0') + ':' + h[2], closes: h[3].padStart(2, '0') + ':' + h[4]};
+  if (/^https?:/.test(location.protocol)) {
+    const url = location.origin + location.pathname;
+    data.url = url;
+    data.image = new URL('dosyta-image-pack/hero/og-cover.jpg', url).href;
+    // адрес страницы для поисковиков и полная ссылка на картинку для превью
+    let c = document.querySelector('link[rel="canonical"]');
+    if (!c) { c = document.createElement('link'); c.rel = 'canonical'; document.head.appendChild(c); }
+    c.href = url;
+    let o = document.querySelector('meta[property="og:url"]');
+    if (!o) { o = document.createElement('meta'); o.setAttribute('property', 'og:url'); document.head.appendChild(o); }
+    o.content = url;
+    const oi = document.querySelector('meta[property="og:image"]');
+    if (oi) oi.content = data.image;
+  }
   el.textContent = JSON.stringify(data);
+}
+// вопросы и ответы в том же виде, что на странице: их читают поисковики и ИИ-помощники
+function renderFaqSchema(faq) {
+  let el = document.getElementById('ldfaq');
+  if (!faq.length) { if (el) el.remove(); return; }
+  if (!el) { el = document.createElement('script'); el.type = 'application/ld+json'; el.id = 'ldfaq'; document.head.appendChild(el); }
+  el.textContent = JSON.stringify({'@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faq.map(([q, a]) => ({'@type': 'Question', name: q, acceptedAnswer: {'@type': 'Answer', text: a}}))});
 }
 
 /* ---------- события ---------- */
@@ -1402,11 +1520,11 @@ addEventListener('resize', syncSticky);
    В ячейке можно указать файл комплекта (sets/pomoshchnik.webp), ссылку на картинку или ссылку Google Диска.
    «нет» убирает картинку. Показываются только файлы, которые есть в dosyta-image-pack/images.js. */
 const IMAGE_MAP = {"hero": {"desktop": "hero/hero-desktop.webp", "mobile": "hero/hero-mobile.webp"}, "lines": {"pp": "lines/pp.webp", "home": "lines/home.webp", "sets": "lines/sets.webp", "farm": "lines/farm.webp"}, "categories": {"pp|Котлеты из курицы": "categories/pp/chicken-cutlets.webp", "pp|Индейка": "categories/pp/turkey.webp", "pp|Телятина": "categories/pp/veal.webp", "pp|Тефтели, митболы, фрикадельки": "categories/pp/meatballs.webp", "pp|Перец, голубцы, долма": "categories/pp/stuffed-peppers-dolma.webp", "pp|Пельмени, манты, равиоли": "categories/pp/wholegrain-dumplings.webp", "pp|Вареники и чебуреки": "categories/pp/vareniki-chebureki.webp", "pp|Без мяса": "categories/pp/meatless.webp", "pp|Сырники, рогалики, штрудель": "categories/pp/syrniki-rogaliki-strudel.webp", "pp|Тесто": "categories/pp/wholegrain-dough.webp", "home|Пельмени и равиоли": "categories/home/pelmeni-ravioli.webp", "home|Манты, хинкали, пигоди": "categories/home/manti-khinkali-pigodi.webp", "home|Вареники": "categories/home/vareniki.webp", "home|Котлеты, зразы, тефтели": "categories/home/cutlets-zrazy.webp", "home|Голубцы и перец": "categories/home/cabbage-rolls-peppers.webp", "home|Стейки и наггетсы": "categories/home/steaks-nuggets.webp", "home|Самса, чебуреки, выпечка": "categories/home/samsa-pastry.webp", "home|Пицца и пироги": "categories/home/pizza-pies.webp", "home|Полуготовые блюда, 15 минут в микроволновке или духовке": "categories/home/ready-meals.webp", "sets|Сытные": "categories/sets/hearty-sets.webp", "sets|Для правильного питания": "categories/sets/healthy-sets.webp", "sets|Сладкое": "categories/sets/sweet-sets.webp", "sets|Чтобы попробовать": "categories/sets/tasting-sets.webp", "farm|Курица": "categories/farm/farm-chicken.webp", "farm|Колбасы и мясное": "categories/farm/sausages-meat.webp", "farm|Мёд, яйца, масло": "categories/farm/honey-eggs-oil.webp", "farm|Заготовки и салаты": "categories/farm/preserves-salads.webp"}, "sets": {"Помощник": "sets/pomoshchnik.webp", "Нежданные гости": "sets/nezhdannye-gosti.webp", "Смешанный": "sets/smeshannyy.webp", "Мужской": "sets/muzhskoy.webp", "Самый топовый": "sets/samyy-topovyy.webp", "Эйфория": "sets/eyforiya.webp", "Детский": "sets/detskiy.webp", "Диетический": "sets/dieticheskiy.webp", "Низкокалорийный": "sets/nizkokaloriynyy.webp", "Бешеная сушка": "sets/beshenaya-sushka.webp", "Фитнес": "sets/fitnes.webp", "Безглютеновый": "sets/bezglyutenovyy.webp", "Вегетарианский": "sets/vegetarianskiy.webp", "Самый вкусный": "sets/samyy-vkusnyy.webp", "Вкусняшка": "sets/vkusnyashka.webp", "Пробный набор": "sets/probnyy-nabor.webp", "Пробный мясной": "sets/probnyy-myasnoy.webp", "Пробник из цельнозерновой муки": "sets/probnik-tselnozernovoy-muki.webp"}, "products": {}, "lifestyle": {"handmade-preparation": "lifestyle/handmade-preparation.webp", "fresh-ingredients": "lifestyle/fresh-ingredients.webp", "food-serving": "lifestyle/food-serving.webp", "homemade-kitchen": "lifestyle/homemade-kitchen.webp"}};
-const IMG = {base: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.base) || 'dosyta-image-pack/', ready: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.ready) || {}};
+const IMG = {base: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.base) || 'dosyta-image-pack/', ready: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.ready) || {}, lqip: (window.DOSYTA_IMAGES && window.DOSYTA_IMAGES.lqip) || {}};
 const note = msg => { if (!problems.includes(msg)) problems.push(msg); };
 function packImg(f) {
   const r = IMG.ready[f];
-  return r ? {...r, file: f, src: IMG.base + f, thumb: r.thumb && IMG.base + r.thumb, w600: r.w600 && IMG.base + r.w600} : null;
+  return r ? {...r, file: f, src: IMG.base + f, thumb: r.thumb && IMG.base + r.thumb, w600: r.w600 && IMG.base + r.w600, lq: IMG.lqip[f]} : null;
 }
 // значение ячейки → картинка; undefined — в таблице не указано, null — указано «нет» или файла нет
 function photoFrom(v, where) {
@@ -1430,12 +1548,12 @@ const IMGT = () => Object.assign({lines: {}, cats: {}, about: []}, (CONFIG.texts
 // картинка категории в листе «Оформление»: «Фото категории: Котлеты из курицы» или «Фото категории: Домашние / Вареники»
 const catSheet = (L, c) => IMGT().cats[low(L.name + ' / ' + c.t)] || IMGT().cats[low(c.t)];
 const lineSheet = L => IMGT().lines[low(L.name)] || IMGT().lines[L.id];
-const extAttr = im => im.ext ? ' data-ext="1"' : '';
+const extAttr = im => (im.ext ? ' data-ext="1"' : '') + (im.lq ? ` style="background-image:url(${im.lq})"` : '');
 // карточное фото: на телефоне грузится версия 600 px, на широком экране полная
 function photoTag(im, cls, sizes, lazy = true) {
   const srcset = im.w600 ? ` srcset="${esc(im.w600)} 600w, ${esc(im.src)} ${im.w}w" sizes="${sizes}"` : '';
   const wh = im.w ? ` width="${im.w}" height="${im.h}"` : '';
-  return `<img class="${cls}" src="${esc(im.src)}"${srcset}${wh} alt="${esc(im.alt || '')}"${lazy ? ' loading="lazy"' : ''} decoding="async"${extAttr(im)}>`;
+  return `<img class="${cls}${im.lq ? ' lq' : ''}" src="${esc(im.src)}"${srcset}${wh} alt="${esc(im.alt || '')}"${lazy ? ' loading="lazy"' : ''} decoding="async"${extAttr(im)}>`;
 }
 // любая картинка открывается крупно по нажатию
 const zoomable = (im, inner, label) =>
@@ -1443,11 +1561,11 @@ const zoomable = (im, inner, label) =>
 function catHead(L, c) {
   const im = imgFor('categories', L.id + '|' + c.t, catSheet(L, c), `Оформление, фото категории «${c.t}»`);
   if (!im) return `<h3>${esc(c.t)}</h3>`;
-  return `<div class="cat-head">${zoomable(im, `<img class="cat-thumb" src="${esc(im.thumb || im.src)}" width="288" height="224" alt="" loading="lazy" decoding="async"${extAttr(im)}>`, c.t)}<h3>${esc(c.t)}</h3></div>`;
+  return `<div class="cat-head">${zoomable(im, `<img class="cat-thumb${im.lq ? ' lq' : ''}" src="${esc(im.thumb || im.src)}" width="288" height="224" alt="" loading="lazy" decoding="async"${extAttr(im)}>`, c.t)}<h3>${esc(c.t)}</h3></div>`;
 }
 function prodThumb(it) {
   const im = imgFor('products', it.line + '|' + it.name, it.photo, `Товары, фото «${it.name}»`);
-  return im ? zoomable(im, `<img class="row-thumb" src="${esc(im.thumb || im.src)}" width="288" height="224" alt="" loading="lazy" decoding="async"${extAttr(im)}>`, it.name) : '';
+  return im ? zoomable(im, `<img class="row-thumb${im.lq ? ' lq' : ''}" src="${esc(im.thumb || im.src)}" width="288" height="224" alt="" loading="lazy" decoding="async"${extAttr(im)}>`, it.name) : '';
 }
 let fitDone = false;
 function renderImages() {
@@ -1500,7 +1618,7 @@ function renderImages() {
 const zoomDlg = $('#zoomDlg');
 document.addEventListener('click', e => {
   const z = e.target.closest('[data-zoom]');
-  if (z) { $('#zoomImg').src = z.dataset.zoom; $('#zoomImg').alt = z.dataset.cap; $('#zoomCap').textContent = z.dataset.cap; zoomDlg.showModal(); return; }
+  if (z) { $('#zoomImg').src = z.dataset.zoom; $('#zoomImg').alt = z.dataset.cap; $('#zoomCap').textContent = z.dataset.cap; if (zoomDlg.showModal) zoomDlg.showModal(); else zoomDlg.setAttribute('open', ''); return; }
   if (e.target === zoomDlg || e.target.closest('#zoomClose')) zoomDlg.close();
 });
 let zoomY = null;
@@ -1535,7 +1653,8 @@ function renderCheck(error) {
     (error ? `<p class="warn">Таблица не загрузилась: ${esc(error)}</p>` : '') +
     (sheetIssues.length ? `<p class="warn">Загрузилось не всё:</p><ul>${sheetIssues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '') +
     (problems.length ? `<p>Эти строки пропущены, исправьте их в таблице:</p><ul>${problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
-      : (error ? '' : '<p>Ошибок в строках нет.</p>'));
+      : (error ? '' : '<p>Ошибок в строках нет.</p>')) +
+    `<p>Отзывы: ${((CONFIG.texts || {}).reviews || []).length || 'пока нет, блок скрыт. Чтобы он появился, добавьте в лист «Оформление» строки «Отзыв 1» и «Отзыв 1, автор»'}.</p>`;
 }
 const dateRu = t => new Intl.DateTimeFormat('ru-RU', {day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'}).format(new Date(t));
 function showDataNote(at, what = '') {
@@ -1550,28 +1669,132 @@ function showDataNote(at, what = '') {
   const saved = store.get(KEY, {});
   const cached = SHEETS.products ? store.get(DATA_KEY, null) : null;
   const hasCache = cached && cached.data && cached.data.products && cached.data.products.length;
-  if (hasCache) { source = 'сохранённая копия таблицы'; applyData(cached.data, cached.settings, saved); }
-  else {
+  // испорченная сохранённая копия не должна ломать сайт: она удаляется, показываются встроенные данные
+  let cacheOk = false;
+  if (hasCache) {
+    try { applyData(cached.data, cached.settings, saved); source = 'сохранённая копия таблицы'; cacheOk = true; }
+    catch (e) { store.del(DATA_KEY); Object.keys(CONFIG).forEach(k => delete CONFIG[k]); Object.assign(CONFIG, DEFAULTS); }
+  }
+  if (!cacheOk) {
     if (SHEETS.products) document.body.classList.add('loading');
     applyData(fromBuiltin(), null, saved);
   }
   if (!SHEETS.products) { renderCheck(); return; }
+  let stage = 'load';
   try {
-    const res = await loadSheets(hasCache ? cached : null);
-    source = 'Google Таблица';
+    const res = await loadSheets(cacheOk ? cached : null);
+    stage = 'show';
     document.body.classList.remove('loading');
     const partAt = {...res.partAt}; delete partAt.setsBuiltin;
-    store.set(DATA_KEY, Object.keys(partAt).length ? {at: Date.now(), data: res.data, settings: res.settings, partAt} : {at: Date.now(), data: res.data, settings: res.settings});
     applyData(res.data, res.settings, cart);
+    source = 'Google Таблица';
+    // копия сохраняется только после того, как сайт смог показать данные
+    store.set(DATA_KEY, Object.keys(partAt).length ? {at: Date.now(), data: res.data, settings: res.settings, partAt} : {at: Date.now(), data: res.data, settings: res.settings});
     // цены товаров свежие; если сеты взяты из старой копии, об этом тоже предупреждаем
     if (res.partAt.sets || res.partAt.setsBuiltin) showDataNote(res.partAt.sets || null, 'сетов'); else $('#dataNote').hidden = true;
     renderCheck();
   } catch (e) {
     document.body.classList.remove('loading');
-    if (!hasCache) render();
-    showDataNote(hasCache ? cached.at : null);
+    if (stage === 'show') {   // таблица пришла, но показать её не удалось: возвращаем прошлые данные целиком
+      Object.keys(CONFIG).forEach(k => delete CONFIG[k]); Object.assign(CONFIG, DEFAULTS);
+      try { if (cacheOk) applyData(cached.data, cached.settings, cart); else applyData(fromBuiltin(), null, cart); } catch (e2) {}
+    } else if (!cacheOk) render();
+    showDataNote(cacheOk ? cached.at : null);
     renderCheck(errText(e));
   }
+})();
+</script>
+
+<script>
+/* ---------- вариант с улучшениями: поведение ---------- */
+(function () {
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1. фото «проявляется» из превью, только если грузилось из сети (не из кэша) и только один раз
+  const shown = new Set();
+  document.addEventListener('load', e => {
+    const im = e.target;
+    if (!(im instanceof HTMLImageElement) || !im.classList.contains('lq')) return;
+    const src = im.currentSrc || im.src;
+    const t = performance.getEntriesByName(src).pop();
+    if (!calm && !shown.has(src) && t && t.duration > 80) im.animate([{filter: 'blur(10px)'}, {filter: 'blur(0)'}], {duration: 500, easing: 'ease-out'});
+    shown.add(src);
+  }, true);
+
+  // 2. подсветка категории, которую сейчас смотрят
+  let cur = null, tick = false;
+  const spy = () => {
+    tick = false;
+    const cats = [...document.querySelectorAll('#list .cat[id]')];
+    if (!cats.length) return;
+    const line = stickyH() + 60;
+    let act = cats[0];
+    for (const c of cats) { if (c.getBoundingClientRect().top <= line) act = c; else break; }
+    if (act.id === cur && document.querySelector(`[data-jump="${cur}"][aria-current]`)) return;
+    cur = act.id;
+    document.querySelectorAll('.side a[aria-current], .chip[aria-current]').forEach(a => a.removeAttribute('aria-current'));
+    document.querySelectorAll(`[data-jump="${cur}"]`).forEach(a => a.setAttribute('aria-current', 'true'));
+    const chip = document.querySelector(`.chip[data-jump="${cur}"]`), box = document.getElementById('chips');
+    if (chip && box && box.scrollWidth > box.clientWidth) box.scrollTo({left: Math.max(0, chip.offsetLeft - 16), behavior: calm ? 'auto' : 'smooth'});
+  };
+  const req = () => { if (!tick) { tick = true; requestAnimationFrame(spy); } };
+  addEventListener('scroll', req, {passive: true}); addEventListener('resize', req);
+  new MutationObserver(() => { cur = null; req(); }).observe(document.getElementById('list'), {childList: true});
+  req();
+
+  // 3. «Добавлено в корзину · Отменить»
+  const toast = document.getElementById('toast'), toastText = document.getElementById('toastText'), undo = document.getElementById('toastUndo');
+  let lastId = null, timer = null;
+  const hide = () => { toast.classList.remove('on'); lastId = null; };
+  const show = (txt, id) => {
+    toastText.textContent = txt; lastId = id; undo.hidden = !id;
+    toast.classList.add('on'); clearTimeout(timer); timer = setTimeout(hide, 3200);
+  };
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('[data-act="inc"]');
+    if (!b || b.closest('#drawer')) return;
+    const id = b.dataset.id;
+    setTimeout(() => { const it = ITEMS[id]; if (it && cart[id]) show(`Добавлено: ${it.name}${cart[id] > 1 ? ', ' + cart[id] + ' шт.' : ''}`, id); });
+  });
+  undo.addEventListener('click', () => { if (lastId && cart[lastId]) change(lastId, -1); clearTimeout(timer); show('Убрали из корзины'); undo.hidden = true; timer = setTimeout(hide, 1600); });
+  toast.addEventListener('mouseenter', () => clearTimeout(timer));
+  ['cartBtn', 'mbarBtn'].forEach(id => document.getElementById(id).addEventListener('click', () => { clearTimeout(timer); hide(); }));
+  toast.addEventListener('mouseleave', () => { if (toast.classList.contains('on')) timer = setTimeout(hide, 1600); });
+  // над нижней панелью корзины на телефоне
+  const mbar = document.getElementById('mbar');
+  new MutationObserver(() => document.body.classList.toggle('has-mbar', !mbar.hidden)).observe(mbar, {attributes: true, attributeFilter: ['hidden']});
+  document.body.classList.toggle('has-mbar', !mbar.hidden);
+
+  // 4. плавная смена линеек и фильтров: новый список мягко проявляется
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('[data-line], [data-showline], [data-goto], [data-filter]');
+    if (!b || calm) return;
+    setTimeout(() => document.getElementById('list').animate([{opacity: 0, transform: 'translateY(10px)'}, {opacity: 1, transform: 'none'}], {duration: 280, easing: 'cubic-bezier(.2,.8,.3,1)'}));
+  });
+
+  // 6. сколько ещё принимаем заказы на завтра (время Алматы)
+  const hm = s => { const m = String(s || '').match(/(\d{1,2})[:.](\d{2})/); return m ? +m[1] * 60 + +m[2] : null; };
+  const nowAlmaty = () => {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('ru-RU', {timeZone: 'Asia/Almaty', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'}).formatToParts(new Date()).map(x => [x.type, x.value]));
+    return +p.hour * 60 + +p.minute;
+  };
+  const left = m => m >= 60 ? `${Math.floor(m / 60)} ч${m % 60 ? ' ' + m % 60 + ' мин' : ''}` : `${m} мин`;
+  const status = () => {
+    const until = hm(CONFIG.orderUntil);
+    ['cutoff', 'cutoffCart'].forEach(id => {
+      const el = document.getElementById(id); if (!el) return;
+      if (until === null) { el.hidden = true; return; }
+      const d = until - nowAlmaty();
+      el.classList.toggle('open', d > 0); el.classList.toggle('closed', d <= 0);
+      el.querySelector('span').textContent = d > 0
+        ? (d > 60 ? `Принимаем заказы на завтра ещё ${left(Math.floor(d / 10) * 10 || d)}` : `До конца приёма заказов на завтра ${left(d)}`)
+        : `Заказы на завтра принимали до ${CONFIG.orderUntil}. Можно оформить сейчас, менеджер подтвердит дату доставки`;
+      el.hidden = false;
+    });
+  };
+  status(); setInterval(status, 60000);
+  // настройки из таблицы приходят позже — обновляем статус, когда каталог перерисован
+  new MutationObserver(status).observe(document.getElementById('factDelivery'), {childList: true, characterData: true, subtree: true});
 })();
 </script>
 </body>
