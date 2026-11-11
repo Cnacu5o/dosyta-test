@@ -443,6 +443,7 @@ img.lq{background-size:cover;background-position:center;background-repeat:no-rep
 .set-foot .was{margin-left:8px}
 .set{min-width:0}
 body.loading #list{min-height:1600px}
+@media (max-width:319.98px){.top .wrap{gap:8px}.logo{font-size:16px}.cart-btn{padding:8px 10px;gap:6px;font-size:14px}}
 .set-foot{flex-wrap:wrap}
 .badge.sale{background:var(--tomato-soft);color:var(--tomato)}
 .badge.sale .ic{color:var(--tomato)}
@@ -1859,6 +1860,7 @@ function showDataNote(at, what = '', text = '') {
   let lastId = null, timer = null;
   const hide = () => { toast.classList.remove('on'); lastId = null; };
   const show = (txt, id) => {
+    if (!document.getElementById('drawer').hidden) return;   // корзина уже открыта
     toastText.textContent = txt; lastId = id; undo.hidden = !id;
     toast.classList.add('on'); clearTimeout(timer); timer = setTimeout(hide, 3200);
   };
