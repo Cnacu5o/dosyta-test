@@ -648,6 +648,10 @@ const SHEETS = {
   texts: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThp7x0QuiWlNVtlp_uuUIrlC1aeqtcimmLbPSEB56iwn24QJ7JAFRCyPQvQxwsXg/pub?gid=1087752847&single=true&output=csv',      // лист «Оформление»: тексты, вопросы, ссылки на картинки
   promos: ''       // лист «Акции» (необязательно): цены и скидки по акциям
 };
+// Файл, открытый прямо с компьютера, не может читать таблицу Google: так устроены браузеры.
+// В этом случае сайт показывает встроенные данные, как будто таблица не подключена.
+const FROM_FILE = location.protocol === 'file:' && !!SHEETS.products;
+if (FROM_FILE) Object.keys(SHEETS).forEach(k => { SHEETS[k] = ''; });
 
 /* Значения по умолчанию. Лист «Настройки» в таблице их перекрывает. */
 const CONFIG = {
@@ -1743,7 +1747,7 @@ function renderCheck(error) {
   box.className = 'check-panel' + (error || notes.length || sheetIssues.length ? '' : ' ok');
   box.innerHTML = `<h2>Проверка таблицы</h2>
     <p>Источник: ${esc(source)}. На сайте ${count} ${plural(count, 'товар', 'товара', 'товаров')}.</p>` +
-    (!SHEETS.products ? '<p>Таблица не подключена: в коде не указаны ссылки на листы.</p>' : '') +
+    (FROM_FILE ? '<p>Сайт открыт как файл с компьютера. В этом режиме таблица Google не читается, показаны встроенные данные. Свежие цены и акции из таблицы видны на опубликованном сайте.</p>' : !SHEETS.products ? '<p>Таблица не подключена: в коде не указаны ссылки на листы.</p>' : '') +
     (error ? `<p class="warn">Таблица не загрузилась: ${esc(error)}</p>` : '') +
     (sheetIssues.length ? `<p class="warn">Загрузилось не всё:</p><ul>${sheetIssues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '') +
     (notes.length ? `<p>Эти строки пропущены или требуют внимания, исправьте их в таблице:</p><ul>${notes.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
