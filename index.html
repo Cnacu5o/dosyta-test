@@ -438,6 +438,11 @@ img.lq{background-size:cover;background-position:center;background-repeat:no-rep
   .chip{padding-top:10px;padding-bottom:10px}
   .x{width:44px;height:44px}
 }
+.price.sale{color:var(--tomato)}
+.was{font-size:13px;color:var(--mist);white-space:nowrap}
+.set-foot .was{margin-left:8px}
+.badge.sale{background:var(--tomato-soft);color:var(--tomato)}
+.badge.sale .ic{color:var(--tomato)}
 </style>
 <!-- если адрес сайта будет не dositanapp.kz, замените его в двух строках ниже, а также в robots.txt и sitemap.xml -->
 <meta property="og:url" content="https://dositanapp.kz/">
@@ -640,7 +645,8 @@ const SHEETS = {
   products: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThp7x0QuiWlNVtlp_uuUIrlC1aeqtcimmLbPSEB56iwn24QJ7JAFRCyPQvQxwsXg/pub?gid=1646683213&single=true&output=csv',   // лист «Товары»
   sets: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThp7x0QuiWlNVtlp_uuUIrlC1aeqtcimmLbPSEB56iwn24QJ7JAFRCyPQvQxwsXg/pub?gid=1231855638&single=true&output=csv',       // лист «Сеты»
   settings: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThp7x0QuiWlNVtlp_uuUIrlC1aeqtcimmLbPSEB56iwn24QJ7JAFRCyPQvQxwsXg/pub?gid=562808199&single=true&output=csv',   // лист «Настройки»
-  texts: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThp7x0QuiWlNVtlp_uuUIrlC1aeqtcimmLbPSEB56iwn24QJ7JAFRCyPQvQxwsXg/pub?gid=1087752847&single=true&output=csv'       // лист «Оформление»: тексты, вопросы, ссылки на картинки
+  texts: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThp7x0QuiWlNVtlp_uuUIrlC1aeqtcimmLbPSEB56iwn24QJ7JAFRCyPQvQxwsXg/pub?gid=1087752847&single=true&output=csv',      // лист «Оформление»: тексты, вопросы, ссылки на картинки
+  promos: 'promos-demo.csv'       // лист «Акции» (необязательно): цены и скидки по акциям
 };
 
 /* Значения по умолчанию. Лист «Настройки» в таблице их перекрывает. */
@@ -934,6 +940,40 @@ function parseProducts(rows) {
   });
   return out;
 }
+// сегодняшняя дата в Алматы в виде 2026-11-15: по ней акции начинаются и заканчиваются
+const todayKey = () => new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Almaty', year: 'numeric', month: '2-digit', day: '2-digit'}).format(new Date());
+// «15.11.2026», «15.11.26», «15.11» (текущий год), «2026-11-15» → '2026-11-15'; пусто → ''; непонятное → null
+function dateKey(v) {
+  const s = String(v || '').trim();
+  if (!s) return '';
+  let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/), d, mo, y;
+  if (m) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+  else if ((m = s.match(/^(\d{1,2})[.\/-](\d{1,2})(?:[.\/-](\d{4}|\d{2}))?\.?$/))) { d = +m[1]; mo = +m[2]; y = m[3] ? (+m[3] < 100 ? 2000 + +m[3] : +m[3]) : +todayKey().slice(0, 4); }
+  else return null;
+  const t = new Date(Date.UTC(y, mo - 1, d));
+  if (t.getUTCFullYear() !== y || t.getUTCMonth() !== mo - 1 || t.getUTCDate() !== d) return null;
+  return `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+}
+const dmy = k => k.slice(8) + '.' + k.slice(5, 7);
+const dayMonth = k => new Intl.DateTimeFormat('ru-RU', {day: 'numeric', month: 'long', timeZone: 'UTC'}).format(new Date(k + 'T00:00:00Z'));
+function parsePromos(rows) {
+  const out = [];
+  const list = v => v.split(/\n|;/).map(x => x.trim()).filter(Boolean);
+  table(rows, {name: ['назван'], on: ['на что', 'действует'], except: ['кроме'], price: ['цена'], pct: ['скидка'], from: ['с даты', 'начал'], to: ['по дату', 'оконч', 'до'], show: ['включ', 'показ']}).forEach(r => {
+    if (!r.name && !r.on && !r.price && !r.pct) return;
+    const tag = `Акции, строка ${r._row}` + (r.name ? ` «${r.name}»` : '');
+    const price = num(r.price), pct = num(r.pct.replace('%', '')), from = dateKey(r.from), to = dateKey(r.to);
+    if (!r.name) return problems.push(`${tag}: нет названия акции`);
+    if (!r.on) return problems.push(`${tag}: не указано, на что действует. Напишите «Всё», «Сеты», название линейки, категории или товара`);
+    if (price && pct) return problems.push(`${tag}: заполнены и цена, и скидка. Оставьте что-то одно`);
+    if (!price && !pct) return problems.push(`${tag}: не указана ни цена по акции, ни скидка в процентах`);
+    if (price < 0 || pct < 0 || pct > 90) return problems.push(`${tag}: цена должна быть больше нуля, а скидка от 1 до 90 %`);
+    if (from === null || to === null) return problems.push(`${tag}: дата записана непонятно. Нужно так: 15.11.2026`);
+    if (from && to && from > to) return problems.push(`${tag}: дата окончания раньше даты начала`);
+    out.push({name: r.name, on: list(r.on), except: list(r.except), price: price || 0, pct: pct || 0, from, to, off: !shown(r.show), row: r._row});
+  });
+  return out;
+}
 function parseSets(rows) {
   const out = [];
   table(rows, {group: ['групп'], name: ['назван'], price: ['цена'], items: ['состав'], w: ['вес'], pcs: ['подпис'], note: ['примеч'], photo: ['фото'], show: ['показ']}).forEach(r => {
@@ -1027,7 +1067,7 @@ const errText = e => e && e.name === 'AbortError' ? 'Google не ответил 
 async function loadSheets(cached) {
   problems.length = 0; sheetIssues.length = 0;
   const get = url => url ? fetchCSV(url).then(rows => ({rows}), error => ({error})) : Promise.resolve({rows: []});
-  const [p, s, st, tx] = await Promise.all([get(SHEETS.products), get(SHEETS.sets), get(SHEETS.settings), get(SHEETS.texts)]);
+  const [p, s, st, tx, pr] = await Promise.all([get(SHEETS.products), get(SHEETS.sets), get(SHEETS.settings), get(SHEETS.texts), get(SHEETS.promos)]);
   if (p.error) throw p.error;
   const data = {products: p.rows.length ? parseProducts(p.rows) : [], sets: []};
   if (!data.products.length) throw new Error('в листе «Товары» не нашлось ни одного товара');
@@ -1039,6 +1079,13 @@ async function loadSheets(cached) {
     if (has) partAt.sets = oldAt('sets'); else partAt.setsBuiltin = 1;
     sheetIssues.push(`лист «Сеты» не загрузился (${errText(s.error)}), показаны ${has ? 'сеты из сохранённой копии' : 'встроенные сеты'}`);
   } else data.sets = s.rows.length ? parseSets(s.rows) : [];
+  if (pr.error) {   // акции не загрузились: действуют прошлые, даты окончания всё равно соблюдаются
+    const has = old.data && Array.isArray(old.data.promos) && old.data.promos.length;
+    data.promos = has ? old.data.promos : [];
+    if (has) partAt.promos = oldAt('promos');
+    partAt.promosFailed = 1;
+    sheetIssues.push(`лист «Акции» не загрузился (${errText(pr.error)}), ${has ? 'действуют акции из сохранённой копии' : 'акции на сайте не показаны'}`);
+  } else data.promos = pr.rows.length ? parsePromos(pr.rows) : [];
   let settings = {};
   if (st.error) {
     const has = old.settings && Object.keys(old.settings).some(k => k !== 'texts');
@@ -1079,6 +1126,37 @@ function buildCatalog(data) {
   });
   LINES = LINES.filter(L => L.cats.length);
   if (!LINES.some(L => L.id === active)) active = LINES[0].id;
+  applyPromos(data.promos || []);
+}
+/* Акции. У товара по акции: price — цена по акции, base — обычная цена, promo — название акции.
+   Акция никогда не поднимает цену; если подходят несколько акций, берётся самая низкая цена. */
+let PROMOS = [], promoNotes = [];   // все строки листа «Акции» с их состоянием и замечания к ним для страницы проверки
+function applyPromos(list) {
+  PROMOS = []; promoNotes = [];
+  const day = todayKey();
+  const nk = v => low(v).replace(/[«»"“”]/g, '').replace(/\s*:\s*/g, ': ').replace(/\s+/g, ' ');
+  const lineName = id => (LINE_META.find(m => m.id === id) || {}).name || '';
+  const ALL = ['все', 'все товары', 'весь каталог'];
+  // товар находится по названию линейки, категории, «Линейка: Категория», по своему названию; сет — ещё и по короткому имени
+  const index = Object.values(ITEMS).map(it => { const ln = nk(lineName(it.line)), c = nk(it.cat);
+    return [it, [ln, c, ln + ': ' + c, nk(it.name), it.short ? nk(it.short) : '', it.line === 'pp' ? 'пп' : '']]; });
+  const hit = (keys, targets) => targets.some(t => ALL.includes(t) || keys.includes(t));
+  list.forEach(p => {
+    const tag = `Акции, строка ${p.row} «${p.name}»`;
+    const on = p.on.map(nk), ex = p.except.map(nk);
+    p.on.concat(p.except).forEach(t => { if (!ALL.includes(nk(t)) && !index.some(([, keys]) => keys.includes(nk(t)))) promoNotes.push(`${tag}: не нашлось «${t}». Нужно название линейки, категории или товара точно как в таблице`); });
+    const state = p.off ? 'выключена' : p.from && day < p.from ? 'начнётся ' + dmy(p.from) : p.to && day > p.to ? 'закончилась ' + dmy(p.to) : '';
+    let count = 0;
+    if (!state) index.forEach(([it, keys]) => {
+      if (!hit(keys, on) || hit(keys, ex)) return;
+      const base = it.base || it.price, np = p.price || Math.round(base * (100 - p.pct) / 100);
+      if (np <= 0 || np >= base) return;
+      count++;
+      if (np < it.price) { it.base = base; it.price = np; it.promo = p.name; if (!it.flags.includes('p')) it.flags += 'p'; }
+    });
+    PROMOS.push({name: p.name, state, count, to: p.to});
+    if (!state && !count) promoNotes.push(`${tag}: акция включена, но не снизила ни одной цены. Проверьте цену и на что она действует`);
+  });
 }
 
 const $ = s => document.querySelector(s);
@@ -1131,6 +1209,7 @@ function metaHTML(it) {
 }
 function badgesHTML(it) {
   const b = [];
+  if (it.promo) b.push(`<span class="badge sale">${icon('percent', 'ic-xs')}Акция</span>`);
   if (it.flags.includes('h')) b.push(`<span class="badge hit">${icon('flame', 'ic-xs')}Хит</span>`);
   if (it.flags.includes('z')) b.push(`<span class="badge">${icon('wheat', 'ic-xs')}Цельнозерновая мука</span>`);
   if (it.flags.includes('v')) b.push(`<span class="badge">${icon('leaf', 'ic-xs')}Без мяса</span>`);
@@ -1139,6 +1218,10 @@ function badgesHTML(it) {
   if (it.note) b.push(`<span class="badge">${esc(it.note)}</span>`);
   return b.length ? `<div class="badges">${b.join('')}</div>` : '';
 }
+// цена: по акции выделена, рядом зачёркнута обычная
+const priceHTML = it => it.base
+  ? `<b class="price sale"><span class="sr">По акции </span>${money(it.price)}</b><span class="was"><span class="sr">Обычная цена </span><s>${money(it.base)}</s></span>`
+  : `<b class="price">${money(it.price)}</b>`;
 const perKg = it => it.w && it.w !== 1000 ? `<span class="perkg">${money(Math.round(it.price / it.w * 1000 / 10) * 10)} за кг</span>` : '';
 // состав, аллергены и КБЖУ показываются, только если заполнены в таблице
 function infoHTML(it) {
@@ -1150,13 +1233,13 @@ function infoHTML(it) {
 }
 function rowHTML(it) {
   return `<article class="row">${prodThumb(it)}<div class="row-main"><h4>${esc(it.name)}</h4><div class="row-meta">${metaHTML(it)}</div>${badgesHTML(it)}${infoHTML(it)}</div>
-    <div class="row-buy"><b class="price">${money(it.price)}</b>${perKg(it)}<div class="buy" data-buy="${it.id}">${buyHTML(it.id)}</div></div></article>`;
+    <div class="row-buy">${priceHTML(it)}${perKg(it)}<div class="buy" data-buy="${it.id}">${buyHTML(it.id)}</div></div></article>`;
 }
 function setHTML(it) {
   const ph = imgFor('sets', it.short, it.photo, `Сеты, фото «${it.short}»`);
   return `<article class="set">${ph ? zoomable(ph, photoTag(ph, 'set-photo', '(min-width: 720px) 45vw, 100vw'), it.short) : ''}<h4>${esc(it.short)}</h4><div class="row-meta">${metaHTML(it)}</div>${badgesHTML(it)}
     <ul>${it.comp.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
-    <div class="set-foot"><div><b class="price">${money(it.price)}</b><br>${perKg(it)}</div><div data-buy="${it.id}">${buyHTML(it.id)}</div></div></article>`;
+    <div class="set-foot"><div>${priceHTML(it)}<br>${perKg(it)}</div><div data-buy="${it.id}">${buyHTML(it.id)}</div></div></article>`;
 }
 const passes = it => filter === 'all' || it.flags.includes(filter);
 
@@ -1173,7 +1256,9 @@ function renderControls(searching) {
 }
 function filtersHTML(L) {
   if (L.sets || L.id === 'farm') return '';
-  return `<div class="filters" role="group" aria-label="Фильтр">` + [['all','Всё','grid'],['v','Без мяса','leaf'],['z','Цельнозерновая мука','wheat']]
+  const fs = [['all','Всё','grid'],['v','Без мяса','leaf'],['z','Цельнозерновая мука','wheat']];
+  if (L.cats.some(c => c.items.some(it => it.promo))) fs.splice(1, 0, ['p', 'По акции', 'percent']);
+  return `<div class="filters" role="group" aria-label="Фильтр">` + fs
     .map(([k, t, ic]) => `<button class="filter" data-filter="${k}" aria-pressed="${filter === k}">${icon(ic, 'ic-s')}${t}</button>`).join('') + `</div>`;
 }
 function render() {
@@ -1213,15 +1298,15 @@ function render() {
 
 /* ---------- корзина ---------- */
 function totals() {
-  let sum = 0, w = 0, count = 0, unknown = 0;
-  for (const id in cart) { const it = ITEMS[id], q = cart[id]; sum += it.price * q; count += q; if (it.w) w += it.w * q; else unknown += q; }
+  let sum = 0, w = 0, count = 0, unknown = 0, save = 0;
+  for (const id in cart) { const it = ITEMS[id], q = cart[id]; sum += it.price * q; count += q; if (it.base) save += (it.base - it.price) * q; if (it.w) w += it.w * q; else unknown += q; }
   const disc = $('#firstOrder').checked && count ? Math.min(CONFIG.firstOrderDiscount, sum) : 0;
   const goods = sum - disc;
   // доставка: если стоимость задана в таблице, считаем её; бесплатно — от указанной суммы
   const free = CONFIG.freeDeliveryFrom > 0 && goods >= CONFIG.freeDeliveryFrom;
   const delivery = count && CONFIG.deliveryCost > 0 ? (free ? 0 : CONFIG.deliveryCost) : 0;
   const short = CONFIG.minOrder > 0 && count ? Math.max(0, CONFIG.minOrder - sum) : 0;
-  return {sum, disc, goods, delivery, free, total: goods + delivery, w, count, unknown, short};
+  return {sum, disc, goods, delivery, free, total: goods + delivery, w, count, unknown, short, save};
 }
 function refreshBadges() {
   const t = totals();
@@ -1235,7 +1320,7 @@ function refreshBadges() {
 function cartLineHTML(id) {
   const it = ITEMS[id], q = cart[id];
   const size = it.w ? kg(it.w) : (it.pcs || '');
-  return `<div class="line"><div class="line-name">${esc(it.name)}<small>${esc(size)}, ${money(it.price)} за упаковку</small></div>
+  return `<div class="line"><div class="line-name">${esc(it.name)}<small>${esc(size)}, ${it.base ? `по акции ${money(it.price)} вместо ${money(it.base)}` : money(it.price) + ' за упаковку'}</small></div>
     <div data-buy="${id}">${buyHTML(id)}</div><div class="line-sum">${money(it.price * q)}</div></div>`;
 }
 function renderCart() {
@@ -1251,6 +1336,7 @@ function renderCart() {
     (hasDelivery && t.count ? `<span>Доставка</span><span>${t.delivery ? money(t.delivery) : 'бесплатно'}</span>` : '') +
     `<span>Итого</span><span class="total">${money(t.total)}</span>` +
     `<span>Вес</span><span>${t.w ? 'около ' + kg(t.w) : 'не указан'}</span>` +
+    (t.save ? `<span class="note">По акции вы экономите ${money(t.save)}.</span>` : '') +
     (t.unknown ? `<span class="note">В вес не вошли товары без указанного веса: ${t.unknown} шт.</span>` : '') +
     (toFree > 0 ? `<span class="note">До бесплатной доставки осталось ${money(toFree)}.</span>` : '') +
     (t.short ? `<span class="note warn">Минимальный заказ ${money(CONFIG.minOrder)}. Добавьте товаров ещё на ${money(t.short)}.</span>` : '') +
@@ -1305,18 +1391,20 @@ function trapFocus(e) {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
 function message() {
-  const t = totals(), lines = ['Здравствуйте! Хочу заказать:', ''];
+  const t = totals(), lines = ['Здравствуйте! Хочу заказать:', ''], promoNames = [];
   let n = 1;
   for (const id in cart) {
     const it = ITEMS[id], q = cart[id];
     const size = it.w ? `, ${kg(it.w)}` : (it.pcs ? `, ${it.pcs}` : '');
-    lines.push(`${n++}. ${it.name}${size} × ${q} = ${money(it.price * q)}`);
+    lines.push(`${n++}. ${it.name}${size} × ${q} = ${money(it.price * q)}` + (it.base ? ` (по акции, обычная цена ${money(it.base)})` : ''));
+    if (it.promo && !promoNames.includes(it.promo)) promoNames.push(it.promo);
   }
   lines.push('');
   if (t.disc || CONFIG.deliveryCost > 0) lines.push(`Сумма: ${money(t.sum)}`);
   if (t.disc) lines.push(`Скидка на первый заказ: −${money(t.disc)}`);
   if (CONFIG.deliveryCost > 0) lines.push(`Доставка: ${t.delivery ? money(t.delivery) : 'бесплатно'}`);
   lines.push(`Итого: ${money(t.total)}` + (t.w ? `, около ${kg(t.w)}` : ''));
+  if (promoNames.length) lines.push('Акция: ' + promoNames.join('; '));
   const f = [['Имя', '#fName'], ['Телефон для курьера', '#fPhone'], ['Адрес', '#fAddr'], ['Комментарий', '#fNote']];
   const filled = f.map(([l, s]) => [l, $(s).value.trim()]).filter(([, v]) => v);
   if (filled.length) { lines.push(''); filled.forEach(([l, v]) => lines.push(`${l}: ${v}`)); }
@@ -1417,8 +1505,10 @@ function renderStatic() {
   renderImages();
   renderTexts();
   renderSchema();
-  $('#promo').innerHTML = CONFIG.promo ? icon('percent', 'ic-s') + esc(CONFIG.promo) : '';
-  $('#promo').hidden = !CONFIG.promo;
+  // баннер: свой текст из «Настроек», а если он пуст — названия действующих акций
+  const promoText = CONFIG.promo || PROMOS.filter(p => !p.state && p.count).slice(0, 2).map(p => p.name + (p.to ? ', до ' + dayMonth(p.to) : '')).join(' · ');
+  $('#promo').innerHTML = promoText ? icon('percent', 'ic-s') + esc(promoText) : '';
+  $('#promo').hidden = !promoText;
 }
 
 // данные о магазине для Google и Яндекса: те же, что видит покупатель, и меняются вместе с таблицей
@@ -1646,20 +1736,24 @@ function renderCheck(error) {
   const box = $('#checkPanel');
   const count = Object.values(ITEMS).length;
   box.hidden = false;
-  box.className = 'check-panel' + (error || problems.length || sheetIssues.length ? '' : ' ok');
+  const notes = problems.concat(promoNotes);
+  const promoInfo = !SHEETS.products ? '' : !SHEETS.promos ? '<p>Лист «Акции» не подключён, акций на сайте нет.</p>'
+    : PROMOS.length ? `<p>Акции:</p><ul>${PROMOS.map(p => `<li>«${esc(p.name)}»: ${p.state || `действует${p.to ? ' до ' + dmy(p.to) + ' включительно' : ''}, цена снижена у ${p.count} ${plural(p.count, 'товара', 'товаров', 'товаров')}`}</li>`).join('')}</ul>`
+    : '<p>Акции: в листе «Акции» нет заполненных строк.</p>';
+  box.className = 'check-panel' + (error || notes.length || sheetIssues.length ? '' : ' ok');
   box.innerHTML = `<h2>Проверка таблицы</h2>
     <p>Источник: ${esc(source)}. На сайте ${count} ${plural(count, 'товар', 'товара', 'товаров')}.</p>` +
     (!SHEETS.products ? '<p>Таблица не подключена: в коде не указаны ссылки на листы.</p>' : '') +
     (error ? `<p class="warn">Таблица не загрузилась: ${esc(error)}</p>` : '') +
     (sheetIssues.length ? `<p class="warn">Загрузилось не всё:</p><ul>${sheetIssues.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '') +
-    (problems.length ? `<p>Эти строки пропущены, исправьте их в таблице:</p><ul>${problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
-      : (error ? '' : '<p>Ошибок в строках нет.</p>')) +
+    (notes.length ? `<p>Эти строки пропущены или требуют внимания, исправьте их в таблице:</p><ul>${notes.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
+      : (error ? '' : '<p>Ошибок в строках нет.</p>')) + promoInfo +
     `<p>Отзывы: ${((CONFIG.texts || {}).reviews || []).length || 'пока нет, блок скрыт. Чтобы он появился, добавьте в лист «Оформление» строки «Отзыв 1» и «Отзыв 1, автор»'}.</p>`;
 }
 const dateRu = t => new Intl.DateTimeFormat('ru-RU', {day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit'}).format(new Date(t));
-function showDataNote(at, what = '') {
+function showDataNote(at, what = '', text = '') {
   const note = $('#dataNote'), span = note.querySelector('span') || note;
-  span.textContent = at
+  span.textContent = text ? text : at
     ? `Не удалось обновить прайс${what ? ' ' + what : ''}. Показаны цены${what ? ' ' + what : ''} на ${dateRu(at)}, менеджер подтвердит точную сумму.`
     : `Не удалось загрузить актуальный прайс${what ? ' ' + what : ''}. Показаны цены${what ? ' ' + what : ''} из встроенной версии сайта, менеджер подтвердит точную сумму.`;
   note.hidden = false;
@@ -1685,13 +1779,15 @@ function showDataNote(at, what = '') {
     const res = await loadSheets(cacheOk ? cached : null);
     stage = 'show';
     document.body.classList.remove('loading');
-    const partAt = {...res.partAt}; delete partAt.setsBuiltin;
+    const partAt = {...res.partAt}; delete partAt.setsBuiltin; delete partAt.promosFailed;
     applyData(res.data, res.settings, cart);
     source = 'Google Таблица';
     // копия сохраняется только после того, как сайт смог показать данные
     store.set(DATA_KEY, Object.keys(partAt).length ? {at: Date.now(), data: res.data, settings: res.settings, partAt} : {at: Date.now(), data: res.data, settings: res.settings});
     // цены товаров свежие; если сеты взяты из старой копии, об этом тоже предупреждаем
-    if (res.partAt.sets || res.partAt.setsBuiltin) showDataNote(res.partAt.sets || null, 'сетов'); else $('#dataNote').hidden = true;
+    if (res.partAt.sets || res.partAt.setsBuiltin) showDataNote(res.partAt.sets || null, 'сетов');
+    else if (res.partAt.promosFailed) showDataNote(null, '', 'Не удалось обновить акции. Цены по акциям могут отличаться, менеджер подтвердит точную сумму.');
+    else $('#dataNote').hidden = true;
     renderCheck();
   } catch (e) {
     document.body.classList.remove('loading');
